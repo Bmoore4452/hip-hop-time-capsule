@@ -7,6 +7,11 @@ import ThankYouPage from "./ThankYouPage";
 import CopyrightPage from "./CopyrightPage";
 import TableOfContentsPage from "./TableOfContentsPage";
 import TableOfContentsPage2 from "./TableOfContentsPage2";
+import ForewordPage from "./ForewordPage";
+import ForewordPage8 from "./ForewordPage8";
+import ForewordPage9 from "./ForewordPage9";
+import ForewordPage10 from "./ForewordPage10";
+import ForewordPage11 from "./ForewordPage11";
 
 interface PageRendererProps {
     pageNumber: number;
@@ -35,6 +40,16 @@ export default function PageRenderer({ pageNumber, onNavigateNext, onNavigatePre
                     onNavigateNext={onNavigateNext}
                     onNavigatePrevious={onNavigatePrevious}
                 />;
+            case 7:
+                return <ForewordPage pageNumber={pageNumber} />;
+            case 8:
+                return <ForewordPage8 pageNumber={pageNumber} />;
+            case 9:
+                return <ForewordPage9 pageNumber={pageNumber} />;
+            case 10:
+                return <ForewordPage10 pageNumber={pageNumber} />;
+            case 11:
+                return <ForewordPage11 pageNumber={pageNumber} />;
             case 285: // Keep it at the end too
                 return <ThankYouPage pageNumber={pageNumber} />;
             default:
