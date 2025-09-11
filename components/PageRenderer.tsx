@@ -12,6 +12,15 @@ import ForewordPage8 from "./ForewordPage8";
 import ForewordPage9 from "./ForewordPage9";
 import ForewordPage10 from "./ForewordPage10";
 import ForewordPage11 from "./ForewordPage11";
+import IntroductionPage from "./IntroductionPage";
+import IntroductionPage13 from "./IntroductionPage13";
+import IntroductionPage14 from "./IntroductionPage14";
+import IntroductionPage15 from "./IntroductionPage15";
+import IntroductionPage16 from "./IntroductionPage16";
+import IntroductionPage17 from "./IntroductionPage17";
+import IntroductionPage18 from "./IntroductionPage18";
+import IntroductionPage19 from "./IntroductionPage19";
+import IntroductionPage20 from "./IntroductionPage20";
 
 interface PageRendererProps {
     pageNumber: number;
@@ -50,6 +59,24 @@ export default function PageRenderer({ pageNumber, onNavigateNext, onNavigatePre
                 return <ForewordPage10 pageNumber={pageNumber} />;
             case 11:
                 return <ForewordPage11 pageNumber={pageNumber} />;
+            case 12:
+                return <IntroductionPage pageNumber={pageNumber} />;
+            case 13:
+                return <IntroductionPage13 pageNumber={pageNumber} />;
+            case 14:
+                return <IntroductionPage14 pageNumber={pageNumber} />;
+            case 15:
+                return <IntroductionPage15 pageNumber={pageNumber} />;
+            case 16:
+                return <IntroductionPage16 pageNumber={pageNumber} />;
+            case 17:
+                return <IntroductionPage17 pageNumber={pageNumber} />;
+            case 18:
+                return <IntroductionPage18 pageNumber={pageNumber} />;
+            case 19:
+                return <IntroductionPage19 pageNumber={pageNumber} />;
+            case 20:
+                return <IntroductionPage20 pageNumber={pageNumber} />;
             case 285: // Keep it at the end too
                 return <ThankYouPage pageNumber={pageNumber} />;
             default:

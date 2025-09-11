@@ -23,7 +23,7 @@ export default function TableOfContentsPage2({ pageNumber, onNavigateNext, onNav
     ];
 
     return (
-        <SafeAreaWrapper backgroundColor="#4555b9">
+        <SafeAreaWrapper backgroundColor="#fff">
             <View style={styles.container}>
                 {/* Left navigation zone */}
                 <TouchableOpacity

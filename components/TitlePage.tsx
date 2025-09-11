@@ -9,7 +9,7 @@ interface TitlePageProps {
 
 export default function TitlePage({ pageNumber }: TitlePageProps) {
     return (
-        <SafeAreaWrapper backgroundColor="#4555b9">
+        <SafeAreaWrapper backgroundColor="#fff">
             <View style={styles.titleContainer}>
                 <Text style={styles.mainTitle}>HIP-HOP TIME</Text>
                 <Text style={styles.mainTitle}>CAPSULE:</Text>

@@ -9,7 +9,7 @@ interface CopyrightPageProps {
 
 export default function CopyrightPage({ pageNumber }: CopyrightPageProps) {
     return (
-        <SafeAreaWrapper backgroundColor="#4555b9">
+        <SafeAreaWrapper backgroundColor="#fff">
             <View style={styles.container}>
                 <View style={styles.contentSection}>
                     <Text style={styles.copyrightText}>

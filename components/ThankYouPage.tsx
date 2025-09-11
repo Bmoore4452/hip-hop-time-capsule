@@ -8,7 +8,7 @@ interface ThankYouPageProps {
 
 export default function ThankYouPage({ pageNumber }: ThankYouPageProps) {
     return (
-        <SafeAreaWrapper backgroundColor="#4555b9">
+        <SafeAreaWrapper backgroundColor="#fff">
             <View style={styles.container}>
                 <View style={styles.topSection}>
                     <View style={styles.quoteSection}>

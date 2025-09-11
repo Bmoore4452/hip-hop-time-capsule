@@ -1,31 +1,31 @@
 {
   "expo": {
-    "name": "hip_hop_time_capsule",
-    "slug": "hip_hop_time_capsule",
+    "name": "Hip-Hop Time Capsule",
+    "slug": "hip-hop-time-capsule",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/book-cover-icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/book-cover-splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#4c2c92"
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.hip-hop-time-capsule"
+      "bundleIdentifier": "com.teamscipiomusic.hip-hop-time-capsule"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/book-cover-adaptive.png",
+        "backgroundColor": "#4c2c92"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.anonymous.hiphoptimecapsule"
+      "package": "com.teamscipiomusic.hiphoptimecapsule"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/book-cover-favicon.png"
     }
   }
 }

@@ -39,7 +39,7 @@ export default function TableOfContentsPage({ pageNumber, onNavigateNext, onNavi
     ];
 
     return (
-        <SafeAreaWrapper backgroundColor="#4555b9">
+        <SafeAreaWrapper backgroundColor="#fff">
             <View style={styles.container}>
                 {/* Left navigation zone */}
                 <TouchableOpacity
