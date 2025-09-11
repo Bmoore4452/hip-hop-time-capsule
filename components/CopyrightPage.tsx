@@ -1,0 +1,78 @@
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import SafeAreaWrapper from "./SafeAreaWrapper";
+
+interface CopyrightPageProps {
+    pageNumber: number;
+}
+
+export default function CopyrightPage({ pageNumber }: CopyrightPageProps) {
+    return (
+        <SafeAreaWrapper backgroundColor="#4555b9">
+            <View style={styles.container}>
+                <View style={styles.contentSection}>
+                    <Text style={styles.copyrightText}>
+                        "All rights reserved. No part of this publication can be quoted,
+                        reproduced, distributed in any form by means of printing, scanning,
+                        photocopying, or otherwise, without the prior permission of the
+                        copyright holder, with the exception in the case of brief quotations
+                        embodied in critical reviews permitted by copyright law."
+                    </Text>
+                </View>
+
+                <View style={styles.bottomSection}>
+                    <View style={styles.copyrightNotice}>
+                        <Text style={styles.copyrightSymbol}>©</Text>
+                        <Text style={styles.copyrightYear}>2024 TEAM SCIPIO</Text>
+                    </View>
+                </View>
+            </View>
+        </SafeAreaWrapper>
+    );
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "#fff",
+        paddingHorizontal: 30,
+        paddingVertical: 40,
+        justifyContent: "space-between",
+    },
+    contentSection: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    copyrightText: {
+        fontSize: 16,
+        lineHeight: 24,
+        color: "#000",
+        textAlign: "justify",
+        fontFamily: "serif", // This might need to be adjusted based on available fonts
+    },
+    bottomSection: {
+        alignItems: "center",
+    },
+    copyrightNotice: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginBottom: 20,
+    },
+    copyrightSymbol: {
+        fontSize: 18,
+        color: "#000",
+        marginRight: 5,
+        fontWeight: "bold",
+    },
+    copyrightYear: {
+        fontSize: 16,
+        color: "#000",
+        fontWeight: "bold",
+    },
+    pageNumber: {
+        fontSize: 16,
+        color: "#000",
+        fontWeight: "bold",
+    },
+});
