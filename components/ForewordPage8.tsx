@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Linking } from 'react-native';
+import QRCode from 'react-native-qrcode-svg';
 import SafeAreaWrapper from './SafeAreaWrapper';
 
 interface ForewordPage8Props {
@@ -7,6 +8,24 @@ interface ForewordPage8Props {
 }
 
 export default function ForewordPage8({ pageNumber }: ForewordPage8Props) {
+    const qrCodeData = [
+        {
+            url: 'https://youtu.be/H1PplYSE07Q?si=QDoMyfHotMHduUpK',
+            label: 'The First Battle in Hip-Hop\n- Busy Bee vs Kool Moe Dee'
+        },
+        {
+            url: 'https://youtu.be/wipb37LGe4U?si=TOTnd98yLWq8f108',
+            label: 'Beef 1 - Busy Bee vs\nKool Moe Dee'
+        },
+        {
+            url: 'https://youtu.be/wu3_4lPIFBc?si=eV8EsHuu6IxsjZlo',
+            label: 'Kool Moe Dee\nDissing Busy Bee (1981)'
+        }
+    ];
+
+    const handleQRCodePress = (url: string) => {
+        Linking.openURL(url);
+    };
     return (
         <SafeAreaWrapper backgroundColor="#fff">
             <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -27,18 +46,25 @@ export default function ForewordPage8({ pageNumber }: ForewordPage8Props) {
                     </Text>
 
                     <View style={styles.qrCodesContainer}>
-                        <View style={styles.qrCodeItem}>
-                            <View style={styles.qrCodePlaceholder} />
-                            <Text style={styles.qrCodeLabel}>The First Battle in Hip-Hop{'\n'}- Busy Bee vs Kool Moe Dee</Text>
-                        </View>
-                        <View style={styles.qrCodeItem}>
-                            <View style={styles.qrCodePlaceholder} />
-                            <Text style={styles.qrCodeLabel}>Beef 1 - Busy Bee vs{'\n'}Kool Moe Dee</Text>
-                        </View>
-                        <View style={styles.qrCodeItem}>
-                            <View style={styles.qrCodePlaceholder} />
-                            <Text style={styles.qrCodeLabel}>Kool Moe Dee{'\n'}Dissing Busy Bee (1981)</Text>
-                        </View>
+                        {qrCodeData.map((item, index) => (
+                            <View key={index} style={styles.qrCodeItem}>
+                                <TouchableOpacity
+                                    onPress={() => handleQRCodePress(item.url)}
+                                    style={styles.qrCodeTouchable}
+                                >
+                                    <QRCode
+                                        value={item.url}
+                                        size={80}
+                                        color="black"
+                                        backgroundColor="white"
+                                    />
+                                </TouchableOpacity>
+                                <Text style={styles.qrCodeLabel}>{item.label}</Text>
+                                <TouchableOpacity onPress={() => handleQRCodePress(item.url)}>
+                                    <Text style={styles.linkText}>Tap to open video</Text>
+                                </TouchableOpacity>
+                            </View>
+                        ))}
                     </View>
                 </View>
             </ScrollView>
@@ -94,17 +120,24 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginHorizontal: 5,
     },
-    qrCodePlaceholder: {
-        width: 80,
-        height: 80,
-        backgroundColor: '#000',
+    qrCodeTouchable: {
         marginBottom: 8,
+        borderRadius: 4,
+        overflow: 'hidden',
     },
     qrCodeLabel: {
         fontSize: 10,
         textAlign: 'center',
         color: '#000',
         lineHeight: 12,
+        marginBottom: 5,
+    },
+    linkText: {
+        fontSize: 9,
+        color: '#4555b9',
+        textAlign: 'center',
+        textDecorationLine: 'underline',
+        fontWeight: '500',
     },
     pageNumber: {
         fontSize: 16,
