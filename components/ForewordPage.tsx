@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import SafeAreaWrapper from './SafeAreaWrapper';
+import { scaleFont, moderateScale, getResponsiveValue } from '../utils/responsive';
 
 interface ForewordPageProps {
     pageNumber: number;
@@ -25,8 +26,6 @@ export default function ForewordPage({ pageNumber }: ForewordPageProps) {
                     <Text style={styles.bodyText}>
                         Hip-Hop's heartbeat doesn't solely resonate through artists and performers – it thrives in the tales, spun by individuals like Anita Scipio. Her unwavering commitment, nurtured over nearly two decades as the receptionist at iHeartMedia, has intertwined her life with many of the greatest Hip-Hop and Rap artists on the planet.
                     </Text>
-
-                    <Text style={styles.pageNumber}>7</Text>
                 </View>
             </ScrollView>
         </SafeAreaWrapper>
@@ -38,30 +37,30 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     contentContainer: {
-        paddingHorizontal: 30,
-        paddingTop: 40,
-        paddingBottom: 60,
+        paddingHorizontal: moderateScale(30),
+        paddingTop: moderateScale(40),
+        paddingBottom: moderateScale(60),
     },
     title: {
-        fontSize: 28,
+        fontSize: scaleFont(28),
         fontWeight: 'bold',
         textAlign: 'center',
         color: '#000',
-        marginBottom: 15,
+        marginBottom: moderateScale(15),
     },
     decorativeLine: {
         alignSelf: 'center',
-        width: 200,
-        height: 3,
+        width: getResponsiveValue(150, 180, 200, 250),
+        height: moderateScale(3),
         backgroundColor: '#000',
-        marginBottom: 30,
+        marginBottom: moderateScale(30),
         borderRadius: 1.5,
     },
     bodyText: {
-        fontSize: 14,
-        lineHeight: 20,
+        fontSize: scaleFont(14),
+        lineHeight: scaleFont(20),
         color: '#000',
-        marginBottom: 20,
+        marginBottom: moderateScale(20),
         textAlign: 'justify',
     },
     italicText: {
@@ -69,10 +68,10 @@ const styles = StyleSheet.create({
         fontWeight: '500',
     },
     pageNumber: {
-        fontSize: 16,
+        fontSize: scaleFont(16),
         fontWeight: 'bold',
         color: '#000',
         textAlign: 'center',
-        marginTop: 30,
+        marginTop: moderateScale(30),
     },
 });

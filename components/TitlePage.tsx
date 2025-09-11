@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import SafeAreaWrapper from "./SafeAreaWrapper";
+import { scaleFont, moderateScale, getResponsiveValue } from '../utils/responsive';
 
 interface TitlePageProps {
     pageNumber: number;
@@ -38,48 +39,48 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         alignItems: "center",
         justifyContent: "center",
-        paddingHorizontal: 20,
+        paddingHorizontal: moderateScale(20),
     },
     mainTitle: {
-        fontSize: 42,
+        fontSize: scaleFont(42),
         fontWeight: "bold",
         color: "#000",
         textAlign: "center",
         letterSpacing: 2,
-        marginBottom: 5,
+        marginBottom: moderateScale(5),
     },
     subtitleContainer: {
-        marginTop: 60,
-        marginBottom: 80,
+        marginTop: moderateScale(60),
+        marginBottom: moderateScale(80),
         alignItems: "center",
     },
     subtitle: {
-        fontSize: 20,
+        fontSize: scaleFont(20),
         color: "#000",
         textAlign: "center",
         letterSpacing: 8,
-        marginBottom: 8,
+        marginBottom: moderateScale(8),
         fontWeight: "300",
     },
     authorSection: {
         alignItems: "center",
     },
     authoredBy: {
-        fontSize: 16,
+        fontSize: scaleFont(16),
         fontWeight: "bold",
         color: "#000",
         letterSpacing: 2,
-        marginBottom: 40,
+        marginBottom: moderateScale(40),
     },
     authorsContainer: {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
         width: "100%",
-        maxWidth: 350,
+        maxWidth: getResponsiveValue(300, 350, 400, 450),
     },
     authorName: {
-        fontSize: 16,
+        fontSize: scaleFont(16),
         fontWeight: "bold",
         color: "#000",
         letterSpacing: 1,

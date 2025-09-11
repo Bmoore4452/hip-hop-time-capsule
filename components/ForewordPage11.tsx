@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import SafeAreaWrapper from './SafeAreaWrapper';
+import { scaleFont, moderateScale } from '../utils/responsive';
 
 interface ForewordPage11Props {
     pageNumber: number;
@@ -64,45 +65,45 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     contentContainer: {
-        paddingHorizontal: 30,
-        paddingTop: 40,
-        paddingBottom: 60,
+        paddingHorizontal: moderateScale(30),
+        paddingTop: moderateScale(40),
+        paddingBottom: moderateScale(60),
     },
     bodyText: {
-        fontSize: 14,
-        lineHeight: 20,
+        fontSize: scaleFont(14),
+        lineHeight: scaleFont(20),
         color: '#000',
-        marginBottom: 20,
+        marginBottom: moderateScale(20),
         textAlign: 'justify',
     },
     signatureText: {
-        fontSize: 16,
-        lineHeight: 24,
+        fontSize: scaleFont(16),
+        lineHeight: scaleFont(24),
         color: '#000',
-        marginBottom: 30,
+        marginBottom: moderateScale(30),
         textAlign: 'center',
     },
     italicText: {
         fontStyle: 'italic',
     },
     funFactTitle: {
-        fontSize: 14,
-        lineHeight: 18,
+        fontSize: scaleFont(14),
+        lineHeight: scaleFont(18),
         color: '#000',
         textAlign: 'center',
-        marginBottom: 25,
+        marginBottom: moderateScale(25),
         fontWeight: '500',
     },
     artistsList: {
-        marginBottom: 30,
+        marginBottom: moderateScale(30),
     },
     artistItem: {
-        marginBottom: 15,
+        marginBottom: moderateScale(15),
     },
     artistLabel: {
-        fontSize: 14,
+        fontSize: scaleFont(14),
         color: '#000',
-        lineHeight: 18,
+        lineHeight: scaleFont(18),
     },
     boldText: {
         fontWeight: 'bold',
@@ -110,13 +111,13 @@ const styles = StyleSheet.create({
     underline: {
         height: 1,
         backgroundColor: '#000',
-        marginTop: 2,
+        marginTop: moderateScale(2),
     },
     pageNumber: {
-        fontSize: 16,
+        fontSize: scaleFont(16),
         fontWeight: 'bold',
         color: '#000',
         textAlign: 'center',
-        marginTop: 30,
+        marginTop: moderateScale(30),
     },
 });

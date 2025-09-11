@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Linking } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 import SafeAreaWrapper from './SafeAreaWrapper';
+import { scaleFont, moderateScale, getResponsiveValue } from '../utils/responsive';
 
 interface ForewordPage8Props {
     pageNumber: number;
@@ -77,15 +78,15 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     contentContainer: {
-        paddingHorizontal: 30,
-        paddingTop: 40,
-        paddingBottom: 60,
+        paddingHorizontal: moderateScale(30),
+        paddingTop: moderateScale(40),
+        paddingBottom: moderateScale(60),
     },
     bodyText: {
-        fontSize: 14,
-        lineHeight: 20,
+        fontSize: scaleFont(14),
+        lineHeight: scaleFont(20),
         color: '#000',
-        marginBottom: 20,
+        marginBottom: moderateScale(20),
         textAlign: 'justify',
     },
     italicText: {
@@ -93,57 +94,57 @@ const styles = StyleSheet.create({
         fontWeight: '500',
     },
     signatureText: {
-        fontSize: 16,
-        lineHeight: 24,
+        fontSize: scaleFont(16),
+        lineHeight: scaleFont(24),
         color: '#000',
-        marginBottom: 30,
+        marginBottom: moderateScale(30),
         textAlign: 'center',
     },
     boldText: {
         fontWeight: 'bold',
     },
     sectionTitle: {
-        fontSize: 16,
+        fontSize: scaleFont(16),
         fontWeight: 'bold',
         textAlign: 'center',
         color: '#000',
-        marginBottom: 20,
+        marginBottom: moderateScale(20),
         textDecorationLine: 'underline',
     },
     qrCodesContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginVertical: 20,
+        marginVertical: moderateScale(20),
     },
     qrCodeItem: {
         flex: 1,
         alignItems: 'center',
-        marginHorizontal: 5,
+        marginHorizontal: moderateScale(5),
     },
     qrCodeTouchable: {
-        marginBottom: 8,
+        marginBottom: moderateScale(8),
         borderRadius: 4,
         overflow: 'hidden',
     },
     qrCodeLabel: {
-        fontSize: 10,
+        fontSize: scaleFont(10),
         textAlign: 'center',
         color: '#000',
-        lineHeight: 12,
-        marginBottom: 5,
+        lineHeight: scaleFont(12),
+        marginBottom: moderateScale(5),
     },
     linkText: {
-        fontSize: 9,
+        fontSize: scaleFont(9),
         color: '#4555b9',
         textAlign: 'center',
         textDecorationLine: 'underline',
         fontWeight: '500',
     },
     pageNumber: {
-        fontSize: 16,
+        fontSize: scaleFont(16),
         fontWeight: 'bold',
         color: '#000',
         textAlign: 'center',
-        marginTop: 30,
+        marginTop: moderateScale(30),
     },
 });

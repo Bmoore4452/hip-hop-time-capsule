@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Alert } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Alert, Modal } from 'react-native';
+import { scaleFont, moderateScale } from '../utils/responsive';
 
 interface PageFooterProps {
     currentPage: number;
@@ -32,95 +33,134 @@ const PageFooter: React.FC<PageFooterProps> = ({ currentPage, totalPages, onPage
     };
 
     return (
-        <View style={styles.footer}>
-            {showInput ? (
-                <View style={styles.inputContainer}>
-                    <Text style={styles.inputLabel}>Go to page:</Text>
-                    <TextInput
-                        style={styles.input}
-                        value={inputValue}
-                        onChangeText={setInputValue}
-                        keyboardType="numeric"
-                        autoFocus
-                        selectTextOnFocus
-                        maxLength={3}
-                    />
-                    <TouchableOpacity style={styles.button} onPress={handleInputSubmit}>
-                        <Text style={styles.buttonText}>Go</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={handleInputCancel}>
-                        <Text style={styles.buttonText}>Cancel</Text>
-                    </TouchableOpacity>
-                </View>
-            ) : (
+        <>
+            <View style={styles.footer}>
                 <TouchableOpacity onPress={handlePageNumberPress}>
                     <Text style={styles.pageNumber}>{currentPage}</Text>
                 </TouchableOpacity>
-            )}
-        </View>
+            </View>
+
+            <Modal
+                visible={showInput}
+                transparent={true}
+                animationType="fade"
+                onRequestClose={handleInputCancel}
+            >
+                <View style={styles.modalOverlay}>
+                    <View style={styles.modalContainer}>
+                        <Text style={styles.modalTitle}>Go to Page</Text>
+                        <TextInput
+                            style={styles.modalInput}
+                            value={inputValue}
+                            onChangeText={setInputValue}
+                            keyboardType="numeric"
+                            autoFocus
+                            selectTextOnFocus
+                            maxLength={3}
+                            returnKeyType="go"
+                            onSubmitEditing={handleInputSubmit}
+                            placeholder={`1-${totalPages}`}
+                        />
+                        <View style={styles.modalButtons}>
+                            <TouchableOpacity style={[styles.button, styles.cancelButton]} onPress={handleInputCancel}>
+                                <Text style={styles.cancelButtonText}>Cancel</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.button} onPress={handleInputSubmit}>
+                                <Text style={styles.buttonText}>Go</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
+            </Modal>
+        </>
     );
 };
 
 const styles = StyleSheet.create({
     footer: {
         position: 'absolute',
-        bottom: 20,
+        bottom: moderateScale(20),
         left: 0,
         right: 0,
         alignItems: 'center',
-        paddingBottom: 20,
+        paddingBottom: moderateScale(20),
         backgroundColor: 'transparent',
     },
     pageNumber: {
-        fontSize: 16,
+        fontSize: scaleFont(16),
         color: '#000',
         fontWeight: 'bold',
-        paddingVertical: 8,
-        paddingHorizontal: 12,
+        paddingVertical: moderateScale(8),
+        paddingHorizontal: moderateScale(12),
     },
-    inputContainer: {
-        flexDirection: 'row',
+    modalOverlay: {
+        flex: 1,
+        justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-        paddingHorizontal: 15,
-        paddingVertical: 10,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },
+    modalContainer: {
+        backgroundColor: '#fff',
         borderRadius: 20,
+        paddingHorizontal: moderateScale(30),
+        paddingVertical: moderateScale(25),
+        alignItems: 'center',
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
             height: 2,
         },
         shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
+        shadowRadius: 10,
+        elevation: 10,
+        minWidth: moderateScale(280),
     },
-    inputLabel: {
-        fontSize: 14,
+    modalTitle: {
+        fontSize: scaleFont(18),
+        fontWeight: 'bold',
         color: '#000',
-        marginRight: 8,
+        marginBottom: moderateScale(20),
     },
-    input: {
-        borderWidth: 1,
-        borderColor: '#ccc',
-        borderRadius: 5,
-        paddingHorizontal: 8,
-        paddingVertical: 4,
-        width: 50,
+    modalInput: {
+        borderWidth: 2,
+        borderColor: '#4555b9',
+        borderRadius: 10,
+        paddingHorizontal: moderateScale(15),
+        paddingVertical: moderateScale(12),
+        fontSize: scaleFont(18),
         textAlign: 'center',
         backgroundColor: '#fff',
-        marginRight: 8,
+        marginBottom: moderateScale(25),
+        minWidth: moderateScale(100),
+        fontWeight: 'bold',
+    },
+    modalButtons: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '100%',
     },
     button: {
         backgroundColor: '#4555b9',
-        paddingHorizontal: 12,
-        paddingVertical: 6,
-        borderRadius: 5,
-        marginLeft: 4,
+        paddingHorizontal: moderateScale(20),
+        paddingVertical: moderateScale(12),
+        borderRadius: 10,
+        flex: 1,
+        marginHorizontal: moderateScale(5),
+    },
+    cancelButton: {
+        backgroundColor: '#ccc',
     },
     buttonText: {
         color: '#fff',
-        fontSize: 12,
+        fontSize: scaleFont(16),
         fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    cancelButtonText: {
+        color: '#666',
+        fontSize: scaleFont(16),
+        fontWeight: 'bold',
+        textAlign: 'center',
     },
 });
 

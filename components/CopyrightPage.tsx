@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import SafeAreaWrapper from "./SafeAreaWrapper";
+import { scaleFont, moderateScale } from '../utils/responsive';
 
 interface CopyrightPageProps {
     pageNumber: number;
@@ -35,8 +36,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#fff",
-        paddingHorizontal: 30,
-        paddingVertical: 40,
+        paddingHorizontal: moderateScale(30),
+        paddingVertical: moderateScale(40),
         justifyContent: "space-between",
     },
     contentSection: {
@@ -45,8 +46,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     copyrightText: {
-        fontSize: 16,
-        lineHeight: 24,
+        fontSize: scaleFont(16),
+        lineHeight: scaleFont(24),
         color: "#000",
         textAlign: "justify",
         fontFamily: "serif", // This might need to be adjusted based on available fonts
@@ -57,21 +58,21 @@ const styles = StyleSheet.create({
     copyrightNotice: {
         flexDirection: "row",
         alignItems: "center",
-        marginBottom: 20,
+        marginBottom: moderateScale(20),
     },
     copyrightSymbol: {
-        fontSize: 18,
+        fontSize: scaleFont(18),
         color: "#000",
-        marginRight: 5,
+        marginRight: moderateScale(5),
         fontWeight: "bold",
     },
     copyrightYear: {
-        fontSize: 16,
+        fontSize: scaleFont(16),
         color: "#000",
         fontWeight: "bold",
     },
     pageNumber: {
-        fontSize: 16,
+        fontSize: scaleFont(16),
         color: "#000",
         fontWeight: "bold",
     },

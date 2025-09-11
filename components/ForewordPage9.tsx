@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
 import SafeAreaWrapper from './SafeAreaWrapper';
+import { scaleFont, moderateScale, getResponsiveValue } from '../utils/responsive';
 
 interface ForewordPage9Props {
     pageNumber: number;
@@ -35,59 +36,59 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     contentContainer: {
-        paddingHorizontal: 30,
-        paddingTop: 40,
-        paddingBottom: 60,
+        paddingHorizontal: moderateScale(30),
+        paddingTop: moderateScale(40),
+        paddingBottom: moderateScale(60),
     },
     title: {
-        fontSize: 24,
+        fontSize: scaleFont(24),
         fontWeight: 'bold',
         textAlign: 'center',
         color: '#000',
-        marginBottom: 20,
+        marginBottom: moderateScale(20),
     },
     imagesContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 20,
-        paddingHorizontal: 10,
+        marginBottom: moderateScale(20),
+        paddingHorizontal: moderateScale(10),
     },
     imagePlaceholder: {
-        width: 140,
-        height: 180,
+        width: getResponsiveValue(120, 140, 160, 180),
+        height: getResponsiveValue(150, 180, 200, 220),
         backgroundColor: '#ddd',
         borderRadius: 8,
     },
     subtitle: {
-        fontSize: 18,
+        fontSize: scaleFont(18),
         fontWeight: 'bold',
         textAlign: 'center',
         color: '#000',
-        marginBottom: 10,
+        marginBottom: moderateScale(10),
     },
     decorativeLine: {
         alignSelf: 'center',
-        width: 200,
-        height: 3,
+        width: getResponsiveValue(150, 180, 200, 250),
+        height: moderateScale(3),
         backgroundColor: '#000',
-        marginBottom: 25,
+        marginBottom: moderateScale(25),
         borderRadius: 1.5,
     },
     bodyText: {
-        fontSize: 14,
-        lineHeight: 20,
+        fontSize: scaleFont(14),
+        lineHeight: scaleFont(20),
         color: '#000',
-        marginBottom: 20,
+        marginBottom: moderateScale(20),
         textAlign: 'justify',
     },
     italicText: {
         fontStyle: 'italic',
     },
     pageNumber: {
-        fontSize: 16,
+        fontSize: scaleFont(16),
         fontWeight: 'bold',
         color: '#000',
         textAlign: 'center',
-        marginTop: 30,
+        marginTop: moderateScale(30),
     },
 });

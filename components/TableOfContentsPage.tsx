@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
 import SafeAreaWrapper from './SafeAreaWrapper';
+import { scaleFont, moderateScale, getResponsiveValue } from '../utils/responsive';
 
 const { width } = Dimensions.get('window');
 
@@ -92,15 +93,15 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         flex: 1,
-        paddingHorizontal: 20,
-        paddingTop: 20,
-        paddingBottom: 40,
+        paddingHorizontal: moderateScale(20),
+        paddingTop: moderateScale(20),
+        paddingBottom: moderateScale(40),
     },
     title: {
-        fontSize: 20,
+        fontSize: scaleFont(20),
         fontWeight: 'bold',
         textAlign: 'center',
-        marginBottom: 30,
+        marginBottom: moderateScale(30),
         textDecorationLine: 'underline',
         color: '#000',
     },
@@ -108,14 +109,14 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     entriesContainer: {
-        paddingBottom: 20,
+        paddingBottom: moderateScale(20),
     },
     entryRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-start',
-        marginBottom: 12,
-        paddingRight: 10,
+        marginBottom: moderateScale(12),
+        paddingRight: moderateScale(10),
     },
     entryLeft: {
         flexDirection: 'row',
@@ -123,48 +124,48 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     entryNumber: {
-        fontSize: 14,
+        fontSize: scaleFont(14),
         fontWeight: 'bold',
         color: '#000',
-        width: 25,
-        marginRight: 10,
+        width: moderateScale(25),
+        marginRight: moderateScale(10),
     },
     entryTitle: {
-        fontSize: 14,
+        fontSize: scaleFont(14),
         color: '#000',
         flex: 1,
-        lineHeight: 18,
+        lineHeight: scaleFont(18),
     },
     pageNumber: {
-        fontSize: 14,
+        fontSize: scaleFont(14),
         fontWeight: 'bold',
         color: '#000',
-        minWidth: 30,
+        minWidth: moderateScale(30),
         textAlign: 'right',
     },
     noteContainer: {
-        marginTop: 20,
-        paddingTop: 20,
+        marginTop: moderateScale(20),
+        paddingTop: moderateScale(20),
     },
     noteText: {
-        fontSize: 11,
+        fontSize: scaleFont(11),
         color: '#666',
         fontStyle: 'italic',
-        lineHeight: 16,
+        lineHeight: scaleFont(16),
     },
     continuedText: {
-        fontSize: 12,
+        fontSize: scaleFont(12),
         color: '#4555b9',
         fontWeight: 'bold',
         textAlign: 'center',
-        marginTop: 10,
+        marginTop: moderateScale(10),
     },
     bottomPageNumber: {
-        fontSize: 16,
+        fontSize: scaleFont(16),
         fontWeight: 'bold',
         color: '#000',
         textAlign: 'center',
-        marginTop: 20,
+        marginTop: moderateScale(20),
     },
     leftNavZone: {
         position: 'absolute',
