@@ -4,37 +4,21 @@ import SafeAreaWrapper from './SafeAreaWrapper';
 
 const { width } = Dimensions.get('window');
 
-interface TableOfContentsPageProps {
+interface TableOfContentsPage2Props {
     pageNumber: number;
     onNavigateNext?: () => void;
     onNavigatePrevious?: () => void;
 }
 
-export default function TableOfContentsPage({ pageNumber, onNavigateNext, onNavigatePrevious }: TableOfContentsPageProps) {
+export default function TableOfContentsPage2({ pageNumber, onNavigateNext, onNavigatePrevious }: TableOfContentsPage2Props) {
     const tableOfContentsData = [
-        { number: 1, title: "Title Page", page: 1 },
-        { number: 2, title: "Autograph Page", page: 3 },
-        { number: 3, title: "Copyright Page", page: 4 },
-        { number: 4, title: "Table of Contents", page: 5 },
-        { number: 5, title: "Foreword", page: 7 },
-        { number: 6, title: "Kool Moe Dee Hats", page: 9 },
-        { number: 7, title: "Introduction", page: 12 },
-        { number: 8, title: "Anita's Dedication", page: 21 },
-        { number: 9, title: "Hilton's Dedication", page: 22 },
-        { number: 10, title: "Document Your Personal Journey: Questions", page: 23 },
-        { number: 11, title: "Bonus 50 Hip-Hop Quotes", page: 76 },
-        { number: 12, title: "Bonus Trivia Questions & Answers (1-25)", page: 81 },
-        { number: 13, title: "Bonus Trivia Questions & Answers (26-50)", page: 89 },
-        { number: 14, title: "DJ SCIPIO: My Journey", page: 91 },
-        { number: 15, title: "Anita Scipio: My Journey and Flowers for HOT 97.FM", page: 143 },
-        { number: 16, title: "Anita: Thank Yous", page: 214 },
-        { number: 17, title: "Way Up With Angela Yee", page: 220 },
-        { number: 18, title: "My Recent Visit To The Breakfast Club", page: 221 },
-        { number: 19, title: "Anita: Shout-Outs", page: 243 },
-        { number: 20, title: "It's All Love", page: 253 },
-        { number: 21, title: "Sharin' The Love", page: 256 },
-        { number: 22, title: "DJ SCIPIO: Thank Yous", page: 264 },
-        { number: 23, title: "DJ SCIPIO: Shout-Outs", page: 266 },
+        { number: 24, title: "About The Author: Hilton Scipio", page: 272 },
+        { number: 25, title: "About The Author: Anita Scipio", page: 274 },
+        { number: 26, title: "HHTC: The Breakfast Club & Way Up With Angela Yee", page: 276 },
+        { number: 27, title: "Thank you/Celebrity Photos", page: 277 },
+        { number: 28, title: "Anita Retires From iHeartMedia", page: 282 },
+        { number: 29, title: "Heartfelt Wishes", page: 283 },
+        { number: 30, title: "Anita & Hilton: Love, and Blessings.", page: 284 },
     ];
 
     return (
@@ -56,6 +40,7 @@ export default function TableOfContentsPage({ pageNumber, onNavigateNext, onNavi
 
                 <View style={styles.contentContainer}>
                     <Text style={styles.title}>TABLE OF CONTENTS</Text>
+                    <Text style={styles.subtitle}>(Continued)</Text>
 
                     <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
                         <View style={styles.entriesContainer}>
@@ -73,9 +58,6 @@ export default function TableOfContentsPage({ pageNumber, onNavigateNext, onNavi
                         <View style={styles.noteContainer}>
                             <Text style={styles.noteText}>
                                 Note: The first three pages are not usually listed but the automatic numbering system I am using, will not allow for any exclusions.
-                            </Text>
-                            <Text style={styles.continuedText}>
-                                (Continued on next page)
                             </Text>
                         </View>
                     </ScrollView>
@@ -100,9 +82,16 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         textAlign: 'center',
-        marginBottom: 30,
+        marginBottom: 10,
         textDecorationLine: 'underline',
         color: '#000',
+    },
+    subtitle: {
+        fontSize: 16,
+        textAlign: 'center',
+        marginBottom: 30,
+        color: '#666',
+        fontStyle: 'italic',
     },
     scrollContainer: {
         flex: 1,
@@ -152,13 +141,6 @@ const styles = StyleSheet.create({
         fontStyle: 'italic',
         lineHeight: 16,
     },
-    continuedText: {
-        fontSize: 12,
-        color: '#4555b9',
-        fontWeight: 'bold',
-        textAlign: 'center',
-        marginTop: 10,
-    },
     bottomPageNumber: {
         fontSize: 16,
         fontWeight: 'bold',
@@ -171,7 +153,7 @@ const styles = StyleSheet.create({
         left: 0,
         top: 0,
         bottom: 0,
-        width: width * 0.15, // 15% of screen width for left nav zone
+        width: width * 0.15,
         zIndex: 10,
     },
     rightNavZone: {
@@ -179,7 +161,7 @@ const styles = StyleSheet.create({
         right: 0,
         top: 0,
         bottom: 0,
-        width: width * 0.15, // 15% of screen width for right nav zone
+        width: width * 0.15,
         zIndex: 10,
     },
 });

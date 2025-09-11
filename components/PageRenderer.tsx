@@ -6,12 +6,15 @@ import TitlePage from "./TitlePage";
 import ThankYouPage from "./ThankYouPage";
 import CopyrightPage from "./CopyrightPage";
 import TableOfContentsPage from "./TableOfContentsPage";
+import TableOfContentsPage2 from "./TableOfContentsPage2";
 
 interface PageRendererProps {
     pageNumber: number;
+    onNavigateNext?: () => void;
+    onNavigatePrevious?: () => void;
 }
 
-export default function PageRenderer({ pageNumber }: PageRendererProps) {
+export default function PageRenderer({ pageNumber, onNavigateNext, onNavigatePrevious }: PageRendererProps) {
     const renderPage = () => {
         switch (pageNumber) {
             case 1:
@@ -21,7 +24,17 @@ export default function PageRenderer({ pageNumber }: PageRendererProps) {
             case 3:
                 return <CopyrightPage pageNumber={pageNumber} />;
             case 4:
-                return <TableOfContentsPage pageNumber={pageNumber} />;
+                return <TableOfContentsPage
+                    pageNumber={pageNumber}
+                    onNavigateNext={onNavigateNext}
+                    onNavigatePrevious={onNavigatePrevious}
+                />;
+            case 5:
+                return <TableOfContentsPage2
+                    pageNumber={pageNumber}
+                    onNavigateNext={onNavigateNext}
+                    onNavigatePrevious={onNavigatePrevious}
+                />;
             case 285: // Keep it at the end too
                 return <ThankYouPage pageNumber={pageNumber} />;
             default:

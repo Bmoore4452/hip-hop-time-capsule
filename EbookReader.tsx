@@ -50,7 +50,11 @@ export default function EbookReader() {
                 onPress={handlePageTap}
                 activeOpacity={1}
             >
-                <PageRenderer pageNumber={currentPage} />
+                <PageRenderer
+                    pageNumber={currentPage}
+                    onNavigateNext={goToNextPage}
+                    onNavigatePrevious={goToPreviousPage}
+                />
             </TouchableOpacity>
 
             <PageFooter
