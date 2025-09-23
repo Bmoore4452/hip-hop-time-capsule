@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import SafeAreaWrapper from './SafeAreaWrapper';
 import { scaleFont, moderateScale, getResponsiveValue } from '../utils/responsive';
+import { colors } from '../utils/colors';
 
 interface IntroductionPageProps {
     pageNumber: number;
@@ -63,19 +64,20 @@ const styles = StyleSheet.create({
     musicNote: {
         fontSize: scaleFont(24),
         marginHorizontal: moderateScale(15),
+        color: colors.accent,
     },
     title: {
         fontSize: scaleFont(24),
         fontWeight: 'bold',
         textAlign: 'center',
-        color: '#000',
+        color: colors.primary,
         letterSpacing: 1,
     },
     decorativeLine: {
         alignSelf: 'center',
         width: getResponsiveValue(200, 240, 280, 320),
         height: moderateScale(3),
-        backgroundColor: '#000',
+        backgroundColor: colors.accent,
         marginBottom: moderateScale(30),
         borderRadius: 1.5,
     },

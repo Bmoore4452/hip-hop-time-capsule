@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import SafeAreaWrapper from "./SafeAreaWrapper";
 import { scaleFont, moderateScale } from '../utils/responsive';
+import { colors } from "../utils/colors";
 
 interface CopyrightPageProps {
     pageNumber: number;
@@ -62,13 +63,13 @@ const styles = StyleSheet.create({
     },
     copyrightSymbol: {
         fontSize: scaleFont(18),
-        color: "#000",
+        color: "#ebf043ff",
         marginRight: moderateScale(5),
         fontWeight: "bold",
     },
     copyrightYear: {
         fontSize: scaleFont(16),
-        color: "#000",
+        color: colors.accent,
         fontWeight: "bold",
     },
     pageNumber: {

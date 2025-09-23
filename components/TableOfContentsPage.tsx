@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
 import SafeAreaWrapper from './SafeAreaWrapper';
 import { scaleFont, moderateScale, getResponsiveValue } from '../utils/responsive';
+import { colors } from '../utils/colors';
 
 const { width } = Dimensions.get('window');
 
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginBottom: moderateScale(30),
         textDecorationLine: 'underline',
-        color: '#000',
+        color: colors.primary, // Use primary color from colors.ts
     },
     scrollContainer: {
         flex: 1,

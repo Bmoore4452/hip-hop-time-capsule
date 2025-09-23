@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import SafeAreaWrapper from './SafeAreaWrapper';
 import { scaleFont, moderateScale } from '../utils/responsive';
+import { colors } from '../utils/colors';
 
 interface ForewordPage11Props {
     pageNumber: number;
@@ -21,11 +22,11 @@ export default function ForewordPage11({ pageNumber }: ForewordPage11Props) {
                     </Text>
 
                     <Text style={styles.signatureText}>
-                        <Text style={styles.italicText}>"You can thank me later." Sincerely, Anita :)</Text>
+                        <Text style={styles.italicText1}>"You can thank me later." Sincerely, Anita :)</Text>
                     </Text>
 
                     <Text style={styles.funFactTitle}>
-                        <Text style={styles.italicText}>Fun Fact: On the cover of Hip-Hop Time{'\n'}Capsule... there are four hats and one crown.{'\n'}Below are the artists that are</Text>
+                        <Text style={styles.italicText2}>Fun Fact: On the cover of Hip-Hop Time{'\n'}Capsule... there are four hats and one crown.{'\n'}Below are the artists that are</Text>
                     </Text>
 
                     <View style={styles.artistsList}>
@@ -83,8 +84,13 @@ const styles = StyleSheet.create({
         marginBottom: moderateScale(30),
         textAlign: 'center',
     },
-    italicText: {
+    italicText1: {
         fontStyle: 'italic',
+        color: colors.primary,
+    },
+    italicText2: {
+        fontStyle: 'italic',
+        color: colors.accent,
     },
     funFactTitle: {
         fontSize: scaleFont(14),
@@ -107,6 +113,7 @@ const styles = StyleSheet.create({
     },
     boldText: {
         fontWeight: 'bold',
+        color: colors.primary,
     },
     underline: {
         height: 1,

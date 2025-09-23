@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
 import SafeAreaWrapper from './SafeAreaWrapper';
 import { scaleFont, moderateScale, getResponsiveValue } from '../utils/responsive';
+import { colors } from '../utils/colors';
 
 
 interface ForewordPage9Props {
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
         fontSize: scaleFont(24),
         fontWeight: 'bold',
         textAlign: 'center',
-        color: 'rgba(79, 23, 213, 1)',
+        color: colors.primary,
         marginBottom: moderateScale(20),
     },
     imagesContainer: {
@@ -65,14 +66,14 @@ const styles = StyleSheet.create({
         fontSize: scaleFont(18),
         fontWeight: 'bold',
         textAlign: 'center',
-        color: 'rgba(79, 23, 213, 1)',
+        color: colors.primary,
         marginBottom: moderateScale(10),
     },
     decorativeLine: {
         alignSelf: 'center',
         width: getResponsiveValue(150, 180, 200, 250),
         height: moderateScale(3),
-        backgroundColor: 'rgba(210, 56, 187, 1)',
+        backgroundColor: colors.accent,
         marginBottom: moderateScale(25),
         borderRadius: 1.5,
     },

@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import SafeAreaWrapper from './SafeAreaWrapper';
 import { scaleFont, moderateScale, getResponsiveValue } from '../utils/responsive';
+import { colors } from '../utils/colors';
 
 interface ForewordPageProps {
     pageNumber: number;
@@ -45,14 +46,14 @@ const styles = StyleSheet.create({
         fontSize: scaleFont(28),
         fontWeight: 'bold',
         textAlign: 'center',
-        color: '#000',
+        color: colors.primary,
         marginBottom: moderateScale(15),
     },
     decorativeLine: {
         alignSelf: 'center',
         width: getResponsiveValue(150, 180, 200, 250),
         height: moderateScale(3),
-        backgroundColor: '#000',
+        backgroundColor: colors.accent,
         marginBottom: moderateScale(30),
         borderRadius: 1.5,
     },

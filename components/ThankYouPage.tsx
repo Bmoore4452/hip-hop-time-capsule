@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import SafeAreaWrapper from "./SafeAreaWrapper";
+import { colors } from "../utils/colors";
 
 interface ThankYouPageProps {
     pageNumber: number;
@@ -67,13 +68,13 @@ const styles = StyleSheet.create({
     },
     musicNote: {
         fontSize: 24,
-        color: "#000",
+        color: colors.accent,
         marginHorizontal: 15,
     },
     quote: {
         fontSize: 24,
         fontWeight: "bold",
-        color: "#000",
+        color: colors.primary,
         textAlign: "center",
     },
     decorativeLine: {
@@ -85,17 +86,17 @@ const styles = StyleSheet.create({
     line: {
         flex: 1,
         height: 2,
-        backgroundColor: "#000",
+        backgroundColor: colors.accent,
     },
     diamond: {
         fontSize: 16,
-        color: "#000",
+        color: colors.accent,
         marginHorizontal: 10,
     },
     thankYou: {
         fontSize: 28,
         fontWeight: "bold",
-        color: "#000",
+        color: colors.accent,
         marginBottom: 20,
     },
     authors: {

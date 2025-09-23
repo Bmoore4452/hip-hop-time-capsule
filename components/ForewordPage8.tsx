@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Linking } from 'r
 import QRCode from 'react-native-qrcode-svg';
 import SafeAreaWrapper from './SafeAreaWrapper';
 import { scaleFont, moderateScale, getResponsiveValue } from '../utils/responsive';
+import { colors } from '../utils/colors';
 
 interface ForewordPage8Props {
     pageNumber: number;
@@ -92,11 +93,12 @@ const styles = StyleSheet.create({
     italicText: {
         fontStyle: 'italic',
         fontWeight: '500',
+        color: colors.primary,
     },
     signatureText: {
         fontSize: scaleFont(16),
         lineHeight: scaleFont(24),
-        color: '#000',
+        color: colors.primary,
         marginBottom: moderateScale(30),
         textAlign: 'center',
     },
@@ -107,7 +109,7 @@ const styles = StyleSheet.create({
         fontSize: scaleFont(16),
         fontWeight: 'bold',
         textAlign: 'center',
-        color: '#000',
+        color: colors.accent,
         marginBottom: moderateScale(20),
         textDecorationLine: 'underline',
     },

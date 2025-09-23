@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import SafeAreaWrapper from "./SafeAreaWrapper";
 import { scaleFont, moderateScale, getResponsiveValue } from '../utils/responsive';
+import { colors } from "../utils/colors";
 
 interface TitlePageProps {
     pageNumber: number;
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
     mainTitle: {
         fontSize: scaleFont(42),
         fontWeight: "bold",
-        color: "#000",
+        color: colors.accent,
         textAlign: "center",
         letterSpacing: 2,
         marginBottom: moderateScale(5),
@@ -56,11 +57,11 @@ const styles = StyleSheet.create({
     },
     subtitle: {
         fontSize: scaleFont(20),
-        color: "#000",
+        color: colors.primary,
         textAlign: "center",
         letterSpacing: 8,
         marginBottom: moderateScale(8),
-        fontWeight: "300",
+        fontWeight: "700",
     },
     authorSection: {
         alignItems: "center",
