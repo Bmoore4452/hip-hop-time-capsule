@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
 import SafeAreaWrapper from './SafeAreaWrapper';
 import { scaleFont, moderateScale, getResponsiveValue } from '../utils/responsive';
 
+
 interface ForewordPage9Props {
     pageNumber: number;
 }
@@ -15,8 +16,9 @@ export default function ForewordPage9({ pageNumber }: ForewordPage9Props) {
                     <Text style={styles.title}>Kool Moe Dee: Hats</Text>
 
                     <View style={styles.imagesContainer}>
-                        <View style={styles.imagePlaceholder} />
-                        <View style={styles.imagePlaceholder} />
+                        <Image source={require('../assets/kool-moe-dee.jpg')} style={styles.imagePlaceholder} />
+                        <Image source={require('../assets/kool-moe-dee2.jpg')} style={styles.imagePlaceholder} />
+                        
                     </View>
 
                     <Text style={styles.subtitle}>Kool Moe Dee</Text>
@@ -44,7 +46,7 @@ const styles = StyleSheet.create({
         fontSize: scaleFont(24),
         fontWeight: 'bold',
         textAlign: 'center',
-        color: '#000',
+        color: 'rgba(79, 23, 213, 1)',
         marginBottom: moderateScale(20),
     },
     imagesContainer: {
@@ -63,14 +65,14 @@ const styles = StyleSheet.create({
         fontSize: scaleFont(18),
         fontWeight: 'bold',
         textAlign: 'center',
-        color: '#000',
+        color: 'rgba(79, 23, 213, 1)',
         marginBottom: moderateScale(10),
     },
     decorativeLine: {
         alignSelf: 'center',
         width: getResponsiveValue(150, 180, 200, 250),
         height: moderateScale(3),
-        backgroundColor: '#000',
+        backgroundColor: 'rgba(210, 56, 187, 1)',
         marginBottom: moderateScale(25),
         borderRadius: 1.5,
     },

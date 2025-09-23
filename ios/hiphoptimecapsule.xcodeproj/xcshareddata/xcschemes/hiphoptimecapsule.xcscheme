@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "hiphoptimecapsule.app"
-               BlueprintName = "hiphoptimecapsule"
-               ReferencedContainer = "container:hiphoptimecapsule.xcodeproj">
+               BuildableName = "HipHopTimeCapsule.app"
+               BlueprintName = "HipHopTimeCapsule"
+               ReferencedContainer = "container:HipHopTimeCapsule.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "hiphoptimecapsuleTests.xctest"
-               BlueprintName = "hiphoptimecapsuleTests"
-               ReferencedContainer = "container:hiphoptimecapsule.xcodeproj">
+               BuildableName = "HipHopTimeCapsuleTests.xctest"
+               BlueprintName = "HipHopTimeCapsuleTests"
+               ReferencedContainer = "container:HipHopTimeCapsule.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "hiphoptimecapsule.app"
-            BlueprintName = "hiphoptimecapsule"
-            ReferencedContainer = "container:hiphoptimecapsule.xcodeproj">
+            BuildableName = "HipHopTimeCapsule.app"
+            BlueprintName = "HipHopTimeCapsule"
+            ReferencedContainer = "container:HipHopTimeCapsule.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "hiphoptimecapsule.app"
-            BlueprintName = "hiphoptimecapsule"
-            ReferencedContainer = "container:hiphoptimecapsule.xcodeproj">
+            BuildableName = "HipHopTimeCapsule.app"
+            BlueprintName = "HipHopTimeCapsule"
+            ReferencedContainer = "container:HipHopTimeCapsule.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -27,7 +27,7 @@ export default function IntroductionPage20({ pageNumber }: IntroductionPage20Pro
 
                     <Text style={styles.appreciationText}>
                         Sherri, Garrett and the entire team, I appreciate you. DaBaby... thanks a million! You are awesome and will always have a special place in my heart! I wish you, your two delightful children and loved ones, all the very best! BTW... your free-styles are crazy! Love Always, <Text style={styles.boldText}>"Mama"</Text>
-                    </Text>
+                    </Text> 
                 </View>
             </ScrollView>
         </SafeAreaWrapper>
