@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Alert, Modal } from 'react-native';
 import { scaleFont, moderateScale } from '../utils/responsive';
+import { colors } from '../utils/colors';
 
 interface PageFooterProps {
     currentPage: number;
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
     },
     pageNumber: {
         fontSize: scaleFont(16),
-        color: '#000',
+        color: colors.text,
         fontWeight: 'bold',
         paddingVertical: moderateScale(8),
         paddingHorizontal: moderateScale(12),
@@ -118,18 +119,18 @@ const styles = StyleSheet.create({
     modalTitle: {
         fontSize: scaleFont(18),
         fontWeight: 'bold',
-        color: '#000',
+        color: colors.text,
         marginBottom: moderateScale(20),
     },
     modalInput: {
         borderWidth: 2,
-        borderColor: '#4555b9',
+        borderColor: colors.primary,
         borderRadius: 10,
         paddingHorizontal: moderateScale(15),
         paddingVertical: moderateScale(12),
         fontSize: scaleFont(18),
         textAlign: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: colors.background,
         marginBottom: moderateScale(25),
         minWidth: moderateScale(100),
         fontWeight: 'bold',
@@ -140,7 +141,7 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     button: {
-        backgroundColor: '#4555b9',
+        backgroundColor: colors.primary,
         paddingHorizontal: moderateScale(20),
         paddingVertical: moderateScale(12),
         borderRadius: 10,
@@ -148,10 +149,10 @@ const styles = StyleSheet.create({
         marginHorizontal: moderateScale(5),
     },
     cancelButton: {
-        backgroundColor: '#ccc',
+        backgroundColor: colors.placeholder,
     },
     buttonText: {
-        color: '#fff',
+        color: colors.background,
         fontSize: scaleFont(16),
         fontWeight: 'bold',
         textAlign: 'center',
