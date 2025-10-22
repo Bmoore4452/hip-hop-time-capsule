@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         left: width * 0.25,
         right: width * 0.25,
         top: 0,
-        bottom: 0,
+        bottom: 80, // Leave space for page footer at bottom
         zIndex: 100,
     },
 });

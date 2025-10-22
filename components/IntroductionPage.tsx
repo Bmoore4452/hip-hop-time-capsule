@@ -10,7 +10,7 @@ interface IntroductionPageProps {
 
 export default function IntroductionPage({ pageNumber }: IntroductionPageProps) {
     return (
-        <SafeAreaWrapper backgroundColor="#fff">
+        <SafeAreaWrapper backgroundColor={colors.primary}>
             <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
                 <View style={styles.contentContainer}>
                     <View style={styles.header}>
@@ -49,6 +49,7 @@ export default function IntroductionPage({ pageNumber }: IntroductionPageProps) 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#fff',
     },
     contentContainer: {
         paddingHorizontal: moderateScale(30),

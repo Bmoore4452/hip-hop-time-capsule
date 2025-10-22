@@ -24,27 +24,27 @@ export default function TableOfContentsPage2({ pageNumber, onNavigateNext, onNav
     ];
 
     return (
-        <SafeAreaWrapper backgroundColor="#fff">
-            <View style={styles.container}>
-                {/* Left navigation zone */}
-                <TouchableOpacity
-                    style={styles.leftNavZone}
-                    onPress={onNavigatePrevious}
-                    activeOpacity={0}
-                />
+        <SafeAreaWrapper backgroundColor={colors.primary}>
+            <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+                <View style={styles.innerContainer}>
+                    {/* Left navigation zone */}
+                    <TouchableOpacity
+                        style={styles.leftNavZone}
+                        onPress={onNavigatePrevious}
+                        activeOpacity={0}
+                    />
 
-                {/* Right navigation zone */}
-                <TouchableOpacity
-                    style={styles.rightNavZone}
-                    onPress={onNavigateNext}
-                    activeOpacity={0}
-                />
+                    {/* Right navigation zone */}
+                    <TouchableOpacity
+                        style={styles.rightNavZone}
+                        onPress={onNavigateNext}
+                        activeOpacity={0}
+                    />
 
-                <View style={styles.contentContainer}>
-                    <Text style={styles.title}>TABLE OF CONTENTS</Text>
-                    <Text style={styles.subtitle}>(Continued)</Text>
+                    <View style={styles.contentContainer}>
+                        <Text style={styles.title}>TABLE OF CONTENTS</Text>
+                        <Text style={styles.subtitle}>(Continued)</Text>
 
-                    <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
                         <View style={styles.entriesContainer}>
                             {tableOfContentsData.map((item) => (
                                 <View key={item.number} style={styles.entryRow}>
@@ -62,9 +62,9 @@ export default function TableOfContentsPage2({ pageNumber, onNavigateNext, onNav
                                 Note: The first three pages are not usually listed but the automatic numbering system I am using, will not allow for any exclusions.
                             </Text>
                         </View>
-                    </ScrollView>
+                    </View>
                 </View>
-            </View>
+            </ScrollView>
         </SafeAreaWrapper>
     );
 }
@@ -73,6 +73,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+    },
+    innerContainer: {
+        flex: 1,
+        minHeight: 600,
     },
     contentContainer: {
         flex: 1,

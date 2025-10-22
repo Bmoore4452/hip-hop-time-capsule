@@ -40,26 +40,26 @@ export default function TableOfContentsPage({ pageNumber, onNavigateNext, onNavi
     ];
 
     return (
-        <SafeAreaWrapper backgroundColor="#fff">
-            <View style={styles.container}>
-                {/* Left navigation zone */}
-                <TouchableOpacity
-                    style={styles.leftNavZone}
-                    onPress={onNavigatePrevious}
-                    activeOpacity={0}
-                />
+        <SafeAreaWrapper backgroundColor={colors.primary}>
+            <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+                <View style={styles.innerContainer}>
+                    {/* Left navigation zone */}
+                    <TouchableOpacity
+                        style={styles.leftNavZone}
+                        onPress={onNavigatePrevious}
+                        activeOpacity={0}
+                    />
 
-                {/* Right navigation zone */}
-                <TouchableOpacity
-                    style={styles.rightNavZone}
-                    onPress={onNavigateNext}
-                    activeOpacity={0}
-                />
+                    {/* Right navigation zone */}
+                    <TouchableOpacity
+                        style={styles.rightNavZone}
+                        onPress={onNavigateNext}
+                        activeOpacity={0}
+                    />
 
-                <View style={styles.contentContainer}>
-                    <Text style={styles.title}>TABLE OF CONTENTS</Text>
+                    <View style={styles.contentContainer}>
+                        <Text style={styles.title}>TABLE OF CONTENTS</Text>
 
-                    <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
                         <View style={styles.entriesContainer}>
                             {tableOfContentsData.map((item) => (
                                 <View key={item.number} style={styles.entryRow}>
@@ -80,9 +80,9 @@ export default function TableOfContentsPage({ pageNumber, onNavigateNext, onNavi
                                 (Continued on next page)
                             </Text>
                         </View>
-                    </ScrollView>
+                    </View>
                 </View>
-            </View>
+            </ScrollView>
         </SafeAreaWrapper>
     );
 }
@@ -91,6 +91,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+    },
+    innerContainer: {
+        flex: 1,
+        minHeight: 600,
     },
     contentContainer: {
         flex: 1,

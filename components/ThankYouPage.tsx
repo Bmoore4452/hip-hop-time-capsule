@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import SafeAreaWrapper from "./SafeAreaWrapper";
 import { colors } from "../utils/colors";
 
@@ -9,47 +9,53 @@ interface ThankYouPageProps {
 
 export default function ThankYouPage({ pageNumber }: ThankYouPageProps) {
     return (
-        <SafeAreaWrapper backgroundColor="#fff">
-            <View style={styles.container}>
-                <View style={styles.topSection}>
-                    <View style={styles.quoteSection}>
-                        <View style={styles.quoteLine}>
-                            <Text style={styles.musicNote}>♫ ♪</Text>
-                            <Text style={styles.quote}>"Your Support Is</Text>
-                            <Text style={styles.musicNote}>♫ ♪</Text>
+        <SafeAreaWrapper backgroundColor={colors.primary}>
+            <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
+                <View style={styles.container}>
+                    <View style={styles.topSection}>
+                        <View style={styles.quoteSection}>
+                            <View style={styles.quoteLine}>
+                                <Text style={styles.musicNote}>♫ ♪</Text>
+                                <Text style={styles.quote}>"Your Support Is</Text>
+                                <Text style={styles.musicNote}>♫ ♪</Text>
+                            </View>
+                            <Text style={styles.quote}>Everything!"</Text>
                         </View>
-                        <Text style={styles.quote}>Everything!"</Text>
+
+                        <View style={styles.decorativeLine}>
+                            <View style={styles.line} />
+                            <Text style={styles.diamond}>♦</Text>
+                            <View style={styles.line} />
+                        </View>
+
+                        <Text style={styles.thankYou}>Thank you!</Text>
+                        <Text style={styles.authors}>Anita Scipio and DJ SCIPIO</Text>
                     </View>
 
-                    <View style={styles.decorativeLine}>
-                        <View style={styles.line} />
-                        <Text style={styles.diamond}>♦</Text>
-                        <View style={styles.line} />
+                    <View style={styles.bottomSection}>
+                        <View style={styles.silhouettesContainer}>
+                            <Text style={styles.silhouette}>🕺</Text>
+                            <Text style={styles.cassette}>📼</Text>
+                            <Text style={styles.silhouette}>💃</Text>
+                        </View>
                     </View>
-
-                    <Text style={styles.thankYou}>Thank you!</Text>
-                    <Text style={styles.authors}>Anita Scipio and DJ SCIPIO</Text>
                 </View>
-
-                <View style={styles.bottomSection}>
-                    <View style={styles.silhouettesContainer}>
-                        <Text style={styles.silhouette}>🕺</Text>
-                        <Text style={styles.cassette}>📼</Text>
-                        <Text style={styles.silhouette}>💃</Text>
-                    </View>
-                </View>
-            </View>
+            </ScrollView>
         </SafeAreaWrapper>
     );
 }
 
 const styles = StyleSheet.create({
+    scrollContainer: {
+        flex: 1,
+        backgroundColor: '#fff',
+    },
     container: {
         flex: 1,
-        backgroundColor: "#fff",
         justifyContent: "center",
         alignItems: "center",
         paddingHorizontal: 20,
+        minHeight: 600,
     },
     topSection: {
         flex: 1,

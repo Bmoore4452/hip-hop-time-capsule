@@ -11,7 +11,7 @@ interface ForewordPage9Props {
 
 export default function ForewordPage9({ pageNumber }: ForewordPage9Props) {
     return (
-        <SafeAreaWrapper backgroundColor="#fff">
+        <SafeAreaWrapper backgroundColor={colors.primary}>
             <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
                 <View style={styles.contentContainer}>
                     <Text style={styles.title}>Kool Moe Dee: Hats</Text>
@@ -19,7 +19,7 @@ export default function ForewordPage9({ pageNumber }: ForewordPage9Props) {
                     <View style={styles.imagesContainer}>
                         <Image source={require('../assets/kool-moe-dee.jpg')} style={styles.imagePlaceholder} />
                         <Image source={require('../assets/kool-moe-dee2.jpg')} style={styles.imagePlaceholder} />
-                        
+
                     </View>
 
                     <Text style={styles.subtitle}>Kool Moe Dee</Text>
@@ -37,6 +37,7 @@ export default function ForewordPage9({ pageNumber }: ForewordPage9Props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#fff',
     },
     contentContainer: {
         paddingHorizontal: moderateScale(30),

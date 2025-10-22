@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import SafeAreaWrapper from './SafeAreaWrapper';
 import { scaleFont, moderateScale } from '../utils/responsive';
+import { colors } from '../utils/colors';
 
 interface IntroductionPage14Props {
     pageNumber: number;
@@ -9,7 +10,7 @@ interface IntroductionPage14Props {
 
 export default function IntroductionPage14({ pageNumber }: IntroductionPage14Props) {
     return (
-        <SafeAreaWrapper backgroundColor="#fff">
+        <SafeAreaWrapper backgroundColor={colors.primary}>
             <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
                 <View style={styles.contentContainer}>
                     <Text style={styles.bodyText}>
@@ -40,6 +41,7 @@ export default function IntroductionPage14({ pageNumber }: IntroductionPage14Pro
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#fff',
     },
     contentContainer: {
         paddingHorizontal: moderateScale(30),

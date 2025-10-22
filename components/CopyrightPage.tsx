@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import SafeAreaWrapper from "./SafeAreaWrapper";
 import { scaleFont, moderateScale } from '../utils/responsive';
 import { colors } from "../utils/colors";
@@ -10,36 +10,42 @@ interface CopyrightPageProps {
 
 export default function CopyrightPage({ pageNumber }: CopyrightPageProps) {
     return (
-        <SafeAreaWrapper backgroundColor="#fff">
-            <View style={styles.container}>
-                <View style={styles.contentSection}>
-                    <Text style={styles.copyrightText}>
-                        "All rights reserved. No part of this publication can be quoted,
-                        reproduced, distributed in any form by means of printing, scanning,
-                        photocopying, or otherwise, without the prior permission of the
-                        copyright holder, with the exception in the case of brief quotations
-                        embodied in critical reviews permitted by copyright law."
-                    </Text>
-                </View>
+        <SafeAreaWrapper backgroundColor={colors.primary}>
+            <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
+                <View style={styles.container}>
+                    <View style={styles.contentSection}>
+                        <Text style={styles.copyrightText}>
+                            "All rights reserved. No part of this publication can be quoted,
+                            reproduced, distributed in any form by means of printing, scanning,
+                            photocopying, or otherwise, without the prior permission of the
+                            copyright holder, with the exception in the case of brief quotations
+                            embodied in critical reviews permitted by copyright law."
+                        </Text>
+                    </View>
 
-                <View style={styles.bottomSection}>
-                    <View style={styles.copyrightNotice}>
-                        <Text style={styles.copyrightSymbol}>©</Text>
-                        <Text style={styles.copyrightYear}>2024 TEAM SCIPIO</Text>
+                    <View style={styles.bottomSection}>
+                        <View style={styles.copyrightNotice}>
+                            <Text style={styles.copyrightSymbol}>©</Text>
+                            <Text style={styles.copyrightYear}>2024 TEAM SCIPIO</Text>
+                        </View>
                     </View>
                 </View>
-            </View>
+            </ScrollView>
         </SafeAreaWrapper>
     );
 }
 
 const styles = StyleSheet.create({
+    scrollContainer: {
+        flex: 1,
+        backgroundColor: '#fff',
+    },
     container: {
         flex: 1,
-        backgroundColor: "#fff",
         paddingHorizontal: moderateScale(30),
         paddingVertical: moderateScale(40),
         justifyContent: "space-between",
+        minHeight: 600,
     },
     contentSection: {
         flex: 1,

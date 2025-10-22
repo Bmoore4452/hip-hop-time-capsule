@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
 import SafeAreaWrapper from './SafeAreaWrapper';
 import { scaleFont, moderateScale, getResponsiveValue } from '../utils/responsive';
+import { colors } from '../utils/colors';
 
 interface IntroductionPage19Props {
     pageNumber: number;
@@ -9,18 +10,23 @@ interface IntroductionPage19Props {
 
 export default function IntroductionPage19({ pageNumber }: IntroductionPage19Props) {
     return (
-        <SafeAreaWrapper backgroundColor="#fff">
+        <SafeAreaWrapper backgroundColor={colors.primary}>
             <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
                 <View style={styles.contentContainer}>
                     {/* Photo placeholders */}
                     <View style={styles.photosContainer}>
                         <View style={styles.photoFrame}>
-                            <View style={styles.imagePlaceholder} />
-                            
+                            <Image
+                                source={require('../assets/kool-moe-dee-ll-cool-j.png')}
+                                style={styles.imagePlaceholder}
+                            />
                         </View>
 
                         <View style={styles.photoFrame}>
-                            <View style={styles.imagePlaceholder} />
+                            <Image
+                                source={require('../assets/50-cent.png')}
+                                style={styles.imagePlaceholder}
+                            />
                         </View>
                     </View>
 
@@ -64,6 +70,7 @@ export default function IntroductionPage19({ pageNumber }: IntroductionPage19Pro
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#fff',
     },
     contentContainer: {
         paddingHorizontal: moderateScale(30),
@@ -86,8 +93,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#ddd',
         borderRadius: 8,
         marginBottom: moderateScale(10),
-        borderWidth: 2,
-        borderColor: '#000',
     },
     photoCaption: {
         fontSize: scaleFont(8),

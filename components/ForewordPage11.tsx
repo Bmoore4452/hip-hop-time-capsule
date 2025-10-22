@@ -10,7 +10,7 @@ interface ForewordPage11Props {
 
 export default function ForewordPage11({ pageNumber }: ForewordPage11Props) {
     return (
-        <SafeAreaWrapper backgroundColor="#fff">
+        <SafeAreaWrapper backgroundColor={colors.primary}>
             <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
                 <View style={styles.contentContainer}>
                     <Text style={styles.bodyText}>
@@ -64,6 +64,7 @@ export default function ForewordPage11({ pageNumber }: ForewordPage11Props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#fff',
     },
     contentContainer: {
         paddingHorizontal: moderateScale(30),

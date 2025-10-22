@@ -29,7 +29,7 @@ export default function ForewordPage8({ pageNumber }: ForewordPage8Props) {
         Linking.openURL(url);
     };
     return (
-        <SafeAreaWrapper backgroundColor="#fff">
+        <SafeAreaWrapper backgroundColor={colors.primary}>
             <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
                 <View style={styles.contentContainer}>
                     <Text style={styles.bodyText}>
@@ -77,6 +77,7 @@ export default function ForewordPage8({ pageNumber }: ForewordPage8Props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#fff',
     },
     contentContainer: {
         paddingHorizontal: moderateScale(30),

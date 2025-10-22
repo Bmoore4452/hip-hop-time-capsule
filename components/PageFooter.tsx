@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingBottom: moderateScale(20),
         backgroundColor: 'transparent',
+        zIndex: 200, // Higher than navigation zones to ensure it receives touch events
     },
     pageNumber: {
         fontSize: scaleFont(16),
