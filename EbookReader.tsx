@@ -117,11 +117,12 @@ export default function EbookReader() {
                         onNavigatePrevious={goToPreviousPage}
                     />
 
-                    {/* Invisible navigation zones */}
+                    {/* Invisible navigation zones - center zone disabled on pages with interactive inputs */}
                     <InvisibleNavZones
                         onNextPage={goToNextPage}
                         onPreviousPage={goToPreviousPage}
                         onToggleControls={toggleControls}
+                        disableCenterZone={currentPage === 24 || currentPage === 25}
                     />
 
                     <NavigationControls

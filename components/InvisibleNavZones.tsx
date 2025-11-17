@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -7,35 +7,45 @@ interface InvisibleNavZonesProps {
     onNextPage: () => void;
     onPreviousPage: () => void;
     onToggleControls: () => void;
+    disableCenterZone?: boolean;
 }
 
 const InvisibleNavZones: React.FC<InvisibleNavZonesProps> = ({
     onNextPage,
     onPreviousPage,
     onToggleControls,
+    disableCenterZone = false,
 }) => {
     return (
         <>
             {/* Left navigation zone */}
-            <TouchableOpacity
-                style={styles.leftZone}
-                onPress={onPreviousPage}
-                activeOpacity={1}
-            />
+            <View style={styles.leftZone} pointerEvents="box-none">
+                <TouchableOpacity
+                    style={StyleSheet.absoluteFill}
+                    onPress={onPreviousPage}
+                    activeOpacity={1}
+                />
+            </View>
 
             {/* Right navigation zone */}
-            <TouchableOpacity
-                style={styles.rightZone}
-                onPress={onNextPage}
-                activeOpacity={1}
-            />
+            <View style={styles.rightZone} pointerEvents="box-none">
+                <TouchableOpacity
+                    style={StyleSheet.absoluteFill}
+                    onPress={onNextPage}
+                    activeOpacity={1}
+                />
+            </View>
 
-            {/* Center toggle zone */}
-            <TouchableOpacity
-                style={styles.centerZone}
-                onPress={onToggleControls}
-                activeOpacity={1}
-            />
+            {/* Center toggle zone - can be disabled for pages with interactive content */}
+            {!disableCenterZone && (
+                <View style={styles.centerZone} pointerEvents="box-none">
+                    <TouchableOpacity
+                        style={StyleSheet.absoluteFill}
+                        onPress={onToggleControls}
+                        activeOpacity={1}
+                    />
+                </View>
+            )}
         </>
     );
 };

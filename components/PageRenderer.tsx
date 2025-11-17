@@ -24,6 +24,8 @@ import IntroductionPage20 from "./IntroductionPage20";
 import IntroductionPage21 from "./IntroductionPage21";
 import IntroductionPage22 from "./IntroductionPage22";
 import IntroductionPage23 from "./IntroductionPage23";
+import IntroductionPage24 from "./IntroductionPage24";
+import IntroductionPage25 from "./IntroductionPage25";
 
 interface PageRendererProps {
     pageNumber: number;
@@ -86,6 +88,10 @@ export default function PageRenderer({ pageNumber, onNavigateNext, onNavigatePre
                 return <IntroductionPage22 pageNumber={pageNumber} />;
             case 23:
                 return <IntroductionPage23 pageNumber={pageNumber} />;
+            case 24:
+                return <IntroductionPage24 pageNumber={pageNumber} />;
+            case 25:
+                return <IntroductionPage25 pageNumber={pageNumber} />;
             case 285: // Keep it at the end too
                 return <ThankYouPage pageNumber={pageNumber} />;
             default:
