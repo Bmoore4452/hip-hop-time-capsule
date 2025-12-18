@@ -1,0 +1,497 @@
+{
+  "background": {
+    "color": "#F5F5F0"
+  },
+  "textElements": [
+    {
+      "content": "3. What was the first song that caught",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "fontStyle": "italic",
+      "color": "#000000",
+      "position": {
+        "x": 50,
+        "y": 14
+      },
+      "alignment": "center"
+    },
+    {
+      "content": "your attention?",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "fontStyle": "italic",
+      "color": "#000000",
+      "position": {
+        "x": 50,
+        "y": 17.5
+      },
+      "alignment": "center"
+    },
+    {
+      "content": "4. What were the emotions you felt hearing",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "fontStyle": "italic",
+      "color": "#000000",
+      "position": {
+        "x": 50,
+        "y": 51
+      },
+      "alignment": "center"
+    },
+    {
+      "content": "Hip-Hop for the first time?",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "fontStyle": "italic",
+      "color": "#000000",
+      "position": {
+        "x": 50,
+        "y": 54.5
+      },
+      "alignment": "center"
+    },
+    {
+      "content": "26",
+      "fontSize": 14,
+      "fontWeight": "normal",
+      "color": "#000000",
+      "position": {
+        "x": 50,
+        "y": 96
+      },
+      "alignment": "center"
+    }
+  ],
+  "images": [
+    {
+      "description": "Pink paint splatter graphic",
+      "position": {
+        "x": 75,
+        "y": 11
+      },
+      "size": {
+        "width": 10,
+        "height": 8
+      },
+      "type": "graphic"
+    },
+    {
+      "description": "Purple dollar sign chain necklace illustration",
+      "position": {
+        "x": 16,
+        "y": 83
+      },
+      "size": {
+        "width": 8,
+        "height": 12
+      },
+      "type": "graphic"
+    }
+  ],
+  "inputFields": [
+    {
+      "id": "question3_line1",
+      "type": "text",
+      "placeholder": "",
+      "position": {
+        "x": 16,
+        "y": 24
+      },
+      "size": {
+        "width": 68,
+        "height": 1
+      }
+    },
+    {
+      "id": "question3_line2",
+      "type": "text",
+      "placeholder": "",
+      "position": {
+        "x": 16,
+        "y": 28
+      },
+      "size": {
+        "width": 68,
+        "height": 1
+      }
+    },
+    {
+      "id": "question3_line3",
+      "type": "text",
+      "placeholder": "",
+      "position": {
+        "x": 16,
+        "y": 32
+      },
+      "size": {
+        "width": 68,
+        "height": 1
+      }
+    },
+    {
+      "id": "question3_line4",
+      "type": "text",
+      "placeholder": "",
+      "position": {
+        "x": 16,
+        "y": 36
+      },
+      "size": {
+        "width": 68,
+        "height": 1
+      }
+    },
+    {
+      "id": "question3_line5",
+      "type": "text",
+      "placeholder": "",
+      "position": {
+        "x": 16,
+        "y": 40
+      },
+      "size": {
+        "width": 68,
+        "height": 1
+      }
+    },
+    {
+      "id": "question3_line6",
+      "type": "text",
+      "placeholder": "",
+      "position": {
+        "x": 16,
+        "y": 44
+      },
+      "size": {
+        "width": 68,
+        "height": 1
+      }
+    },
+    {
+      "id": "question3_line7",
+      "type": "text",
+      "placeholder": "",
+      "position": {
+        "x": 16,
+        "y": 48
+      },
+      "size": {
+        "width": 68,
+        "height": 1
+      }
+    },
+    {
+      "id": "question3_line8",
+      "type": "text",
+      "placeholder": "",
+      "position": {
+        "x": 16,
+        "y": 52
+      },
+      "size": {
+        "width": 68,
+        "height": 1
+      }
+    },
+    {
+      "id": "question4_line1",
+      "type": "text",
+      "placeholder": "",
+      "position": {
+        "x": 16,
+        "y": 61
+      },
+      "size": {
+        "width": 68,
+        "height": 1
+      }
+    },
+    {
+      "id": "question4_line2",
+      "type": "text",
+      "placeholder": "",
+      "position": {
+        "x": 16,
+        "y": 65
+      },
+      "size": {
+        "width": 68,
+        "height": 1
+      }
+    },
+    {
+      "id": "question4_line3",
+      "type": "text",
+      "placeholder": "",
+      "position": {
+        "x": 16,
+        "y": 69
+      },
+      "size": {
+        "width": 68,
+        "height": 1
+      }
+    },
+    {
+      "id": "question4_line4",
+      "type": "text",
+      "placeholder": "",
+      "position": {
+        "x": 16,
+        "y": 73
+      },
+      "size": {
+        "width": 68,
+        "height": 1
+      }
+    },
+    {
+      "id": "question4_line5",
+      "type": "text",
+      "placeholder": "",
+      "position": {
+        "x": 16,
+        "y": 77
+      },
+      "size": {
+        "width": 68,
+        "height": 1
+      }
+    },
+    {
+      "id": "question4_line6",
+      "type": "text",
+      "placeholder": "",
+      "position": {
+        "x": 16,
+        "y": 81
+      },
+      "size": {
+        "width": 68,
+        "height": 1
+      }
+    },
+    {
+      "id": "question4_line7",
+      "type": "text",
+      "placeholder": "",
+      "position": {
+        "x": 16,
+        "y": 85
+      },
+      "size": {
+        "width": 68,
+        "height": 1
+      }
+    },
+    {
+      "id": "question4_line8",
+      "type": "text",
+      "placeholder": "",
+      "position": {
+        "x": 16,
+        "y": 89
+      },
+      "size": {
+        "width": 68,
+        "height": 1
+      }
+    }
+  ],
+  "decorativeElements": [
+    {
+      "type": "horizontal_line",
+      "description": "Writing line for question 3 - line 1",
+      "position": {
+        "x": 16,
+        "y": 24.5
+      },
+      "size": {
+        "width": 68,
+        "height": 0.1
+      }
+    },
+    {
+      "type": "horizontal_line",
+      "description": "Writing line for question 3 - line 2",
+      "position": {
+        "x": 16,
+        "y": 28.5
+      },
+      "size": {
+        "width": 68,
+        "height": 0.1
+      }
+    },
+    {
+      "type": "horizontal_line",
+      "description": "Writing line for question 3 - line 3",
+      "position": {
+        "x": 16,
+        "y": 32.5
+      },
+      "size": {
+        "width": 68,
+        "height": 0.1
+      }
+    },
+    {
+      "type": "horizontal_line",
+      "description": "Writing line for question 3 - line 4",
+      "position": {
+        "x": 16,
+        "y": 36.5
+      },
+      "size": {
+        "width": 68,
+        "height": 0.1
+      }
+    },
+    {
+      "type": "horizontal_line",
+      "description": "Writing line for question 3 - line 5",
+      "position": {
+        "x": 16,
+        "y": 40.5
+      },
+      "size": {
+        "width": 68,
+        "height": 0.1
+      }
+    },
+    {
+      "type": "horizontal_line",
+      "description": "Writing line for question 3 - line 6",
+      "position": {
+        "x": 16,
+        "y": 44.5
+      },
+      "size": {
+        "width": 68,
+        "height": 0.1
+      }
+    },
+    {
+      "type": "horizontal_line",
+      "description": "Writing line for question 3 - line 7",
+      "position": {
+        "x": 16,
+        "y": 48.5
+      },
+      "size": {
+        "width": 68,
+        "height": 0.1
+      }
+    },
+    {
+      "type": "horizontal_line",
+      "description": "Writing line for question 3 - line 8",
+      "position": {
+        "x": 16,
+        "y": 52.5
+      },
+      "size": {
+        "width": 68,
+        "height": 0.1
+      }
+    },
+    {
+      "type": "horizontal_line",
+      "description": "Writing line for question 4 - line 1",
+      "position": {
+        "x": 16,
+        "y": 61.5
+      },
+      "size": {
+        "width": 68,
+        "height": 0.1
+      }
+    },
+    {
+      "type": "horizontal_line",
+      "description": "Writing line for question 4 - line 2",
+      "position": {
+        "x": 16,
+        "y": 65.5
+      },
+      "size": {
+        "width": 68,
+        "height": 0.1
+      }
+    },
+    {
+      "type": "horizontal_line",
+      "description": "Writing line for question 4 - line 3",
+      "position": {
+        "x": 16,
+        "y": 69.5
+      },
+      "size": {
+        "width": 68,
+        "height": 0.1
+      }
+    },
+    {
+      "type": "horizontal_line",
+      "description": "Writing line for question 4 - line 4",
+      "position": {
+        "x": 16,
+        "y": 73.5
+      },
+      "size": {
+        "width": 68,
+        "height": 0.1
+      }
+    },
+    {
+      "type": "horizontal_line",
+      "description": "Writing line for question 4 - line 5",
+      "position": {
+        "x": 16,
+        "y": 77.5
+      },
+      "size": {
+        "width": 68,
+        "height": 0.1
+      }
+    },
+    {
+      "type": "horizontal_line",
+      "description": "Writing line for question 4 - line 6",
+      "position": {
+        "x": 16,
+        "y": 81.5
+      },
+      "size": {
+        "width": 68,
+        "height": 0.1
+      }
+    },
+    {
+      "type": "horizontal_line",
+      "description": "Writing line for question 4 - line 7",
+      "position": {
+        "x": 16,
+        "y": 85.5
+      },
+      "size": {
+        "width": 68,
+        "height": 0.1
+      }
+    },
+    {
+      "type": "horizontal_line",
+      "description": "Writing line for question 4 - line 8",
+      "position": {
+        "x": 16,
+        "y": 89.5
+      },
+      "size": {
+        "width": 68,
+        "height": 0.1
+      }
+    }
+  ],
+  "pageNumber": 26
+}

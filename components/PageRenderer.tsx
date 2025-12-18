@@ -26,6 +26,8 @@ import IntroductionPage22 from "./IntroductionPage22";
 import IntroductionPage23 from "./IntroductionPage23";
 import IntroductionPage24 from "./IntroductionPage24";
 import IntroductionPage25 from "./IntroductionPage25";
+import IntroductionPage26 from "./IntroductionPage26";
+import UniversalPageRenderer from "./UniversalPageRenderer";
 
 interface PageRendererProps {
     pageNumber: number;
@@ -92,18 +94,14 @@ export default function PageRenderer({ pageNumber, onNavigateNext, onNavigatePre
                 return <IntroductionPage24 pageNumber={pageNumber} />;
             case 25:
                 return <IntroductionPage25 pageNumber={pageNumber} />;
+            case 26:
+                return <IntroductionPage26 pageNumber={pageNumber} />;
             case 285: // Keep it at the end too
                 return <ThankYouPage pageNumber={pageNumber} />;
             default:
-                // For regular content pages, you could load from JSON or other data source
-                return (
-                    <View style={styles.container}>
-                        <Text style={styles.pageContent}>
-                            Page {pageNumber} content here
-                        </Text>
-                        <Text style={styles.pageNumber}>{pageNumber}</Text>
-                    </View>
-                );
+                // Use UniversalPageRenderer for all other pages (26-287)
+                // It automatically loads images and interactive fields from metadata
+                return <UniversalPageRenderer pageNumber={pageNumber} />;
         }
     };
 

@@ -16,7 +16,11 @@ import InvisibleNavZones from "./components/InvisibleNavZones";
 
 const { width } = Dimensions.get("window");
 
-export default function EbookReader() {
+interface EbookReaderProps {
+    onBackToHome?: () => void;
+}
+
+export default function EbookReader({ onBackToHome }: EbookReaderProps) {
     const [currentPage, setCurrentPage] = useState(1);
     const [showNavControls, setShowNavControls] = useState(false); // Start hidden
     const [showNavigationHint, setShowNavigationHint] = useState(true);
@@ -111,6 +115,17 @@ export default function EbookReader() {
         <GestureHandlerRootView style={styles.container}>
             <PanGestureHandler onGestureEvent={handleSwipeGesture}>
                 <View style={styles.container}>
+                    {/* Back to Home Button */}
+                    {onBackToHome && currentPage === 1 && (
+                        <TouchableOpacity
+                            style={styles.backButton}
+                            onPress={onBackToHome}
+                            activeOpacity={0.7}
+                        >
+                            <Text style={styles.backButtonText}>← Home</Text>
+                        </TouchableOpacity>
+                    )}
+
                     <PageRenderer
                         pageNumber={currentPage}
                         onNavigateNext={goToNextPage}
@@ -156,5 +171,20 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#fff",
+    },
+    backButton: {
+        position: 'absolute',
+        top: 50,
+        left: 20,
+        zIndex: 1000,
+        backgroundColor: 'rgba(0, 0, 0, 0.6)',
+        paddingHorizontal: 15,
+        paddingVertical: 8,
+        borderRadius: 20,
+    },
+    backButtonText: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: '600',
     },
 });
