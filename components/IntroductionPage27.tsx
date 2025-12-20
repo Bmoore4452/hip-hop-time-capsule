@@ -5,17 +5,17 @@ import { scaleFont, moderateScale } from '../utils/responsive';
 import { colors } from '../utils/colors';
 import * as Storage from '../utils/supabaseStorage';
 
-interface IntroductionPage26Props {
+interface IntroductionPage27Props {
     pageNumber: number;
 }
 
-export default function IntroductionPage26({ pageNumber }: IntroductionPage26Props) {
-    const [question3, setQuestion3] = useState('');
-    const [question4, setQuestion4] = useState('');
+export default function IntroductionPage27({ pageNumber }: IntroductionPage27Props) {
+    const [question5, setQuestion5] = useState('');
+    const [question6, setQuestion6] = useState('');
 
     // Modal state
     const [modalVisible, setModalVisible] = useState(false);
-    const [currentField, setCurrentField] = useState<'question3' | 'question4' | null>(null);
+    const [currentField, setCurrentField] = useState<'question5' | 'question6' | null>(null);
     const [tempValue, setTempValue] = useState('');
 
     // Load saved responses
@@ -26,36 +26,35 @@ export default function IntroductionPage26({ pageNumber }: IntroductionPage26Pro
     const loadSavedResponses = async () => {
         const response = await Storage.loadPageResponse(pageNumber);
         if (response) {
-            if (response.responses.question3) setQuestion3(response.responses.question3);
-            if (response.responses.question4) setQuestion4(response.responses.question4);
+            if (response.responses.question5) setQuestion5(response.responses.question5);
+            if (response.responses.question6) setQuestion6(response.responses.question6);
         }
     };
 
-    const openModal = (field: 'question3' | 'question4') => {
+    const openModal = (field: 'question5' | 'question6') => {
         console.log('Opening modal for:', field);
         setCurrentField(field);
         switch (field) {
-            case 'question3':
-                setTempValue(question3);
+            case 'question5':
+                setTempValue(question5);
                 break;
-            case 'question4':
-                setTempValue(question4);
+            case 'question6':
+                setTempValue(question6);
                 break;
         }
         setModalVisible(true);
-        console.log('Modal visible set to true');
     };
 
     const saveAndClose = async () => {
         if (currentField) {
             switch (currentField) {
-                case 'question3':
-                    setQuestion3(tempValue);
-                    await Storage.savePageResponse(pageNumber, 'question3', tempValue);
+                case 'question5':
+                    setQuestion5(tempValue);
+                    await Storage.savePageResponse(pageNumber, 'question5', tempValue);
                     break;
-                case 'question4':
-                    setQuestion4(tempValue);
-                    await Storage.savePageResponse(pageNumber, 'question4', tempValue);
+                case 'question6':
+                    setQuestion6(tempValue);
+                    await Storage.savePageResponse(pageNumber, 'question6', tempValue);
                     break;
             }
         }
@@ -72,10 +71,10 @@ export default function IntroductionPage26({ pageNumber }: IntroductionPage26Pro
 
     const getFieldLabel = () => {
         switch (currentField) {
-            case 'question3':
-                return '3. What was the first song that caught your attention?';
-            case 'question4':
-                return '4. What were the emotions you felt hearing Hip-Hop for the first time?';
+            case 'question5':
+                return '5. Who are (or were) your hottest (or as we used to say "illest") MCs?';
+            case 'question6':
+                return '6. Did Hip-Hop inspire you to become, or want to become, a lyricist, rapper, dancer, or DJ? If so, was there anyone in particular who inspired you?';
             default:
                 return '';
         }
@@ -86,28 +85,28 @@ export default function IntroductionPage26({ pageNumber }: IntroductionPage26Pro
             <SafeAreaWrapper backgroundColor={colors.primary}>
                 <View style={styles.container}>
                     <View style={styles.contentContainer}>
-                        {/* Paint splatter icon at top right */}
+                        {/* Microphone icon at top right */}
                         <Image
-                            source={require('../assets/ink_blot.png')}
-                            style={styles.splatterIcon}
+                            source={require('../assets/microphone.png')}
+                            style={styles.musicIcon}
                             resizeMode="contain"
                         />
 
-                        {/* Question 3 Section */}
+                        {/* Question 5 Section */}
                         <View style={styles.questionSection}>
                             <Text style={styles.questionText}>
-                                3. What was the first song that caught{'\n'}
-                                <Text style={styles.questionTextIndent}>your attention?</Text>
+                                5. Who are (or were) your hottest (or as we{'\n'}
+                                <Text style={styles.questionTextIndent}>used to say "illest") MCs?</Text>
                             </Text>
 
                             <TouchableOpacity
                                 style={styles.inputArea}
-                                onPress={() => openModal('question3')}
+                                onPress={() => openModal('question5')}
                                 activeOpacity={0.7}
                             >
-                                {question3 ? (
+                                {question5 ? (
                                     <Text style={styles.answerText}>
-                                        {question3}
+                                        {question5}
                                     </Text>
                                 ) : (
                                     <View style={styles.emptyBox}>
@@ -117,21 +116,22 @@ export default function IntroductionPage26({ pageNumber }: IntroductionPage26Pro
                             </TouchableOpacity>
                         </View>
 
-                        {/* Question 4 Section */}
+                        {/* Question 6 Section */}
                         <View style={styles.questionSection}>
                             <Text style={styles.questionText}>
-                                4. What were the emotions you felt hearing{'\n'}
-                                <Text style={styles.questionTextIndent}>Hip-Hop for the first time?</Text>
+                                6. Did Hip-Hop inspire you to become, or want to{'\n'}
+                                <Text style={styles.questionTextIndent}>become, a lyricist, rapper, dancer, or DJ? If so,{'\n'}</Text>
+                                <Text style={styles.questionTextIndent}>was there anyone in particular who inspired you?</Text>
                             </Text>
 
                             <TouchableOpacity
                                 style={styles.inputArea}
-                                onPress={() => openModal('question4')}
+                                onPress={() => openModal('question6')}
                                 activeOpacity={0.7}
                             >
-                                {question4 ? (
+                                {question6 ? (
                                     <Text style={styles.answerText}>
-                                        {question4}
+                                        {question6}
                                     </Text>
                                 ) : (
                                     <View style={styles.emptyBox}>
@@ -141,10 +141,10 @@ export default function IntroductionPage26({ pageNumber }: IntroductionPage26Pro
                             </TouchableOpacity>
                         </View>
 
-                        {/* Chain necklace icon at bottom left */}
+                        {/* B-boy icon at bottom left */}
                         <Image
-                            source={require('../assets/hip_hop_chain.png')}
-                            style={styles.necklaceIcon}
+                            source={require('../assets/b_boy1.png')}
+                            style={styles.graffitiIcon}
                             resizeMode="contain"
                         />
                     </View>
@@ -208,13 +208,13 @@ const styles = StyleSheet.create({
         paddingBottom: moderateScale(40),
         justifyContent: 'space-between',
     },
-    splatterIcon: {
+    musicIcon: {
         position: 'absolute',
         top: moderateScale(10),
         right: moderateScale(20),
         width: moderateScale(70),
         height: moderateScale(70),
-        tintColor: '#FF69B4',
+        tintColor: '#6A5ACD',
     },
     questionSection: {
         marginBottom: moderateScale(20),
@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
         fontSize: scaleFont(18),
         fontWeight: '600',
         fontStyle: 'italic',
-        paddingLeft: moderateScale(80),
+        paddingLeft: moderateScale(40),
     },
     inputArea: {
         position: 'relative',
@@ -250,24 +250,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         pointerEvents: 'none',
     },
-    responseBox: {
-        width: '100%',
-        minHeight: moderateScale(180),
-        borderWidth: 1.5,
-        borderColor: '#333',
-        borderRadius: 4,
-        backgroundColor: '#fff',
-        padding: moderateScale(12),
-    },
-    answerBox: {
-        width: '100%',
-        minHeight: moderateScale(180),
-        borderWidth: 1.5,
-        borderColor: '#333',
-        borderRadius: 4,
-        backgroundColor: '#fff',
-        padding: moderateScale(12),
-    },
     answerText: {
         fontSize: scaleFont(14),
         color: '#000',
@@ -279,13 +261,13 @@ const styles = StyleSheet.create({
         color: '#999',
         fontStyle: 'italic',
     },
-    necklaceIcon: {
-        width: moderateScale(80),
-        height: moderateScale(80),
+    graffitiIcon: {
+        width: moderateScale(90),
+        height: moderateScale(90),
         alignSelf: 'flex-start',
         marginLeft: moderateScale(20),
         marginTop: moderateScale(-20),
-        tintColor: '#9370DB',
+        tintColor: '#FF1493',
     },
     // Modal styles
     modalOverlay: {

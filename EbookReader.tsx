@@ -137,7 +137,7 @@ export default function EbookReader({ onBackToHome }: EbookReaderProps) {
                         onNextPage={goToNextPage}
                         onPreviousPage={goToPreviousPage}
                         onToggleControls={toggleControls}
-                        disableCenterZone={currentPage === 24 || currentPage === 25}
+                        disableCenterZone={currentPage === 24 || currentPage === 25 || currentPage === 26 || currentPage === 27}
                     />
 
                     <NavigationControls
