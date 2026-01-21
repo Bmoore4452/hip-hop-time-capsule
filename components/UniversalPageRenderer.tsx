@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Image, Dimensions, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, Image, Dimensions, ActivityIndicator, Text } from 'react-native';
 import SafeAreaWrapper from './SafeAreaWrapper';
 import { colors } from '../utils/colors';
 import { PageMetadata } from '../types/pageTypes';
 import InteractiveFieldOverlay from './InteractiveFieldOverlay';
 import pagesMetadata from '../data/pages-metadata.json';
 import { getPageImage } from '../utils/pageImages';
+
+// Decorative images registry
+const DECORATIVE_IMAGES: { [key: string]: any } = {
+    'b_boy1.png': require('../assets/b_boy1.png'),
+    'crown.png': require('../assets/crown.png'),
+    'hip_hop_chain.png': require('../assets/hip_hop_chain.png'),
+    'ink_blot.png': require('../assets/ink_blot.png'),
+    'microphone.png': require('../assets/microphone.png'),
+    'splash-icon.png': require('../assets/splash-icon.png'),
+};
 
 interface UniversalPageRendererProps {
     pageNumber: number;
@@ -59,6 +69,31 @@ export default function UniversalPageRenderer({ pageNumber }: UniversalPageRende
                     </View>
                 )}
 
+                {/* Decorative images overlay */}
+                {pageData.decorativeImages && pageData.decorativeImages.map((decorative, index) => {
+                    const imageSource = DECORATIVE_IMAGES[decorative.name];
+                    if (!imageSource) return null;
+
+                    return (
+                        <Image
+                            key={`decorative-${index}`}
+                            source={imageSource}
+                            style={[
+                                styles.decorativeImage,
+                                {
+                                    top: decorative.position.top,
+                                    bottom: decorative.position.bottom,
+                                    left: decorative.position.left,
+                                    right: decorative.position.right,
+                                    width: decorative.width,
+                                    height: decorative.height,
+                                }
+                            ]}
+                            resizeMode="contain"
+                        />
+                    );
+                })}
+
                 {/* Interactive fields overlay */}
                 {pageData.hasInputFields && pageData.inputFields && (
                     <InteractiveFieldOverlay
@@ -95,5 +130,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(255, 255, 255, 0.8)',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    decorativeImage: {
+        position: 'absolute',
+        zIndex: 5,
     },
 });
