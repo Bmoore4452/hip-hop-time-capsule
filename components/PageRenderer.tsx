@@ -25,16 +25,22 @@ import IntroductionPage21 from "./IntroductionPage21";
 import IntroductionPage22 from "./IntroductionPage22";
 import IntroductionPage23 from "./IntroductionPage23";
 import IntroductionPage24 from "./IntroductionPage24";
-import IntroductionPage25 from "./IntroductionPage25";
-import IntroductionPage26 from "./IntroductionPage26";
+import QuestionPage from "./QuestionPage";
+import QuotesPage from "./QuotesPage";
+import TriviaGame from "./TriviaGame";
+import { isQuestionPage } from "../utils/questionsConfig";
+import { isQuotesPage } from "../utils/quotesData";
 
 interface PageRendererProps {
     pageNumber: number;
     onNavigateNext?: () => void;
     onNavigatePrevious?: () => void;
+    onGoToPage?: (page: number) => void;
+    onShowNavigation?: () => void;
+    onTriviaStateChange?: (state: string) => void;
 }
 
-export default function PageRenderer({ pageNumber, onNavigateNext, onNavigatePrevious }: PageRendererProps) {
+export default function PageRenderer({ pageNumber, onNavigateNext, onNavigatePrevious, onGoToPage, onShowNavigation, onTriviaStateChange }: PageRendererProps) {
     const renderPage = () => {
         switch (pageNumber) {
             case 1:
@@ -91,13 +97,27 @@ export default function PageRenderer({ pageNumber, onNavigateNext, onNavigatePre
                 return <IntroductionPage23 pageNumber={pageNumber} />;
             case 24:
                 return <IntroductionPage24 pageNumber={pageNumber} />;
-            case 25:
-                return <IntroductionPage25 pageNumber={pageNumber} />;
-            case 26:
-                return <IntroductionPage26 pageNumber={pageNumber} />;
             case 285: // Keep it at the end too
                 return <ThankYouPage pageNumber={pageNumber} />;
             default:
+                // Check if this is a question page (pages 25+)
+                if (isQuestionPage(pageNumber)) {
+                    return <QuestionPage pageNumber={pageNumber} />;
+                }
+                // Check if this is a quotes page (pages 76-80)
+                if (isQuotesPage(pageNumber)) {
+                    return <QuotesPage pageNumber={pageNumber} />;
+                }
+                // Check if this is a trivia page (pages 81-90)
+                if (pageNumber >= 81 && pageNumber <= 90) {
+                    return (
+                        <TriviaGame
+                            onContinue={() => onGoToPage ? onGoToPage(91) : onNavigateNext?.()}
+                            onShowNavigation={onShowNavigation}
+                            onGameStateChange={onTriviaStateChange}
+                        />
+                    );
+                }
                 // For regular content pages, you could load from JSON or other data source
                 return (
                     <View style={styles.container}>

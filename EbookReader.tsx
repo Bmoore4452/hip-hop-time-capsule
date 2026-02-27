@@ -1,27 +1,26 @@
 import React, { useState, useEffect } from "react";
 import {
     View,
-    TouchableOpacity,
-    Text,
     StyleSheet,
-    Dimensions,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { GestureHandlerRootView, PanGestureHandler, State } from 'react-native-gesture-handler';
 import PageRenderer from "./components/PageRenderer";
-import PageFooter from "./components/PageFooter";
 import NavigationControls from "./components/NavigationControls";
 import NavigationHint from "./components/NavigationHint";
 import InvisibleNavZones from "./components/InvisibleNavZones";
-
-const { width } = Dimensions.get("window");
 
 export default function EbookReader() {
     const [currentPage, setCurrentPage] = useState(1);
     const [showNavControls, setShowNavControls] = useState(false); // Start hidden
     const [showNavigationHint, setShowNavigationHint] = useState(true);
     const [hideControlsTimer, setHideControlsTimer] = useState<NodeJS.Timeout | null>(null);
+    const [triviaGameState, setTriviaGameState] = useState<string>('splash');
     const totalPages = 285;
+
+    const isTriviaPage = currentPage >= 81 && currentPage <= 90;
+    const isTriviaPlaying = isTriviaPage && triviaGameState !== 'splash';
+    const isQuestionPage = currentPage >= 25 && currentPage <= 75;
 
     // Auto-hide navigation controls after 3 seconds
     const scheduleHideControls = () => {
@@ -60,6 +59,12 @@ export default function EbookReader() {
     }, [hideControlsTimer]);
 
     const goToNextPage = () => {
+        // Skip trivia pages when navigating forward from splash
+        if (isTriviaPage && triviaGameState === 'splash') {
+            setCurrentPage(91);
+            showControlsTemporary();
+            return;
+        }
         if (currentPage < totalPages) {
             setCurrentPage(currentPage + 1);
             showControlsTemporary(); // Show controls briefly on navigation
@@ -67,23 +72,15 @@ export default function EbookReader() {
     };
 
     const goToPreviousPage = () => {
+        // Skip trivia pages when navigating backward from splash
+        if (isTriviaPage && triviaGameState === 'splash') {
+            setCurrentPage(80);
+            showControlsTemporary();
+            return;
+        }
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
             showControlsTemporary(); // Show controls briefly on navigation
-        }
-    };
-
-    const handlePageTap = (event: any) => {
-        // This is now handled by InvisibleNavZones, but kept for compatibility
-        const { locationX } = event.nativeEvent;
-        const quarterWidth = width * 0.25;
-
-        if (locationX < quarterWidth) {
-            goToPreviousPage();
-        } else if (locationX > (width - quarterWidth)) {
-            goToNextPage();
-        } else {
-            toggleControls();
         }
     };
 
@@ -115,14 +112,17 @@ export default function EbookReader() {
                         pageNumber={currentPage}
                         onNavigateNext={goToNextPage}
                         onNavigatePrevious={goToPreviousPage}
+                        onGoToPage={handlePageChange}
+                        onShowNavigation={showControlsTemporary}
+                        onTriviaStateChange={setTriviaGameState}
                     />
 
-                    {/* Invisible navigation zones - center zone disabled on pages with interactive inputs */}
                     <InvisibleNavZones
                         onNextPage={goToNextPage}
                         onPreviousPage={goToPreviousPage}
                         onToggleControls={toggleControls}
-                        disableCenterZone={currentPage === 24 || currentPage === 25}
+                        disableCenterZone={isQuestionPage || isTriviaPage}
+                        disabled={isTriviaPlaying}
                     />
 
                     <NavigationControls
@@ -132,12 +132,6 @@ export default function EbookReader() {
                         onPreviousPage={goToPreviousPage}
                         onPageChange={handlePageChange}
                         visible={showNavControls}
-                    />
-
-                    <PageFooter
-                        currentPage={currentPage}
-                        totalPages={totalPages}
-                        onPageChange={handlePageChange}
                     />
 
                     <NavigationHint

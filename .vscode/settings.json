@@ -19,5 +19,6 @@
     "titleBar.inactiveBackground": "#37449499",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "java.compile.nullAnalysis.mode": "automatic"
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.configuration.updateBuildConfiguration": "interactive"
 }

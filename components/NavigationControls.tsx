@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Animated } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Animated, Modal, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
 import { scaleFont, moderateScale } from '../utils/responsive';
 import { colors } from '../utils/colors';
 
@@ -21,6 +21,19 @@ const NavigationControls: React.FC<NavigationControlsProps> = ({
     visible = true,
 }) => {
     const [fadeAnim] = useState(new Animated.Value(visible ? 1 : 0));
+    const [showJumpModal, setShowJumpModal] = useState(false);
+    const [jumpPageInput, setJumpPageInput] = useState('');
+    const inputRef = useRef<TextInput>(null);
+
+    // Focus and select text when modal opens
+    useEffect(() => {
+        if (showJumpModal) {
+            const timer = setTimeout(() => {
+                inputRef.current?.focus();
+            }, 100);
+            return () => clearTimeout(timer);
+        }
+    }, [showJumpModal]);
 
     useEffect(() => {
         Animated.timing(fadeAnim, {
@@ -33,44 +46,114 @@ const NavigationControls: React.FC<NavigationControlsProps> = ({
     const canGoBack = currentPage > 1;
     const canGoForward = currentPage < totalPages;
 
-    return (
-        <Animated.View style={[styles.container, { opacity: fadeAnim }]}>
-            {/* Previous Button */}
-            <TouchableOpacity
-                style={[styles.navButton, styles.previousButton, !canGoBack && styles.disabledButton]}
-                onPress={onPreviousPage}
-                disabled={!canGoBack}
-                activeOpacity={0.7}
-            >
-                <Text style={[styles.navButtonText, !canGoBack && styles.disabledText]}>‹</Text>
-            </TouchableOpacity>
+    const handleOpenJumpModal = () => {
+        setJumpPageInput(String(currentPage));
+        setShowJumpModal(true);
+    };
 
-            {/* Page Indicator */}
-            <View style={styles.pageIndicator}>
+    const handleJumpToPage = () => {
+        const pageNum = parseInt(jumpPageInput, 10);
+        if (!isNaN(pageNum) && pageNum >= 1 && pageNum <= totalPages) {
+            onPageChange(pageNum);
+        }
+        setShowJumpModal(false);
+        setJumpPageInput('');
+    };
+
+    const handleCancelJump = () => {
+        setShowJumpModal(false);
+        setJumpPageInput('');
+    };
+
+    return (
+        <>
+            <Animated.View style={[styles.container, { opacity: fadeAnim }]} pointerEvents={visible ? 'auto' : 'none'}>
+                {/* Previous Button */}
                 <TouchableOpacity
-                    style={styles.pageNumberContainer}
-                    onPress={() => {
-                        // This could trigger a page selector modal
-                        // For now, we'll just show the page info
-                    }}
+                    style={[styles.navButton, styles.previousButton, !canGoBack && styles.disabledButton]}
+                    onPress={onPreviousPage}
+                    disabled={!canGoBack}
                     activeOpacity={0.7}
                 >
-                    <Text style={styles.pageText}>
-                        {currentPage} of {totalPages}
-                    </Text>
+                    <Text style={[styles.navButtonText, !canGoBack && styles.disabledText]}>‹</Text>
                 </TouchableOpacity>
-            </View>
 
-            {/* Next Button */}
-            <TouchableOpacity
-                style={[styles.navButton, styles.nextButton, !canGoForward && styles.disabledButton]}
-                onPress={onNextPage}
-                disabled={!canGoForward}
-                activeOpacity={0.7}
+                {/* Page Indicator */}
+                <View style={styles.pageIndicator}>
+                    <TouchableOpacity
+                        style={styles.pageNumberContainer}
+                        onPress={handleOpenJumpModal}
+                        activeOpacity={0.7}
+                    >
+                        <Text style={styles.pageText}>
+                            {currentPage} of {totalPages}
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+
+                {/* Next Button */}
+                <TouchableOpacity
+                    style={[styles.navButton, styles.nextButton, !canGoForward && styles.disabledButton]}
+                    onPress={onNextPage}
+                    disabled={!canGoForward}
+                    activeOpacity={0.7}
+                >
+                    <Text style={[styles.navButtonText, !canGoForward && styles.disabledText]}>›</Text>
+                </TouchableOpacity>
+            </Animated.View>
+
+            {/* Jump to Page Modal */}
+            <Modal
+                visible={showJumpModal}
+                transparent={true}
+                animationType="fade"
+                onRequestClose={handleCancelJump}
             >
-                <Text style={[styles.navButtonText, !canGoForward && styles.disabledText]}>›</Text>
-            </TouchableOpacity>
-        </Animated.View>
+                <KeyboardAvoidingView
+                    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                    style={styles.modalOverlay}
+                >
+                    <TouchableOpacity
+                        style={styles.modalOverlay}
+                        activeOpacity={1}
+                        onPress={handleCancelJump}
+                    >
+                        <TouchableOpacity
+                            activeOpacity={1}
+                            onPress={(e) => e.stopPropagation()}
+                            style={styles.modalContainer}
+                        >
+                            <Text style={styles.modalTitle}>Jump to Page</Text>
+                            <TextInput
+                                ref={inputRef}
+                                style={styles.modalInput}
+                                value={jumpPageInput}
+                                onChangeText={setJumpPageInput}
+                                keyboardType="number-pad"
+                                autoFocus={true}
+                                selectTextOnFocus={true}
+                                placeholder={`1 - ${totalPages}`}
+                                placeholderTextColor="#999"
+                            />
+                            <View style={styles.modalButtons}>
+                                <TouchableOpacity
+                                    style={[styles.modalButton, styles.cancelButton]}
+                                    onPress={handleCancelJump}
+                                >
+                                    <Text style={styles.cancelButtonText}>Cancel</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity
+                                    style={[styles.modalButton, styles.goButton]}
+                                    onPress={handleJumpToPage}
+                                >
+                                    <Text style={styles.goButtonText}>Go</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </TouchableOpacity>
+                    </TouchableOpacity>
+                </KeyboardAvoidingView>
+            </Modal>
+        </>
     );
 };
 
@@ -146,6 +229,69 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         color: colors.primary,
         textAlign: 'center',
+    },
+    modalOverlay: {
+        flex: 1,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    modalContainer: {
+        backgroundColor: '#fff',
+        borderRadius: moderateScale(16),
+        padding: moderateScale(24),
+        width: '80%',
+        maxWidth: '100%',
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 8,
+        elevation: 10,
+    },
+    modalTitle: {
+        fontSize: scaleFont(18),
+        fontWeight: 'bold',
+        color: colors.primary,
+        marginBottom: moderateScale(16),
+    },
+    modalInput: {
+        width: '100%',
+        borderWidth: 2,
+        borderColor: colors.primary,
+        borderRadius: moderateScale(10),
+        padding: moderateScale(12),
+        fontSize: scaleFont(18),
+        textAlign: 'center',
+        marginBottom: moderateScale(20),
+    },
+    modalButtons: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '100%',
+    },
+    modalButton: {
+        flex: 1,
+        paddingVertical: moderateScale(12),
+        borderRadius: moderateScale(10),
+        marginHorizontal: moderateScale(5),
+        alignItems: 'center',
+    },
+    cancelButton: {
+        backgroundColor: '#eee',
+    },
+    cancelButtonText: {
+        color: '#666',
+        fontSize: scaleFont(16),
+        fontWeight: '600',
+    },
+    goButton: {
+        backgroundColor: colors.primary,
+    },
+    goButtonText: {
+        color: '#fff',
+        fontSize: scaleFont(16),
+        fontWeight: '600',
     },
 });
 
