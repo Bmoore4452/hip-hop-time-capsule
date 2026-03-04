@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
     View,
     StyleSheet,
+    PanResponder,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { GestureHandlerRootView, PanGestureHandler, State } from 'react-native-gesture-handler';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import PageRenderer from "./components/PageRenderer";
 import NavigationControls from "./components/NavigationControls";
 import NavigationHint from "./components/NavigationHint";
@@ -12,7 +13,7 @@ import InvisibleNavZones from "./components/InvisibleNavZones";
 
 export default function EbookReader() {
     const [currentPage, setCurrentPage] = useState(1);
-    const [showNavControls, setShowNavControls] = useState(false); // Start hidden
+    const [showNavControls, setShowNavControls] = useState(false);
     const [showNavigationHint, setShowNavigationHint] = useState(true);
     const [hideControlsTimer, setHideControlsTimer] = useState<NodeJS.Timeout | null>(null);
     const [triviaGameState, setTriviaGameState] = useState<string>('splash');
@@ -21,8 +22,10 @@ export default function EbookReader() {
     const isTriviaPage = currentPage >= 81 && currentPage <= 90;
     const isTriviaPlaying = isTriviaPage && triviaGameState !== 'splash';
     const isQuestionPage = currentPage >= 25 && currentPage <= 75;
+    const isScrollablePage =
+        (currentPage >= 93 && currentPage <= 142) ||  // DJ Scipio answers
+        (currentPage >= 145 && currentPage <= 211);   // Anita Scipio answers
 
-    // Auto-hide navigation controls after 3 seconds
     const scheduleHideControls = () => {
         if (hideControlsTimer) {
             clearTimeout(hideControlsTimer);
@@ -33,7 +36,6 @@ export default function EbookReader() {
         setHideControlsTimer(timer);
     };
 
-    // Show controls and schedule auto-hide
     const showControlsTemporary = () => {
         setShowNavControls(true);
         scheduleHideControls();
@@ -59,7 +61,6 @@ export default function EbookReader() {
     }, [hideControlsTimer]);
 
     const goToNextPage = () => {
-        // Skip trivia pages when navigating forward from splash
         if (isTriviaPage && triviaGameState === 'splash') {
             setCurrentPage(91);
             showControlsTemporary();
@@ -67,12 +68,11 @@ export default function EbookReader() {
         }
         if (currentPage < totalPages) {
             setCurrentPage(currentPage + 1);
-            showControlsTemporary(); // Show controls briefly on navigation
+            showControlsTemporary();
         }
     };
 
     const goToPreviousPage = () => {
-        // Skip trivia pages when navigating backward from splash
         if (isTriviaPage && triviaGameState === 'splash') {
             setCurrentPage(80);
             showControlsTemporary();
@@ -80,7 +80,7 @@ export default function EbookReader() {
         }
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
-            showControlsTemporary(); // Show controls briefly on navigation
+            showControlsTemporary();
         }
     };
 
@@ -88,60 +88,64 @@ export default function EbookReader() {
         setCurrentPage(pageNumber);
     };
 
-    const handleSwipeGesture = (event: any) => {
-        const { translationX, state } = event.nativeEvent;
+    // Keep refs current so the PanResponder (created once) always calls the latest functions
+    const goToNextPageRef = useRef(goToNextPage);
+    const goToPreviousPageRef = useRef(goToPreviousPage);
+    goToNextPageRef.current = goToNextPage;
+    goToPreviousPageRef.current = goToPreviousPage;
 
-        if (state === State.END) {
-            const swipeThreshold = 50;
-
-            if (translationX > swipeThreshold) {
-                // Swipe right - go to previous page
-                goToPreviousPage();
-            } else if (translationX < -swipeThreshold) {
-                // Swipe left - go to next page
-                goToNextPage();
-            }
-        }
-    };
+    const panResponder = useRef(
+        PanResponder.create({
+            // Only claim the gesture after movement begins and it is clearly horizontal
+            onMoveShouldSetPanResponder: (_, gestureState) =>
+                Math.abs(gestureState.dx) > Math.abs(gestureState.dy) &&
+                Math.abs(gestureState.dx) > 10,
+            onPanResponderRelease: (_, gestureState) => {
+                if (gestureState.dx > 50) {
+                    goToPreviousPageRef.current();
+                } else if (gestureState.dx < -50) {
+                    goToNextPageRef.current();
+                }
+            },
+        })
+    ).current;
 
     return (
         <GestureHandlerRootView style={styles.container}>
-            <PanGestureHandler onGestureEvent={handleSwipeGesture}>
-                <View style={styles.container}>
-                    <PageRenderer
-                        pageNumber={currentPage}
-                        onNavigateNext={goToNextPage}
-                        onNavigatePrevious={goToPreviousPage}
-                        onGoToPage={handlePageChange}
-                        onShowNavigation={showControlsTemporary}
-                        onTriviaStateChange={setTriviaGameState}
-                    />
+            <View style={styles.container} {...panResponder.panHandlers}>
+                <PageRenderer
+                    pageNumber={currentPage}
+                    onNavigateNext={goToNextPage}
+                    onNavigatePrevious={goToPreviousPage}
+                    onGoToPage={handlePageChange}
+                    onShowNavigation={showControlsTemporary}
+                    onTriviaStateChange={setTriviaGameState}
+                />
 
-                    <InvisibleNavZones
-                        onNextPage={goToNextPage}
-                        onPreviousPage={goToPreviousPage}
-                        onToggleControls={toggleControls}
-                        disableCenterZone={isQuestionPage || isTriviaPage}
-                        disabled={isTriviaPlaying}
-                    />
+                <InvisibleNavZones
+                    onNextPage={goToNextPage}
+                    onPreviousPage={goToPreviousPage}
+                    onToggleControls={toggleControls}
+                    disableCenterZone={isQuestionPage || isTriviaPage || isScrollablePage}
+                    disabled={isTriviaPlaying}
+                />
 
-                    <NavigationControls
-                        currentPage={currentPage}
-                        totalPages={totalPages}
-                        onNextPage={goToNextPage}
-                        onPreviousPage={goToPreviousPage}
-                        onPageChange={handlePageChange}
-                        visible={showNavControls}
-                    />
+                <NavigationControls
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onNextPage={goToNextPage}
+                    onPreviousPage={goToPreviousPage}
+                    onPageChange={handlePageChange}
+                    visible={showNavControls}
+                />
 
-                    <NavigationHint
-                        visible={showNavigationHint}
-                        onHide={() => setShowNavigationHint(false)}
-                    />
+                <NavigationHint
+                    visible={showNavigationHint}
+                    onHide={() => setShowNavigationHint(false)}
+                />
 
-                    <StatusBar style="auto" />
-                </View>
-            </PanGestureHandler>
+                <StatusBar style="auto" />
+            </View>
         </GestureHandlerRootView>
     );
 }
