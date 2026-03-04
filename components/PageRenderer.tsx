@@ -28,6 +28,12 @@ import IntroductionPage24 from "./IntroductionPage24";
 import QuestionPage from "./QuestionPage";
 import QuotesPage from "./QuotesPage";
 import TriviaGame from "./TriviaGame";
+import DJScipioJourneyPage from "./DJScipioJourneyPage";
+import DJScipioJourneyPage92 from "./DJScipioJourneyPage92";
+import DJScipioAnswerPage from "./DJScipioAnswerPage";
+import AnitaScipioJourneyPage from "./AnitaScipioJourneyPage";
+import AnitaScipioPage144 from "./AnitaScipioPage144";
+import AnitaScipioAnswerPage from "./AnitaScipioAnswerPage";
 import { isQuestionPage } from "../utils/questionsConfig";
 import { isQuotesPage } from "../utils/quotesData";
 
@@ -97,9 +103,25 @@ export default function PageRenderer({ pageNumber, onNavigateNext, onNavigatePre
                 return <IntroductionPage23 pageNumber={pageNumber} />;
             case 24:
                 return <IntroductionPage24 pageNumber={pageNumber} />;
+            case 91:
+                return <DJScipioJourneyPage pageNumber={pageNumber} />;
+            case 92:
+                return <DJScipioJourneyPage92 pageNumber={pageNumber} />;
+            case 143:
+                return <AnitaScipioJourneyPage pageNumber={pageNumber} />;
+            case 144:
+                return <AnitaScipioPage144 pageNumber={pageNumber} />;
             case 285: // Keep it at the end too
                 return <ThankYouPage pageNumber={pageNumber} />;
             default:
+                // DJ Scipio answer pages (pages 93-142)
+                if (pageNumber >= 93 && pageNumber <= 142) {
+                    return <DJScipioAnswerPage pageNumber={pageNumber} />;
+                }
+                // Anita Scipio answer pages (pages 145-211)
+                if (pageNumber >= 145 && pageNumber <= 211) {
+                    return <AnitaScipioAnswerPage pageNumber={pageNumber} />;
+                }
                 // Check if this is a question page (pages 25+)
                 if (isQuestionPage(pageNumber)) {
                     return <QuestionPage pageNumber={pageNumber} />;
