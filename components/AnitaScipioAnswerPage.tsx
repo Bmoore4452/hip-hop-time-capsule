@@ -107,29 +107,27 @@ export default function AnitaScipioAnswerPage({ pageNumber }: AnitaScipioAnswerP
   if (pageData.pageType === 'continued') {
     return (
       <SafeAreaWrapper backgroundColor={colors.primary}>
-        <ScrollView
-          style={styles.container}
-          contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
-        >
-          <View style={styles.pageLayout}>
-            <View style={styles.continuedContainer}>
-              <Text style={styles.continuedHeader}>Continued...</Text>
-              {pageData.continuedText ? (
-                <View style={styles.continuedBubble}>
-                  <Text style={styles.continuedText}>{pageData.continuedText}</Text>
-                </View>
-              ) : null}
-              {pageData.continuedQRCodes && pageData.continuedQRCodes.length > 0 && (
-                <QRRow codes={pageData.continuedQRCodes} />
-              )}
-            </View>
-            <View style={styles.footer}>
-              <Text style={styles.footerHandle}>@ A N I T A</Text>
-              <Text style={styles.footerPageNumber}>{pageNumber}</Text>
-            </View>
+        <View style={styles.pageContainer}>
+          <ScrollView
+            style={styles.scrollView}
+            contentContainerStyle={styles.continuedScrollContent}
+            showsVerticalScrollIndicator={false}
+          >
+            <Text style={styles.continuedHeader}>Continued...</Text>
+            {pageData.continuedText ? (
+              <View style={styles.continuedBubble}>
+                <Text style={styles.continuedText}>{pageData.continuedText}</Text>
+              </View>
+            ) : null}
+            {pageData.continuedQRCodes && pageData.continuedQRCodes.length > 0 && (
+              <QRRow codes={pageData.continuedQRCodes} />
+            )}
+          </ScrollView>
+          <View style={styles.footer}>
+            <Text style={styles.footerHandle}>@ A N I T A</Text>
+            <Text style={styles.footerPageNumber}>{pageNumber}</Text>
           </View>
-        </ScrollView>
+        </View>
       </SafeAreaWrapper>
     );
   }
@@ -137,23 +135,21 @@ export default function AnitaScipioAnswerPage({ pageNumber }: AnitaScipioAnswerP
   // ── Answers page ───────────────────────────────────────────────────────────
   return (
     <SafeAreaWrapper backgroundColor={colors.primary}>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}
-      >
-        <View style={styles.pageLayout}>
-          <View style={styles.answersContainer}>
-            {(pageData.answers ?? []).map((block) => (
-              <Answer key={block.questionNumber} block={block} />
-            ))}
-          </View>
-          <View style={styles.footer}>
-            <Text style={styles.footerHandle}>@ A N I T A</Text>
-            <Text style={styles.footerPageNumber}>{pageNumber}</Text>
-          </View>
+      <View style={styles.pageContainer}>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.answersScrollContent}
+          showsVerticalScrollIndicator={false}
+        >
+          {(pageData.answers ?? []).map((block) => (
+            <Answer key={block.questionNumber} block={block} />
+          ))}
+        </ScrollView>
+        <View style={styles.footer}>
+          <Text style={styles.footerHandle}>@ A N I T A</Text>
+          <Text style={styles.footerPageNumber}>{pageNumber}</Text>
         </View>
-      </ScrollView>
+      </View>
     </SafeAreaWrapper>
   );
 }
@@ -168,19 +164,27 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  scrollContent: {
-    flexGrow: 1,
-  },
-  pageLayout: {
+  // outer wrapper so footer sits outside the scroll area
+  pageContainer: {
     flex: 1,
+    backgroundColor: '#fff',
+  },
+  scrollView: {
+    flex: 1,
+  },
+  // answers pages: gap spaces blocks consistently; flexGrow:1 fills screen on short pages
+  answersScrollContent: {
+    flexGrow: 1,
     paddingHorizontal: moderateScale(24),
     paddingTop: moderateScale(20),
     paddingBottom: moderateScale(16),
-    justifyContent: 'space-between',
+    gap: moderateScale(24),
   },
-  answersContainer: {
-    flex: 1,
-    justifyContent: 'space-evenly',
+  // continued pages: natural top-down flow, footer always outside
+  continuedScrollContent: {
+    paddingHorizontal: moderateScale(24),
+    paddingTop: moderateScale(20),
+    paddingBottom: moderateScale(8),
   },
 
   // ── Answer block ────────────────────────────────────────────────────────────
@@ -291,9 +295,6 @@ const styles = StyleSheet.create({
   },
 
   // ── Continued page ──────────────────────────────────────────────────────────
-  continuedContainer: {
-    flex: 1,
-  },
   continuedHeader: {
     fontSize: scaleFont(13),
     fontWeight: 'bold',

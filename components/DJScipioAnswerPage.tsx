@@ -106,26 +106,21 @@ export default function DJScipioAnswerPage({ pageNumber }: DJScipioAnswerPagePro
 
   return (
     <SafeAreaWrapper backgroundColor={colors.primary}>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}
-      >
-        {/* pageLayout uses space-between so the footer is always pinned to bottom */}
-        <View style={styles.pageLayout}>
-          {/* answersContainer uses space-evenly so blocks spread across available height */}
-          <View style={styles.answersContainer}>
-            {pageData.answers.map((block) => (
-              <Answer key={block.questionNumber} block={block} />
-            ))}
-          </View>
-
-          <View style={styles.footer}>
-            <Text style={styles.footerHandle}>@ D J  S C I P I O</Text>
-            <Text style={styles.footerPageNumber}>{pageNumber}</Text>
-          </View>
+      <View style={styles.pageContainer}>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
+          {pageData.answers.map((block) => (
+            <Answer key={block.questionNumber} block={block} />
+          ))}
+        </ScrollView>
+        <View style={styles.footer}>
+          <Text style={styles.footerHandle}>@ D J  S C I P I O</Text>
+          <Text style={styles.footerPageNumber}>{pageNumber}</Text>
         </View>
-      </ScrollView>
+      </View>
     </SafeAreaWrapper>
   );
 }
@@ -140,22 +135,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  // scrollContent grows to fill screen height so pageLayout can distribute space
+  pageContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  scrollView: {
+    flex: 1,
+  },
+  // gap spaces blocks consistently; flexGrow:1 fills screen on short pages
   scrollContent: {
     flexGrow: 1,
-  },
-  // top-level flex container: answers take all available space, footer pinned to bottom
-  pageLayout: {
-    flex: 1,
     paddingHorizontal: moderateScale(24),
     paddingTop: moderateScale(20),
     paddingBottom: moderateScale(16),
-    justifyContent: 'space-between',
-  },
-  // answers spread evenly across the space above the footer
-  answersContainer: {
-    flex: 1,
-    justifyContent: 'space-evenly',
+    gap: moderateScale(24),
   },
 
   // ── Answer block ────────────────────────────────────────────────────────────
