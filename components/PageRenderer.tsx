@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { PageFooterContext } from "./PageFooterContext";
 
 // Import your page components
 import TitlePage from "./TitlePage";
@@ -34,6 +35,15 @@ import DJScipioAnswerPage from "./DJScipioAnswerPage";
 import AnitaScipioJourneyPage from "./AnitaScipioJourneyPage";
 import AnitaScipioPage144 from "./AnitaScipioPage144";
 import AnitaScipioAnswerPage from "./AnitaScipioAnswerPage";
+import YankeeConcertPage from "./YankeeConcertPage";
+import BurstSplashPage from "./BurstSplashPage";
+import TributePage from "./TributePage";
+import ThankYouSectionsPage from "./ThankYouSectionsPage";
+import LetterTributePage from "./LetterTributePage";
+import SpecialThanksPage from "./SpecialThanksPage";
+import IHeartThanksPage from "./IHeartThanksPage";
+import AngelaYeePage from "./AngelaYeePage";
+import BreakfastClubPage from "./BreakfastClubPage";
 import { isQuestionPage } from "../utils/questionsConfig";
 import { isQuotesPage } from "../utils/quotesData";
 
@@ -111,6 +121,25 @@ export default function PageRenderer({ pageNumber, onNavigateNext, onNavigatePre
                 return <AnitaScipioJourneyPage pageNumber={pageNumber} />;
             case 144:
                 return <AnitaScipioPage144 pageNumber={pageNumber} />;
+            case 213:
+            case 214:
+                return <YankeeConcertPage pageNumber={pageNumber} />;
+            case 215:
+                return <BurstSplashPage pageNumber={pageNumber} lines={["ANITA", "“THANK-YOUS”"]} />;
+            case 216:
+                return <TributePage pageNumber={pageNumber} />;
+            case 217:
+                return <ThankYouSectionsPage pageNumber={pageNumber} />;
+            case 218:
+                return <LetterTributePage pageNumber={pageNumber} />;
+            case 219:
+                return <SpecialThanksPage pageNumber={pageNumber} />;
+            case 220:
+                return <IHeartThanksPage pageNumber={pageNumber} />;
+            case 221:
+                return <AngelaYeePage pageNumber={pageNumber} />;
+            case 222:
+                return <BreakfastClubPage pageNumber={pageNumber} />;
             case 285: // Keep it at the end too
                 return <ThankYouPage pageNumber={pageNumber} />;
             default:
@@ -118,8 +147,8 @@ export default function PageRenderer({ pageNumber, onNavigateNext, onNavigatePre
                 if (pageNumber >= 93 && pageNumber <= 142) {
                     return <DJScipioAnswerPage pageNumber={pageNumber} />;
                 }
-                // Anita Scipio answer pages (pages 145-211)
-                if (pageNumber >= 145 && pageNumber <= 211) {
+                // Anita Scipio answer pages (pages 145-212)
+                if (pageNumber >= 145 && pageNumber <= 212) {
                     return <AnitaScipioAnswerPage pageNumber={pageNumber} />;
                 }
                 // Check if this is a question page (pages 25+)
@@ -152,7 +181,21 @@ export default function PageRenderer({ pageNumber, onNavigateNext, onNavigatePre
         }
     };
 
-    return renderPage();
+    // The standard bottom footer (page number) is shown on every page except
+    // the trivia game and pages that already draw their own footer.
+    const isTriviaPage = pageNumber >= 81 && pageNumber <= 90;
+    const hasOwnFooter =
+        (pageNumber >= 93 && pageNumber <= 142) ||  // DJ Scipio answer pages
+        (pageNumber >= 145 && pageNumber <= 211) || // Anita Scipio answer pages
+        pageNumber === 143 ||                        // Anita Scipio journey (purple)
+        pageNumber === 215;                          // Anita "Thank-Yous" burst (purple)
+    const footerPageNumber = isTriviaPage || hasOwnFooter ? null : pageNumber;
+
+    return (
+        <PageFooterContext.Provider value={footerPageNumber}>
+            {renderPage()}
+        </PageFooterContext.Provider>
+    );
 }
 
 const styles = StyleSheet.create({

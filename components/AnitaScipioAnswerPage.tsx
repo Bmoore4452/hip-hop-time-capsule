@@ -117,6 +117,9 @@ export default function AnitaScipioAnswerPage({ pageNumber }: AnitaScipioAnswerP
             {pageData.continuedText ? (
               <View style={styles.continuedBubble}>
                 <Text style={styles.continuedText}>{pageData.continuedText}</Text>
+                {pageData.continuedTagline ? (
+                  <Text style={styles.continuedTagline}>{pageData.continuedTagline}</Text>
+                ) : null}
               </View>
             ) : null}
             {pageData.continuedQRCodes && pageData.continuedQRCodes.length > 0 && (
@@ -313,6 +316,12 @@ const styles = StyleSheet.create({
     lineHeight: scaleFont(19),
     color: '#000',
     textAlign: 'justify',
+  },
+  continuedTagline: {
+    fontSize: scaleFont(17),
+    fontWeight: 'bold',
+    color: colors.accent,
+    marginTop: moderateScale(14),
   },
 
   // ── Footer ──────────────────────────────────────────────────────────────────

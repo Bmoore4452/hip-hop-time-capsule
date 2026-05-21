@@ -18,6 +18,7 @@ export interface AnitaPageData {
   pageType: AnitaPageType;
   answers?: AnitaAnswerBlock[];
   continuedText?: string;
+  continuedTagline?: string;
   continuedQRCodes?: QRCodeEntry[];
 }
 
@@ -1942,6 +1943,15 @@ export const anitaScipioPages: AnitaPageData[] = [
           "On August 11, 2023, I realized I was Hip-Hop when I attended The Hip-Hop 50 Live at Yankee Stadium in the Boogie Down Bronx. It was a warm, beautiful night, and tens of thousands of people waited in long, exhausting lines to be there. As I looked around the crowd, most people wore throwback Hip-Hop gear, and others wore new-generation Hip-Hop gear.\n\nThat was the day I witnessed the true power of Hip-Hop. The lineup was like nothing I had ever seen before. As I gazed across Yankee Stadium, I saw abundant joy, excitement, and unity, creating a feeling I didn't ever remember experiencing before. The crowd was there to have a good time, and for nine whole hours, we did just that! I looked around as far as I could see... observing people's reactions to every song and every artist. People of all ethnicities were there for one reason: to celebrate their love of Hip-Hop!\n\nAs far as I could see, some people were jumping up and screaming at the top of their lungs, while others were sitting down, just chillin' and boppin', and then the reverse would happen. It was truly magical!",
       },
     ],
+  },
+
+  // ── Page 212 ────────────────────────────────────────────────────────────────
+  {
+    pageNumber: 212,
+    pageType: "continued",
+    continuedText:
+      "Everybody seemed to have that one song or that favorite verse where they just lost their mind. I was there that night with my nephews Kevin Bush and Melvin Hayes, my niece Denise Scipio, my daughter Arlene Scipio, and my \"son\" Misa Nunez! We had an awesome time together! We sat in \"those way-up, just happy to be here seats,\" it was a night I will never forget! That night, all generations blended beautifully. We all had our favorite songs, but we also loved many of the same ones.\n\nOf course, there were some artists that I connected to more than others, depending on what they have meant to me throughout my life. When one of my favorite songs came on, I felt electrified with joy and happiness. For me, Hip-Hop is pulsating beats, rhymes, poetic prowess, storytelling, and pure joy! Memories of people, places, and things flooded my mind, and all the joy that came with them flooded my mind. I reminisced all the joyful times, dancing in my living room with my wonderful family members, many of whom are no longer here.\n\nThat night, I was so proud and blessed to be a part of a once-in-a-lifetime experience. Yes, indeed, once again, that was the night I realized...",
+    continuedTagline: "I AM HIP-HOP!",
   },
 ];
 

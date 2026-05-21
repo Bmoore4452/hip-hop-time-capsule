@@ -20,9 +20,6 @@ export default function IntroductionPage23({ pageNumber }: IntroductionPage23Pro
                     {/* Subtitle */}
                     <Text style={styles.subText}>THE QUESTIONS ARE{'\n'}COMING UP NEXT</Text>
                 </View>
-
-                {/* Page number */}
-                <Text style={styles.pageNumber}>{pageNumber}</Text>
             </View>
         </SafeAreaWrapper>
     );

@@ -66,7 +66,6 @@ export default function AnitaScipioPage144({ pageNumber }: AnitaScipioPage144Pro
                             style={styles.microphoneIcon}
                             resizeMode="contain"
                         />
-                        <Text style={styles.pageNumber}>{pageNumber}</Text>
                     </View>
                 </View>
             </View>

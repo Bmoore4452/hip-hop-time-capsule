@@ -24,7 +24,8 @@ export default function EbookReader() {
     const isQuestionPage = currentPage >= 25 && currentPage <= 75;
     const isScrollablePage =
         (currentPage >= 93 && currentPage <= 142) ||  // DJ Scipio answers
-        (currentPage >= 145 && currentPage <= 211);   // Anita Scipio answers
+        (currentPage >= 145 && currentPage <= 211) || // Anita Scipio answers
+        currentPage >= 213;                            // Concert + back-matter content pages (scroll / tappable QR codes)
 
     const scheduleHideControls = () => {
         if (hideControlsTimer) {
