@@ -12,15 +12,15 @@ interface ForewordPage8Props {
 export default function ForewordPage8({ pageNumber }: ForewordPage8Props) {
     const qrCodeData = [
         {
-            url: 'https://youtu.be/H1PplYSE07Q?si=QDoMyfHotMHduUpK',
+            url: 'https://youtu.be/H1PplYSE07Q',
             label: 'The First Battle in Hip-Hop\n- Busy Bee vs Kool Moe Dee'
         },
         {
-            url: 'https://youtu.be/wipb37LGe4U?si=TOTnd98yLWq8f108',
+            url: 'https://youtu.be/wipb37LGe4U?si=fxSJJ-Swzm9eQsNj',
             label: 'Beef 1 - Busy Bee vs\nKool Moe Dee'
         },
         {
-            url: 'https://youtu.be/wu3_4lPIFBc?si=eV8EsHuu6IxsjZlo',
+            url: 'https://youtu.be/wu3_4lPIFBc?si=d6fbwTeaCAgIfRCP',
             label: 'Kool Moe Dee\nDissing Busy Bee (1981)'
         }
     ];

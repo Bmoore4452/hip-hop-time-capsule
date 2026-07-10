@@ -22,7 +22,7 @@ export type BackMatterBlock =
   | { type: 'script'; text: string; color?: string; size?: number; align?: 'left' | 'center' }
   | { type: 'body'; segs: Seg[]; align?: 'left' | 'center' | 'justify'; size?: number }
   | { type: 'image'; source: any; aspectRatio: number; widthPct?: number; caption?: string; captionColor?: string; captionItalic?: boolean }
-  | { type: 'imageRow'; height: number; items: { source: any; aspectRatio: number; caption?: string; captionColor?: string }[]; captionItalic?: boolean }
+  | { type: 'imageRow'; height: number; items: { source: any; aspectRatio: number; caption?: string; captionColor?: string; url?: string }[]; captionItalic?: boolean }
   | { type: 'photoGrid'; columns?: 2 | 3; aspectRatio: number; photos: { source: any; caption?: string }[] }
   | { type: 'nameList'; names: string[]; columns?: 1 | 2; color?: string; italic?: boolean; size?: number }
   | { type: 'spacer'; height?: number };
@@ -191,7 +191,7 @@ export const backMatterPages: BackMatterPageData[] = [
       {
         type: 'imageRow', height: 110, captionItalic: true,
         items: [
-          { source: require('../assets/bm233-qr-insider.png'), aspectRatio: 200 / 199, caption: 'Insider Radio.com' },
+          { source: require('../assets/bm233-qr-insider.png'), aspectRatio: 200 / 199, caption: 'Insider Radio.com', url: 'https://www.insideradio.com/free/david-montague-to-oversee-promotions-at-iheartmedia-new-york-s-wwpr-waxq-wor/article_9437593c-f85a-11ef-aed8-1b06adcc8806.html?utm_medium=social&utm_source=email&utm_campaign=user-share' },
           { source: require('../assets/bm233-david.png'), aspectRatio: 279 / 346 },
         ],
       },
@@ -296,7 +296,7 @@ export const backMatterPages: BackMatterPageData[] = [
       { type: 'body', segs: [{ text: 'Banker.ock, ', bold: true }, { text: 'I thank you for all of your hard work, patience and dedication to this project. Thanks for creating the amazing cover for our book. You are awesome and I can’t thank you enough! I look forward to working with you again! *** I highly recommend Banker.ock for graffiti illustrations, album cover, logos, etc.' }] },
       {
         type: 'imageRow', height: 90, captionItalic: true,
-        items: [{ source: require('../assets/bm245-qr-bankerock.png'), aspectRatio: 165 / 160, caption: 'Banker.ock' }],
+        items: [{ source: require('../assets/bm245-qr-bankerock.png'), aspectRatio: 165 / 160, caption: 'Banker.ock', url: 'https://fiverr.com/s/yabRpA' }],
       },
       { type: 'image', source: ribbon, aspectRatio: 555 / 118, widthPct: 55 },
       { type: 'heading', text: 'Ash Cash Exantus', size: 17 },
@@ -304,7 +304,7 @@ export const backMatterPages: BackMatterPageData[] = [
       { type: 'body', segs: [{ text: 'I met Ash Cash years ago, after his encouraging and insightful interview on ' }, { text: 'The Breakfast Club', italic: true }, { text: '. He truly awesome. His newest project, ' }, { text: 'Book Rich: How to Create a Fortune as a Self-Published Author', italic: true }, { text: ', and his interview(s) on ' }, { text: 'Earn Your Leisure', italic: true }, { text: ' with the awesome, informative and enlightening hosts, ' }, { text: 'Rashad Bilal & Troy Millings', italic: true }, { text: ', were a constant companion throughout my entire book writing process. His insightful perspective and guidance were invaluable and made my journey smoother and more rewarding. I honestly can’t thank him enough! If you are planning or inspired to write a book, I highly recommend checking out Ash’s work, and don’t worry - you can thank me later. :)' }] },
       {
         type: 'imageRow', height: 90,
-        items: [{ source: require('../assets/bm245-qr-ashcash.png'), aspectRatio: 165 / 165, caption: 'Ash Cash on:\n‘Earn Your Leisure’' }],
+        items: [{ source: require('../assets/bm245-qr-ashcash.png'), aspectRatio: 165 / 165, caption: 'Ash Cash on:\n‘Earn Your Leisure’', url: 'https://youtu.be/yprtU9HweS4?si=1iFep1ryTT9tPTyy' }],
       },
     ],
   },
@@ -318,8 +318,8 @@ export const backMatterPages: BackMatterPageData[] = [
       {
         type: 'imageRow', height: 95,
         items: [
-          { source: require('../assets/bm246-qr-sway.png'), aspectRatio: 195 / 195, caption: 'Ralph McDaniel’s on\nSway’s Universe' },
-          { source: require('../assets/bm246-qr-vmb.png'), aspectRatio: 230 / 255 },
+          { source: require('../assets/bm246-qr-sway.png'), aspectRatio: 195 / 195, caption: 'Ralph McDaniel’s on\nSway’s Universe', url: 'https://youtu.be/q1LAHziBVYU?si=FVI2onrfy7jG6WaC' },
+          { source: require('../assets/bm246-qr-vmb.png'), aspectRatio: 230 / 255, url: 'https://www.instagram.com/videomusicbox?utm_source=qr' },
         ],
       },
       { type: 'body', segs: [{ text: 'Ralph McDaniels is a pioneering figure in Hip-Hop culture, best known as the creator and host of ' }, { text: '*Video Music Box', bold: true }, { text: ', one of the first television programs dedicated to Hip-Hop music and culture. Launched in 1983, *Video Music Box* provided a crucial platform for emerging Hip-Hop artists, airing music videos, interviews, and behind-the-scenes footage that helped shape the genre’s visual identity. McDaniels, also known as "Uncle Ralph," played a significant role in documenting the rise of Hip-Hop, showcasing artists like Run-D.M.C., LL Cool J, Nas, and many others before they became mainstream. He is true Hip-Hop royalty!' }] },
@@ -327,7 +327,7 @@ export const backMatterPages: BackMatterPageData[] = [
       { type: 'heading', text: 'Van Silk', size: 18 },
       {
         type: 'imageRow', height: 95,
-        items: [{ source: require('../assets/bm246-qr-rapamania.png'), aspectRatio: 225 / 235 }],
+        items: [{ source: require('../assets/bm246-qr-rapamania.png'), aspectRatio: 225 / 235, url: 'https://www.instagram.com/rapamania_vansilk?utm_source=qr' }],
       },
       { type: 'body', segs: [{ text: 'Cool Kev and DJ SCIPIO introduced me to Van Silk, a legendary Hip-Hop pioneer and the first promoter (1978-1984). He discovered Dougie Fresh & The Force MCs, now known as the Force MDs managed and promoted Grandmaster Flash & the Furious 5 and other early acts. He promoted over 100 shows throughout the 5 Boroughs of NYC in all clubs and venues associated with Hip Hop, i.e., Harlem World, Broadway International, Celebrity Club, T-Connection, Savoy Manor, and The Roxy... to mention a few. ' }, { text: '1989-1991 RAPMANIA ENT.', bold: true }, { text: ' He is the producer and creator of ' }, { text: '‘Rapmania’', bold: true }, { text: ' & ' }, { text: '‘Sisters in The Name of Rap’', bold: true }, { text: ' which were the first two Hip-Hop pay-per-view Special Concert Series. There was a total of seventy-five acts for both shows.' }] },
       { type: 'body', segs: [{ text: 'Incredible! For more on Van Silk, check out his Instagram page above. ' }, { text: '*** Van Silk, we thank you for your generous support!!! You are a true friend. LOVE!', bold: true }] },
@@ -436,7 +436,7 @@ export const backMatterPages: BackMatterPageData[] = [
       {
         type: 'imageRow', height: 105,
         items: [
-          { source: require('../assets/bm249-qr-docs.png'), aspectRatio: 262 / 300 },
+          { source: require('../assets/bm249-qr-docs.png'), aspectRatio: 262 / 300, url: 'https://www.instagram.com/docs_cake_shop?igsh=MWMxaTJ0aGdsZ2hrbA%3D%3D&utm_source=qr' },
           { source: require('../assets/bm249-logo-docs.png'), aspectRatio: 290 / 270 },
         ],
       },
@@ -445,14 +445,14 @@ export const backMatterPages: BackMatterPageData[] = [
         type: 'imageRow', height: 105,
         items: [
           { source: require('../assets/bm249-logo-candle.png'), aspectRatio: 275 / 298 },
-          { source: require('../assets/bm249-qr-candle.png'), aspectRatio: 250 / 268 },
+          { source: require('../assets/bm249-qr-candle.png'), aspectRatio: 250 / 268, url: 'https://www.instagram.com/customcandlecoinc?igsh=MWU5NGFmeWtvOXR1ZA%3D%3D&utm_source=qr' },
         ],
       },
       { type: 'body', segs: [{ text: 'Big Steve,', bold: true }, { text: ' every time I visit you treat me like a queen. The service is great, and the food is delicious!! Best chicken parm ever! Thank you!' }] },
       {
         type: 'imageRow', height: 95,
         items: [
-          { source: require('../assets/bm249-qr-lex.png'), aspectRatio: 255 / 265 },
+          { source: require('../assets/bm249-qr-lex.png'), aspectRatio: 255 / 265, url: 'https://lexrestaurant.com/' },
           { source: require('../assets/bm249-logo-lex.png'), aspectRatio: 335 / 215 },
         ],
       },
@@ -461,7 +461,7 @@ export const backMatterPages: BackMatterPageData[] = [
         type: 'imageRow', height: 95,
         items: [
           { source: require('../assets/bm249-card-coleman.png'), aspectRatio: 330 / 255 },
-          { source: require('../assets/bm249-qr-coleman.png'), aspectRatio: 255 / 250 },
+          { source: require('../assets/bm249-qr-coleman.png'), aspectRatio: 255 / 250, url: 'https://blinq.me/1m8RoY03pW0c?u=TXhmqY7T' },
         ],
       },
     ],
@@ -606,10 +606,10 @@ export const backMatterPages: BackMatterPageData[] = [
       {
         type: 'imageRow', height: 72,
         items: [
-          { source: require('../assets/bm259-qr-instagram.png'), aspectRatio: 1, caption: 'Instagram' },
-          { source: require('../assets/bm259-qr-website.png'), aspectRatio: 1, caption: 'Website' },
-          { source: require('../assets/bm259-qr-article.png'), aspectRatio: 1, caption: 'Newly Published Article on Total Package Collection Brand:' },
-          { source: require('../assets/bm259-qr-brand.png'), aspectRatio: 1, caption: 'Total Package Brand' },
+          { source: require('../assets/bm259-qr-instagram.png'), aspectRatio: 1, caption: 'Instagram', url: 'https://www.instagram.com/djcoolkev?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' },
+          { source: require('../assets/bm259-qr-website.png'), aspectRatio: 1, caption: 'Website', url: 'https://www.instagram.com/djcoolkev?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' },
+          { source: require('../assets/bm259-qr-article.png'), aspectRatio: 1, caption: 'Newly Published Article on Total Package Collection Brand:', url: 'https://hiphopsince1987.com/2024/news/dj-cool-kev-presents-the-hot-new-apparel-brand-called-total-package/' },
+          { source: require('../assets/bm259-qr-brand.png'), aspectRatio: 1, caption: 'Total Package Brand', url: 'https://www.totalpackagebrand.com' },
         ],
       },
     ],
@@ -623,8 +623,8 @@ export const backMatterPages: BackMatterPageData[] = [
       {
         type: 'imageRow', height: 80,
         items: [
-          { source: require('../assets/bm260-qr-instagram.png'), aspectRatio: 1, caption: 'Instagram' },
-          { source: require('../assets/bm260-qr-ffmbio.png'), aspectRatio: 1, caption: 'ffm.bio' },
+          { source: require('../assets/bm260-qr-instagram.png'), aspectRatio: 1, caption: 'Instagram', url: 'https://www.instagram.com/officialmarkborino?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' },
+          { source: require('../assets/bm260-qr-ffmbio.png'), aspectRatio: 1, caption: 'ffm.bio', url: 'https://ffm.bio/markborino' },
         ],
       },
       { type: 'body', segs: [{ text: 'In 2021, Mark found himself landing his first major label placement on the biggest album release of the year, ' }, { text: '‘Certified Lover Boy,’', bold: true, italic: true }, { text: ' with Drake. Mark Borino co-produced track #2, titled ' }, { text: 'Papi’s Home,', italic: true }, { text: ' which peaked at #8 on ' }, { text: 'Billboard’s Hot 100', italic: true }, { text: ' & also landed him his first ' }, { text: 'platinum record', italic: true }, { text: ' as a producer. It continues to be a special year as he received the ' }, { text: 'Harold Adamson Lyric Award', bold: true, italic: true }, { text: ' from ' }, { text: 'ASCAP', italic: true }, { text: '. Mark not only works inside the industry but has independently released 30+ tracks of original music, which were all written, produced, mixed & mastered in house under his own label, ' }, { text: '‘House of Rivero', bold: true, italic: true }, { text: '.’ Mark recently released two new songs titled, ' }, { text: '‘Don’t Wait Up’', bold: true, italic: true }, { text: ', and ' }, { text: '‘Visions’', bold: true, italic: true }, { text: ', each accessible on all music platforms. ' }, { text: '***Check him out...there is something here for everyone! Anita', bold: true }] },
@@ -648,8 +648,8 @@ export const backMatterPages: BackMatterPageData[] = [
       {
         type: 'imageRow', height: 80,
         items: [
-          { source: require('../assets/bm261-qr-bark.png'), aspectRatio: 1, caption: '@BARKAVENUETREATS' },
-          { source: require('../assets/bm261-qr-instagram.png'), aspectRatio: 1, caption: 'Instagram' },
+          { source: require('../assets/bm261-qr-bark.png'), aspectRatio: 1, caption: '@BARKAVENUETREATS', url: 'https://www.instagram.com/barkavenuetreats?igsh=MXJ4bnFlZWh1MGw1eg%3D%3D&utm_source=qr' },
+          { source: require('../assets/bm261-qr-instagram.png'), aspectRatio: 1, caption: 'Instagram', url: 'https://www.instagram.com/thetalkingjamie?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' },
         ],
       },
     ],
@@ -671,8 +671,8 @@ export const backMatterPages: BackMatterPageData[] = [
       {
         type: 'imageRow', height: 82,
         items: [
-          { source: require('../assets/bm262-qr-donnell.png'), aspectRatio: 1, caption: 'Donnell Land' },
-          { source: require('../assets/bm262-qr-instagram.png'), aspectRatio: 1, caption: 'Instagram' },
+          { source: require('../assets/bm262-qr-donnell.png'), aspectRatio: 1, caption: 'Donnell Land', url: 'https://www.donnellrawlings.com/donnell-land' },
+          { source: require('../assets/bm262-qr-instagram.png'), aspectRatio: 1, caption: 'Instagram', url: 'https://www.instagram.com/donnellrawlings?utm_source=qr' },
         ],
       },
     ],
@@ -689,9 +689,9 @@ export const backMatterPages: BackMatterPageData[] = [
       {
         type: 'imageRow', height: 78,
         items: [
-          { source: require('../assets/bm263-qr-night.png'), aspectRatio: 1, caption: '“A Night To\nRemember!!!”', captionColor: P },
+          { source: require('../assets/bm263-qr-night.png'), aspectRatio: 1, caption: '“A Night To\nRemember!!!”', captionColor: P, url: 'https://photos.app.goo.gl/7jJcfuWLsVJJLWam6' },
           { source: require('../assets/bm263-logo-cityexp.png'), aspectRatio: 338 / 108 },
-          { source: require('../assets/bm263-qr-cityexp.png'), aspectRatio: 1 },
+          { source: require('../assets/bm263-qr-cityexp.png'), aspectRatio: 1, url: 'https://cityexperiences.com' },
         ],
       },
     ],
@@ -712,11 +712,11 @@ export const backMatterPages: BackMatterPageData[] = [
       {
         type: 'imageRow', height: 62,
         items: [
-          { source: require('../assets/bm264-qr-nyt.png'), aspectRatio: 1, caption: 'New York Times' },
-          { source: require('../assets/bm264-qr-elvis.png'), aspectRatio: 1, caption: 'Elvis Duran' },
-          { source: require('../assets/bm264-qr-tourism.png'), aspectRatio: 1, caption: 'NYC Tourism' },
-          { source: require('../assets/bm264-qr-today.png'), aspectRatio: 1, caption: 'Today Show' },
-          { source: require('../assets/bm264-qr-50best.png'), aspectRatio: 1, caption: 'NYT - 50 Best Restaurants in America' },
+          { source: require('../assets/bm264-qr-nyt.png'), aspectRatio: 1, caption: 'New York Times', url: 'https://www.nytimes.com/2024/04/02/dining/restaurant-review-shaw-naes-house-staten-island.html' },
+          { source: require('../assets/bm264-qr-elvis.png'), aspectRatio: 1, caption: 'Elvis Duran', url: 'https://www.youtube.com/watch?v=uEQ6bF8tQDU' },
+          { source: require('../assets/bm264-qr-tourism.png'), aspectRatio: 1, caption: 'NYC Tourism', url: 'https://www.nyctourism.com/articles/soul-food-and-soul-healing-at-shaw-naes-house/' },
+          { source: require('../assets/bm264-qr-today.png'), aspectRatio: 1, caption: 'Today Show', url: 'https://www.today.com/video/chef-behind-shaw-nae-s-house-shares-passion-behind-soulful-food-210795589972' },
+          { source: require('../assets/bm264-qr-50best.png'), aspectRatio: 1, caption: 'NYT - 50 Best Restaurants in America', url: 'https://www.nytimes.com/interactive/2024/dining/best-restaurants-america.html' },
         ],
       },
     ],
@@ -913,12 +913,12 @@ export const backMatterPages: BackMatterPageData[] = [
       { type: 'image', source: require('../assets/bm278-group.png'), aspectRatio: 895 / 539 },
       {
         type: 'imageRow', height: 85, captionItalic: true,
-        items: [{ source: require('../assets/bm278-qr-bc.png'), aspectRatio: 1, caption: '‘The Breakfast Club\nInterview’' }],
+        items: [{ source: require('../assets/bm278-qr-bc.png'), aspectRatio: 1, caption: '‘The Breakfast Club\nInterview’', url: 'https://youtu.be/kYXIY3n7QXQ?si=cxMiYZ5wJdJHqo1S' }],
       },
       {
         type: 'imageRow', height: 90, captionItalic: true,
         items: [
-          { source: require('../assets/bm278-qr-yee.png'), aspectRatio: 1, caption: '‘Angela Yee\nInterview’' },
+          { source: require('../assets/bm278-qr-yee.png'), aspectRatio: 1, caption: '‘Angela Yee\nInterview’', url: 'https://youtu.be/g7O7JIrAJtU?si=ApETysLmocmsetyu' },
           { source: require('../assets/bm278-wayup-logo.png'), aspectRatio: 220 / 218 },
         ],
       },
@@ -1018,7 +1018,7 @@ export const backMatterPages: BackMatterPageData[] = [
       { type: 'divider' },
       {
         type: 'imageRow', height: 88,
-        items: [{ source: require('../assets/bm283-qr.png'), aspectRatio: 1, caption: 'AND MY (BARELY)\n15 MINUTES OF FAME!' }],
+        items: [{ source: require('../assets/bm283-qr.png'), aspectRatio: 1, caption: 'AND MY (BARELY)\n15 MINUTES OF FAME!', url: 'https://youtu.be/Lh0JbP6y1y0' }],
         captionItalic: true,
       },
       {
@@ -1036,8 +1036,8 @@ export const backMatterPages: BackMatterPageData[] = [
       {
         type: 'imageRow', height: 82,
         items: [
-          { source: require('../assets/bm284-qr-willsmith.png'), aspectRatio: 1, caption: 'Will Smith', captionColor: P },
-          { source: require('../assets/bm284-qr-reflecting.png'), aspectRatio: 1, caption: 'Reflecting on\nMy Viral\nMoment with\nWill Smith', captionColor: P },
+          { source: require('../assets/bm284-qr-willsmith.png'), aspectRatio: 1, caption: 'Will Smith', captionColor: P, url: 'https://www.tiktok.com/@wayupwithyee/video/7450201635760065823' },
+          { source: require('../assets/bm284-qr-reflecting.png'), aspectRatio: 1, caption: 'Reflecting on\nMy Viral\nMoment with\nWill Smith', captionColor: P, url: 'https://www.tiktok.com/@wayupwithyee/video/7450201635760065823' },
         ],
       },
       { type: 'image', source: require('../assets/bm284-ig-post.png'), aspectRatio: 520 / 462, widthPct: 72 },
@@ -1053,24 +1053,24 @@ export const backMatterPages: BackMatterPageData[] = [
       { type: 'body', align: 'center', segs: [{ text: 'Elvis Duran Gives Retiring Employee A Trip To Paris, Nashville And $10,000 | Elvis Duran Exclusive', bold: true }] },
       {
         type: 'imageRow', height: 80,
-        items: [{ source: require('../assets/bm285-qr-ugly.png'), aspectRatio: 1, caption: '*Ugly Cry Alert' }],
+        items: [{ source: require('../assets/bm285-qr-ugly.png'), aspectRatio: 1, caption: '*Ugly Cry Alert', url: 'https://youtu.be/BIUMOnQhKFI?si=Qui7KpQqIgjuQXV0' }],
       },
       { type: 'image', source: require('../assets/bm285-invite.png'), aspectRatio: 320 / 468, widthPct: 52 },
       { type: 'body', align: 'center', size: 15, segs: [{ text: 'Hala!!! I love you too!! 💛', bold: true, color: A }] },
       {
         type: 'imageRow', height: 80,
-        items: [{ source: require('../assets/bm285-qr-suge.png'), aspectRatio: 1, caption: '*Favorite Dance Song of The\nNight: ‘Suge’ by DaBaby' }],
+        items: [{ source: require('../assets/bm285-qr-suge.png'), aspectRatio: 1, caption: '*Favorite Dance Song of The\nNight: ‘Suge’ by DaBaby', url: 'https://youtu.be/KvuQNNVrbtM' }],
       },
       { type: 'body', align: 'center', size: 15, segs: [{ text: '*Shout Out To DJ Whuteva and DJ Will for rocking the house! 💛', bold: true, color: P }] },
       { type: 'image', source: require('../assets/bm285-cake.png'), aspectRatio: 356 / 486, widthPct: 48 },
       {
         type: 'imageRow', height: 80,
-        items: [{ source: require('../assets/bm285-qr-rob.png'), aspectRatio: 1, caption: '*Classic Song of the night:\n‘It Takes Two’ by Rob Base' }],
+        items: [{ source: require('../assets/bm285-qr-rob.png'), aspectRatio: 1, caption: '*Classic Song of the night:\n‘It Takes Two’ by Rob Base', url: 'https://youtu.be/4lvlPp6Fo94' }],
       },
       { type: 'image', source: require('../assets/bm285-vip.png'), aspectRatio: 319 / 424, widthPct: 50, caption: '*Anita’s Retirement Pictures and videos' },
       {
         type: 'imageRow', height: 80,
-        items: [{ source: require('../assets/bm285-qr-lean.png'), aspectRatio: 1, caption: '*Song I want to be remembered by:\n‘Lean On Me’ By Bill Withers' }],
+        items: [{ source: require('../assets/bm285-qr-lean.png'), aspectRatio: 1, caption: '*Song I want to be remembered by:\n‘Lean On Me’ By Bill Withers', url: 'https://youtu.be/Nx_D0VTHBag' }],
       },
       { type: 'image', source: require('../assets/bm285-karaoke.png'), aspectRatio: 381 / 498, widthPct: 58 },
     ],
@@ -1102,9 +1102,9 @@ export const backMatterPages: BackMatterPageData[] = [
       {
         type: 'imageRow', height: 68,
         items: [
-          { source: require('../assets/bm287-qr-amazon.png'), aspectRatio: 1, caption: 'AMAZON\nREVIEWS', captionColor: P },
-          { source: require('../assets/bm287-qr-ig.png'), aspectRatio: 1, caption: 'ANITA’S\nINSTAGRAM', captionColor: P },
-          { source: require('../assets/bm287-qr-web.png'), aspectRatio: 1, caption: 'TEAM SCIPIO\nWEBSITE\n(SUBJECT TO\nCHANGE)', captionColor: P },
+          { source: require('../assets/bm287-qr-amazon.png'), aspectRatio: 1, caption: 'AMAZON\nREVIEWS', captionColor: P, url: 'https://www.amazon.com/HIP-HOP-TIME-CAPSULE-Document-Personal/product-reviews/B0DRNSKZPK' },
+          { source: require('../assets/bm287-qr-ig.png'), aspectRatio: 1, caption: 'ANITA’S\nINSTAGRAM', captionColor: P, url: 'https://rebrand.ly/3bxmsdu?rb.src=QR' },
+          { source: require('../assets/bm287-qr-web.png'), aspectRatio: 1, caption: 'TEAM SCIPIO\nWEBSITE\n(SUBJECT TO\nCHANGE)', captionColor: P, url: 'https://teamscipio.com' },
           { source: require('../assets/bm287-logo.png'), aspectRatio: 368 / 240, caption: 'DJ\nSCIPIO’S\nLOGO', captionColor: P },
         ],
       },

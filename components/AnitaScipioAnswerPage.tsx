@@ -49,39 +49,43 @@ function Answer({ block }: { block: AnitaAnswerBlock }) {
 
   return (
     <View style={styles.answerBlock}>
-      {/* Question */}
+      {/* Question (or "Continued..." when the block carries over from the previous page) */}
       <Text style={styles.questionText}>
-        {block.questionNumber}. {block.questionText}
+        {block.continued
+          ? 'Continued...'
+          : `${block.questionNumber}. ${block.questionText}`}
       </Text>
 
-      {/* Bubble */}
-      <View style={isOdd ? styles.bubbleRowOdd : styles.bubbleRowEven}>
-        {isOdd && (
-          <View style={styles.circle}>
-            <Text style={styles.circleText}>{block.questionNumber}</Text>
-          </View>
-        )}
+      {/* Bubble (continued blocks may be QR-codes-only, with no text) */}
+      {(!block.continued || block.answerText) && (
+        <View style={isOdd ? styles.bubbleRowOdd : styles.bubbleRowEven}>
+          {isOdd && !block.continued && (
+            <View style={styles.circle}>
+              <Text style={styles.circleText}>{block.questionNumber}</Text>
+            </View>
+          )}
 
-        <View style={[styles.bubble, isOdd ? styles.bubbleOdd : styles.bubbleEven]}>
-          <Text style={styles.answerText}>{block.answerText}</Text>
-          {block.ripNote && (
-            <View style={styles.ripRow}>
-              <Text style={styles.ripText}>{block.ripNote}</Text>
-              <Image
-                source={require('../assets/dove-right.png')}
-                style={styles.doveIcon}
-                resizeMode="contain"
-              />
+          <View style={[styles.bubble, isOdd ? styles.bubbleOdd : styles.bubbleEven]}>
+            <Text style={styles.answerText}>{block.answerText}</Text>
+            {block.ripNote && (
+              <View style={styles.ripRow}>
+                <Text style={styles.ripText}>{block.ripNote}</Text>
+                <Image
+                  source={require('../assets/dove-right.png')}
+                  style={styles.doveIcon}
+                  resizeMode="contain"
+                />
+              </View>
+            )}
+          </View>
+
+          {!isOdd && !block.continued && (
+            <View style={styles.circle}>
+              <Text style={styles.circleText}>{block.questionNumber}</Text>
             </View>
           )}
         </View>
-
-        {!isOdd && (
-          <View style={styles.circle}>
-            <Text style={styles.circleText}>{block.questionNumber}</Text>
-          </View>
-        )}
-      </View>
+      )}
 
       {/* QR codes */}
       {block.qrCodes && block.qrCodes.length > 0 && (
@@ -144,8 +148,8 @@ export default function AnitaScipioAnswerPage({ pageNumber }: AnitaScipioAnswerP
           contentContainerStyle={styles.answersScrollContent}
           showsVerticalScrollIndicator={false}
         >
-          {(pageData.answers ?? []).map((block) => (
-            <Answer key={block.questionNumber} block={block} />
+          {(pageData.answers ?? []).map((block, i) => (
+            <Answer key={i} block={block} />
           ))}
         </ScrollView>
         <View style={styles.footer}>

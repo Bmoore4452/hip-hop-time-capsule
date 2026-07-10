@@ -43,7 +43,7 @@ export const djScipioPages: DJScipioPageData[] = [
           "The dopest track on the cassette tape we exchanged was \u2018Apache\u2019 by The Incredible Bongo Band.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Apache+Incredible+Bongo+Band",
+            url: "https://www.youtube.com/watch?v=WY-Z6wm6TMQ&pp=ygUhdGhlIGluY3JlZGlibGUgYm9uZ28gYmFuZCBhcGFjaGUg",
             caption: "'Apache'",
           },
         ],
@@ -67,11 +67,11 @@ export const djScipioPages: DJScipioPageData[] = [
           "The illiest MCs were Kool Moe Dee, Melle Mel, GrandMaster Caz, Nas, Jay Z, and Jada Kiss.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=NY+State+of+Mind+Nas",
+            url: "https://youtu.be/hI8A14Qcv68?si=4QXIk7ckVzUFZh_x",
             caption: "'NY State of Mind' by Nas",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Hard+Knock+Life+Jay-Z",
+            url: "https://youtu.be/RW34u1KxGC4?si=r6Pun8nn6ZeCcP93",
             caption: "'It's A Hard Knock Life' by Jay-Z",
           },
         ],
@@ -103,7 +103,7 @@ export const djScipioPages: DJScipioPageData[] = [
           "The top three or more songs that gave me the confidence to overcome a personal challenge in my life are \u2018The Message\u2019 by GrandMaster Flash and the Furious Five, \u2018Self Destruction\u2019 by KRS-1 (and several artists of the day) and \u2018Yes We Can Can\u2019 by The Treacherous Three.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Self+Destruction+KRS-One+Stop+The+Violence",
+            url: "https://youtu.be/jxyYP_bS_6s?si=yVpER43Mj8SK94cF",
             caption:
               "'Self Destruction'\n*Original artist upload: not available",
           },
@@ -129,15 +129,15 @@ export const djScipioPages: DJScipioPageData[] = [
           "The top DJs, ranked in order that had the biggest impact on Hip-Hop, were Disco King Mario, DJ Kool Herc, GrandMaster Flash, Grand Wizzard Theodore, DJ Whiz Kid, DJ Breakout, DJ Baron, DJ Hollywood, DJ Clark Kent, DJ Clue, DJ Marley Marl, DJ Red Alert, DJ Chuck Chillout, Mr. Magic, DJ Jazzy Jeff, DJ D-Nice, DJ Kayslay, Kid Capri, DJ Sonny Cheeba and Frankie Crocker. They significantly contributed to the foundation of Hip-Hop music. Frankie Crocker, aka The Chief Rocker, was not a Hip-Hop DJ in the traditional sense, but as the program director and radio personality on WBLS 107.5 FM in New York City, he played a significant role in the genre. He expanded the reach of Black music on mainstream radio, which included R&B, Disco, Funk, and emerging Hip-Hop sounds, which helped to legitimize the genre.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=52+Beats+Kid+Capri",
+            url: "https://youtu.be/9fXABSJNRi8",
             caption: "'52 Beats'\nby Kid Capri",
           },
           {
-            url: "https://www.youtube.com/results?search_query=DJ+Kayslay+hip+hop+mix",
+            url: "https://youtu.be/HLylxkjL_hQ?si=UajBBF2BknI88WzD",
             caption: "DJ Kayslay\n@DJ SCIPIO",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Old+School+Flava+DJ+Hollywood",
+            url: "https://youtu.be/DZBfZqQ98IQ?si=VSywV3RMTt8uTDzz",
             caption: "'Old School Flava'\nby DJ Hollywood",
           },
         ],
@@ -180,15 +180,15 @@ export const djScipioPages: DJScipioPageData[] = [
           "My top five or more party songs that rocked the house were \u2018Wild Wild West\u2019 by Kool Moe Dee, \u2018Planet Rock\u2019 by Afrika Bambaataa and Soulsonic Force, \u2018It Takes Two\u2019 by Rob Base & DJ E-Z Rock, \u2018Set It Off\u2019 by Strafe and \u2018Jam On It\u2019 by Newcleus.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Wild+Wild+West+Kool+Moe+Dee",
+            url: "https://youtu.be/auhwI00iKWg?si=8J_fBuki47uEnaRB",
             caption: "'Wild Wild West'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Planet+Rock+Afrika+Bambaataa+Soulsonic+Force",
+            url: "https://youtu.be/SqS8X-5aIns?si=6L71PProDXvDjzBs",
             caption: "'Planet Rock'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Jam+On+It+Newcleus",
+            url: "https://youtu.be/M-0Z_2j1a1U",
             caption: "'Jam On It'",
           },
         ],
@@ -205,7 +205,7 @@ export const djScipioPages: DJScipioPageData[] = [
           "The first song that I could fully recite was \u2018The Message\u2019 by Grandmaster Flash.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=The+Message+Grandmaster+Flash+Furious+Five",
+            url: "https://youtu.be/PobrSpMwKk4",
             caption: "'The Message'",
           },
         ],
@@ -218,11 +218,11 @@ export const djScipioPages: DJScipioPageData[] = [
           "The \u201cillest\u201d top five male artists or groups are The Treacherous Three, The L Brothers, The Cold Crush Brothers, Grandmaster Flash and The Furious Five, and Crash Crew.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=White+Lines+Grandmaster+Flash+Melle+Mel",
+            url: "https://youtu.be/7bCdrDhUjPo",
             caption: "'White Lines' by Grandmaster\nFlash and Melle Mel",
           },
           {
-            url: "https://www.youtube.com/results?search_query=High+Power+Rap+Crash+Crew",
+            url: "https://www.youtube.com/watch?v=bOXoyST9ux8&pp=ygUbaGlnaCBwb3dlcmVkIHJhcCBjcmFzaCBjcmV3",
             caption: "'High Power Rap' by\nThe Crash Crew",
           },
         ],
@@ -240,15 +240,15 @@ export const djScipioPages: DJScipioPageData[] = [
           "I regret missing the first ever event where two established MCs openly battled each other. The event took place in December 1981 at Harlem World on 116th St. and Lenox Avenue. The two rappers were Busy Bee Starsky, known for his humorous and energetic style, and Kool Moe Dee, known for his lyrical prowess. Every year Busy Bee won the \u201cMC Battle of The Year\u201d Award but that night Kool Moe Dee challenged him and won. It was a historic moment in early rap history that forever changed the way MCs battled.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Busy+Bee+vs+Kool+Moe+Dee+first+battle+hip+hop+1981",
+            url: "https://youtu.be/H1PplYSE07Q",
             caption: "Busy Bee vs Kool Moe Dee -\nThe First Battle in Hip-Hop",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Busy+Bee+vs+Kool+Moe+Dee+beef",
+            url: "https://youtu.be/wipb37LGe4U",
             caption: "Beef 1-Busy Bee\nvs Kool Moe Dee",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Kool+Moe+Dee+dissing+Busy+Bee+1981",
+            url: "https://youtu.be/wu3_4lPIFBc",
             caption: "Kool Moe Dee Dissing\nBusy Bee 1981",
           },
         ],
@@ -332,7 +332,7 @@ export const djScipioPages: DJScipioPageData[] = [
         answerText: "\u2018If I Ruled The World\u2019 by Kurtis Blow.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=If+I+Ruled+The+World+Kurtis+Blow",
+            url: "https://youtu.be/H6iHIw4rMYQ?si=F2QKmJgMeU0U2yHE",
             caption: "'If I Ruled The World'\nby Kurtis Blow",
           },
         ],
@@ -350,7 +350,7 @@ export const djScipioPages: DJScipioPageData[] = [
           "The song that I hear and it instantly takes me back to where I was and what I was doing is \u2018The Mexican\u2019 by Babe Ruth.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=The+Mexican+Babe+Ruth+hip+hop",
+            url: "https://youtu.be/jQlYBhEdPH8?si=sn013C5tXadmAiqY",
             caption: "'The Mexican'",
           },
         ],
@@ -363,7 +363,7 @@ export const djScipioPages: DJScipioPageData[] = [
           "The Hip-Hop artist that I had a crush on back in the day was Queen Latifah.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Ladies+First+Queen+Latifah+Monie+Love",
+            url: "https://youtu.be/GwRcGKkhGuk?si=_jkx3AOZ8bHILRCq",
             caption: "'Ladies First' by Queen\nLatifah ft. Monie Love",
           },
         ],
@@ -440,11 +440,11 @@ export const djScipioPages: DJScipioPageData[] = [
           "The top three or more artists or groups that influenced my view of social issues and activism are Public Enemy, KRS-One, U.N.I.T.Y by Queen Latifah, and DMX.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=UNITY+Queen+Latifah+hip+hop",
+            url: "https://youtu.be/f8cHxydDb7o?si=w7qS4lHJjrN77XVR",
             caption: "U.N.I.T.Y\nby Queen Latifah",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Fight+The+Power+Public+Enemy",
+            url: "https://youtu.be/mmo3HFa2vjg",
             caption: "'Fight The Power' by\nPublic Enemy",
           },
         ],
@@ -462,7 +462,7 @@ export const djScipioPages: DJScipioPageData[] = [
           "Yes, there is a particular artist whose life story inspired me. The artist is DMX and the name of the track was \u2018Slippin\u2019.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Slippin+DMX",
+            url: "https://youtu.be/btTYPmgM6UI?si=Np82SfrRrrP6i4Yl",
             caption: "'Slippin'",
           },
         ],
@@ -475,7 +475,7 @@ export const djScipioPages: DJScipioPageData[] = [
           "Yes, Hip-Hop helped my personal growth. Mobb Deep was the group and \u2018Shook Ones\u2019 was the song. Lyrically, they were very inspiring to me.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Shook+Ones+Mobb+Deep",
+            url: "https://youtu.be/yoYZf-lBF_U?si=QyjYsqmZZv7QZLN3",
             caption: "'Shook Ones'",
           },
         ],
@@ -510,7 +510,7 @@ export const djScipioPages: DJScipioPageData[] = [
           "Yes, I have met and worked with some of my favorite artists. Kool Moe Dee and I were sixth grade classmates. We both attended P.S. 129 in Harlem. I also met Queen Latifah, Prodigy of Mobb Deep, Run-DMC and Grandmaster Jay, Raekwon, T.I., Lil\u2019 Jon, Rasheeda, Scrappy, Scarface, Pastor Troy, Master P and many more.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Shook+Ones+Mobb+Deep",
+            url: "https://youtu.be/yoYZf-lBF_U?si=QyjYsqmZZv7QZLN3",
             caption: "'Shook Ones'\nby Mobb Deep",
           },
         ],
@@ -623,7 +623,7 @@ export const djScipioPages: DJScipioPageData[] = [
           "The most important contribution women made back in the day, was bringing a new flava to Hip-Hop. They were dynamic and dedicated, and their artistry is undeniable. My favorites were The Sequence, Queen Latifah, Roxanne Shante, ShaRock, Debbie D., and Missy Elliott.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Lose+Control+Missy+Elliott+Ciara",
+            url: "https://youtu.be/na7lIb09898?si=x5cxTfV_rwX9kZkr",
             caption: "'Lose Control'\nby Missy Elliot ft. Ciara",
           },
         ],
@@ -648,15 +648,15 @@ export const djScipioPages: DJScipioPageData[] = [
           "In my opinion, the baddest top five or more women artists in Hip-Hop and R&B were/are Mary J. Blige, Lauren Hill, Aaliyah, Whitney Houston, Beyonc\u00e9, Faith Evans, Erykah Badu, Lil\u2019 Mo, Mariah Carey, Stephanie Mills and Remy Ma",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=You+Remind+Me+Mary+J+Blige",
+            url: "https://youtu.be/1gBPi_Jdtyk?si=eaCNAwHWSpjGdz5S",
             caption: "'You Remind Me'\nby Mary J. Blige",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Single+Ladies+Beyonce",
+            url: "https://youtu.be/4m1EFMoRFvY",
             caption: "'Single Ladies'\nby Beyonc\u00e9",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Rock+the+Boat+Aaliyah",
+            url: "https://youtu.be/QOgEy06B-FY?si=aHVket6YDBKNg4iS",
             caption: "'Rock the Boat'\nby Aaliyah",
           },
         ],
@@ -669,7 +669,7 @@ export const djScipioPages: DJScipioPageData[] = [
           "Today my favorite male Hip-Hop or Hip-Hop and R&B artists are Keith Sweat, Usher, Ginuwine, Tank, Jaheim, Nate Dogg, Tyrese, Big Bub, Prince, Michael Jackson, George Clinton and Frankie Beverly.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Right+and+a+Wrong+Way+Keith+Sweat",
+            url: "https://youtu.be/PVsG1Zjm_JE?si=GnVekfjdL0FxiNeD",
             caption: "'Right and a Wrong Way'\nby Keith Sweat",
           },
         ],
@@ -786,7 +786,7 @@ export const djScipioPages: DJScipioPageData[] = [
           "My favorite song is Rapper\u2019s Delight by Sugar Hill Gang.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Rapper+Delight+Sugar+Hill+Gang",
+            url: "https://youtu.be/ZjRi-S7J70Y?si=FVKAkbHVYJyjNsUi",
             caption: "'Rapper's Delight'",
           },
         ],
@@ -811,15 +811,15 @@ export const djScipioPages: DJScipioPageData[] = [
           "The Dirty South artists that I feel contributed to Hip-Hop were OutKast, Goodie Mob, T.I., UGK, The Geto Boys, Lil\u2019 Flip, Lil Jon, Master P and Scarface.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=My+Mind+Playing+Tricks+Geto+Boys",
+            url: "https://youtu.be/wtOChOy_cIw?si=ftGrx5LKRjux9NIP",
             caption: "'My Mind is Playing Tricks'\non me by the Geto Boys",
           },
           {
-            url: "https://www.youtube.com/results?search_query=They+Dont+Dance+No+More+Goodie+Mob",
+            url: "https://youtu.be/vDmGnGueik8?si=0LMwaHxV_I0SUCwf",
             caption: "'They Don't Dance No More'\nby Goodie Mob",
           },
           {
-            url: "https://www.youtube.com/results?search_query=ATLiens+OutKast",
+            url: "https://youtu.be/ktc9hsSfUck?si=Txmu9KraUL3unkdU",
             caption: "'ATliens'\nby OutKast",
           },
         ],
@@ -836,15 +836,15 @@ export const djScipioPages: DJScipioPageData[] = [
           "My favorite West Coast artists are Tupac, Snoop Dogg, Ice Cube, Ice-T, Easy-E, Too Short, E-40, Mack 10, Nate Dogg, MC Hammer, The D.O.C. and Xzibit.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Me+Against+The+World+Tupac",
+            url: "https://youtu.be/hNXdOhwVAhk?si=mH5LnmgoJnBf43sf",
             caption: "'Me Against The World'\nby Tupac",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Today+Was+A+Good+Day+Ice+Cube",
+            url: "https://youtu.be/h4UqMyldS7Q?si=P54aTCwWn0I2ugIV",
             caption: "'Today Was A Good Day'\nby Ice Cube",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Gin+and+Juice+Snoop+Dogg",
+            url: "https://youtu.be/fWCZse1iwE0?si=9n5zbdeeZiAPl63f",
             caption: "'Gin and Juice'\nby Snoop Dogg",
           },
         ],
@@ -887,15 +887,15 @@ export const djScipioPages: DJScipioPageData[] = [
           "When I am frustrated or facing some hardship in my life, the Hip-Hop songs that match my energy are Party Up (Up In Here) by DMX; Thug Luv, by Bone, Thugs-N-Harmony featuring Tupac; I Don\u2019t Give A F*ck by Lil Jon; Wild Out by The Lox; and Throw Ya Gunz (In The Air) by Onyx. I like the same songs!",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Wild+Out+The+Lox",
+            url: "https://youtu.be/eiTAB7ORK8M",
             caption: "'Wild Out'\nby The Lox",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Thug+Luv+Bone+Thugs+Harmony+Tupac",
+            url: "https://youtu.be/FRDCTSxMNYg",
             caption: "Thug Luv by Bone\nThugs-N-Harmony ft. Tupac",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Party+Up+Up+In+Here+DMX",
+            url: "https://youtu.be/OWrKD8saaoo?si=f7oBnH248XvVHN_G",
             caption: "'Party Up'\nby DMX",
           },
         ],
@@ -908,7 +908,7 @@ export const djScipioPages: DJScipioPageData[] = [
           "I am most proud of DJ Whiz Kid. He lived in my neighborhood in the Bronx and we became friends. He lived in Parkside Housing and I lived on Arnow Ave. On Saturdays, we used to play basketball together. In my opinion, he became one of the top Hip-Hop DJs in the game.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=DJ+Whiz+Kid+hip+hop+original",
+            url: "https://www.youtube.com/watch?v=jhK-l6-TDb4&pp=ygUSdGhlIHdoaXoga2lkIGJyb254",
             caption: "'The Original Whiz Kid'",
           },
         ],
@@ -926,7 +926,7 @@ export const djScipioPages: DJScipioPageData[] = [
           "My favorite beatbox artist is Doug E. Fresh, The Fat Boys, and Biz Markie.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=The+Show+Doug+E+Fresh+Slick+Rick",
+            url: "https://youtu.be/HTvXI9PpJ8U?si=OGqLe5dfubIrGATB",
             caption: "'Doug E. Fresh & Slick Rick'\n- The Show",
           },
         ],
@@ -939,7 +939,7 @@ export const djScipioPages: DJScipioPageData[] = [
           "James Brown was the most sampled artist of my generation. Sampling is taking a portion of an existing record and inserting it into a new record. Grandmaster Flash invented human sampling and DJ Marley Marl was the first to re-create sampling on wax.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Funky+Drummer+James+Brown",
+            url: "https://youtu.be/7dtpj8qa1hQ?si=J31UBDkaOaVstBQ8",
             caption: "'Funky Drummer'\n- James Brown",
           },
         ],
@@ -999,15 +999,15 @@ export const djScipioPages: DJScipioPageData[] = [
           "My favorite songs to play at a club were Good Times by Chic; Last Night Changed It All by Esther Williams; Different Strokes by SYL Johnson; Feel the Heartbeat by Treacherous Three; Freedom by GrandMaster Flash and the Furious Five; Play That Beat Mr. DJ by G.L.O.B.E. and Whiz Kid; Here Comes That Beat by Pumpkin and The Profile All-Stars; Funk You Up by The Sequence; Roxanne\u2019s Revenge by Roxanne Shand\u00e9; and That\u2019s The Joint by The Funky Four Plus One, featuring Sha-Rock. ***Sha-Rock is the first female Hip-Hop MC.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Play+That+Beat+Mr+DJ+GLOBE+Whiz+Kid",
+            url: "https://youtu.be/IB3qxa3wi2A?si=hfrvFPio-so8rwI2",
             caption: "'Play That Beat Mr. DJ'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Funk+You+Up+The+Sequence",
+            url: "https://youtu.be/3M8-eIE-gSw?si=i1rdoLAY2Z3KNAfu",
             caption: "'Funk You Up'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Thats+The+Joint+Funky+Four+Plus+One",
+            url: "https://youtu.be/OKbPzGUihG0?si=NJ51a8juk8kj-FcT",
             caption: "'That's The Joint'",
           },
         ],
@@ -1025,7 +1025,7 @@ export const djScipioPages: DJScipioPageData[] = [
           "The first official Hip-Hop love song was \u201cI Need Love by LL Cool J.\u201d It came out in 1987 and was a huge hit.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=I+Need+Love+LL+Cool+J",
+            url: "https://youtu.be/NEUX-HYRtUA",
             caption: "\u201cI Need Love\u201d",
           },
         ],
@@ -1054,7 +1054,7 @@ export const djScipioPages: DJScipioPageData[] = [
           "My personal favorites are; Not Like Us by Kendrick Lamar, I Can Do Magic by Cambatta and Black Magik 363; My Type by Saweetie; FNF (Let\u2019s Go) by GloRilla.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/watch?v=T6eK-2OQtew",
+            url: "https://youtu.be/T6eK-2OQtew?si=0zlXFmJFB7w2_SMt",
             caption: "\u201cNot Like Us\u201d Kendrick Lamar",
           },
         ],
@@ -1133,15 +1133,15 @@ export const djScipioPages: DJScipioPageData[] = [
           "Kool Moe Dee and Busy Bee Starski; Kool Moe Dee and LL Cool J; Jay-Z and Nas; 50 Cent and Ja Rule; and Tupac and Biggie.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Busy+Bee+vs+Kool+Moe+Dee+first+battle+hip+hop",
+            url: "https://youtu.be/H1PplYSE07Q",
             caption: "The First battle in Hip-Hop\nby Busy Bee vs Kool Moe Dee",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Beef+Busy+Bee+Kool+Moe+Dee",
+            url: "https://youtu.be/wipb37LGe4U",
             caption: "Beef 1\nBusy Bee vs Kool Moe Dee",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Kool+Moe+Dee+Dissing+Busy+Bee+1981",
+            url: "https://youtu.be/wu3_4lPIFBc",
             caption: "Kool Moe Dee:\nDissing Busy Bee 1981",
           },
         ],
@@ -1183,15 +1183,15 @@ export const djScipioPages: DJScipioPageData[] = [
           "I realized I was Hip-Hop when I went to my first jam at The Boston Secor Center. I had on all of my freshest Hip-Hop gear. I had a Ceasar haircut, my mock neck shirt, the creased Lee Jeans, British Walkers and a 007 tucked away. All the elements of Hip-Hop came together in one place that night. There was graffiti on the walls, the DJ\u2019s were cuttin\u2019 and scratchin\u2019, the MCS were rapping, and the B-Boys, were breakdancing. It was that night, above all nights, that I knew I was Hip-Hop!",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Apache+Incredible+Bongo+Band",
+            url: "https://youtu.be/oJ04kRodM8s?si=Wek_TvmhotVsquno",
             caption: "'Apache'\nby Incredible Bongo Band",
           },
           {
-            url: "https://www.youtube.com/results?search_query=I+Just+Want+To+Do+My+Thing+Edwin+Starr",
+            url: "https://youtu.be/M6VRz2Fia_0",
             caption: "'I Just Want To Do My Thing'\nby Edwin Starr",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Give+It+Up+Turn+It+Loose+James+Brown",
+            url: "https://youtu.be/MtPOpre61NI?si=oi_XTMcDrmkZltRY",
             caption: "'Give It Up or Turn It Loose'\nby James Brown",
           },
         ],

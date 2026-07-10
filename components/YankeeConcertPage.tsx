@@ -53,7 +53,7 @@ export default function YankeeConcertPage({ pageNumber }: YankeeConcertPageProps
                   onPress={() => Linking.openURL(qr.url)}
                   activeOpacity={0.75}
                 >
-                  <QRCode value={qr.url} size={QR_SIZE} />
+                  <QRCode value={qr.qrValue ?? qr.url} size={QR_SIZE} />
                   <Text style={styles.qrCaption}>{qr.caption}</Text>
                 </TouchableOpacity>
               ))}

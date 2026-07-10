@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Image, Platform, useWindowDimensions } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image, Platform, useWindowDimensions, TouchableOpacity, Linking } from 'react-native';
 import { useFonts, GreatVibes_400Regular } from '@expo-google-fonts/great-vibes';
 import SafeAreaWrapper from './SafeAreaWrapper';
 import { scaleFont, moderateScale } from '../utils/responsive';
@@ -149,27 +149,44 @@ function Block({ block, contentW }: { block: BackMatterBlock; contentW: number }
       }
       return (
         <View style={styles.imageRow}>
-          {block.items.map((item, i) => (
-            <View key={i} style={styles.imageRowCell}>
-              <Image
-                source={item.source}
-                style={{ height: h, width: h * item.aspectRatio, borderRadius: 4 }}
-                resizeMode="contain"
-              />
-              {item.caption ? (
-                <Text
-                  style={[
-                    styles.caption,
-                    { maxWidth: Math.max(h * item.aspectRatio, moderateScale(140)) },
-                    block.captionItalic && styles.italic,
-                    item.captionColor ? { color: item.captionColor } : null,
-                  ]}
-                >
-                  {item.caption}
-                </Text>
-              ) : null}
-            </View>
-          ))}
+          {block.items.map((item, i) => {
+            const cell = (
+              <>
+                <Image
+                  source={item.source}
+                  style={{ height: h, width: h * item.aspectRatio, borderRadius: 4 }}
+                  resizeMode="contain"
+                />
+                {item.caption ? (
+                  <Text
+                    style={[
+                      styles.caption,
+                      { maxWidth: Math.max(h * item.aspectRatio, moderateScale(140)) },
+                      block.captionItalic && styles.italic,
+                      item.captionColor ? { color: item.captionColor } : null,
+                    ]}
+                  >
+                    {item.caption}
+                  </Text>
+                ) : null}
+              </>
+            );
+            // QR codes carry their decoded URL — tapping opens it.
+            return item.url ? (
+              <TouchableOpacity
+                key={i}
+                style={styles.imageRowCell}
+                onPress={() => Linking.openURL(item.url!)}
+                activeOpacity={0.75}
+              >
+                {cell}
+              </TouchableOpacity>
+            ) : (
+              <View key={i} style={styles.imageRowCell}>
+                {cell}
+              </View>
+            );
+          })}
         </View>
       );
     }

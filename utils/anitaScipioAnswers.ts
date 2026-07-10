@@ -9,6 +9,10 @@ export interface AnitaAnswerBlock {
   answerText: string;
   qrCodes?: QRCodeEntry[];
   ripNote?: string;
+  // When true this block continues the previous page's answer: it renders a
+  // "Continued..." header instead of the numbered question, and skips the
+  // bubble when answerText is empty (e.g. a page-top row of QR codes).
+  continued?: boolean;
 }
 
 export type AnitaPageType = "answers" | "continued";
@@ -34,7 +38,7 @@ export const anitaScipioPages: AnitaPageData[] = [
         answerText: "I first discovered Hip-Hop music in 1977.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Rap+and+Hip+Hop+Crash+Course+Black+American+History+47",
+            url: "https://youtu.be/RHCA5b9TkVg",
             caption:
               "Rap and Hip Hop: Crash Course\nBlack American History #47\n\n***This is one of a few different theories",
           },
@@ -68,11 +72,11 @@ export const anitaScipioPages: AnitaPageData[] = [
           "The emotions that I felt were pure annoyance. LOL! My brother's bedroom was right next to my bedroom, and he just kept repeating... Good Times, Good, Good Good...Good Times, Good, Good Good, Good Good Times! I just couldn't understand for the life of me, why he wouldn't just let the song play so I could watch 'Happy Days' in peace.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Good+Times+Chic",
+            url: "https://youtu.be/51r5f5OdIY0",
             caption: "'Good Times'\nby Chic",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Good+Times+Breakbeat+Mix+DJing+scratching",
+            url: "https://youtube.com/shorts/TeM8QlqgyEo?si=AOseenuM23nrD7jF",
             caption:
               "'Good Times' Breakbeat Mix, DJing,\nscratchin ; simular to DJ SCIPIO\nmixing in 1977",
           },
@@ -94,7 +98,7 @@ export const anitaScipioPages: AnitaPageData[] = [
           "In my opinion, the illest MCs were pioneers, Coke La Rock, Disco King Mario, DJ Hollywood, DJ Kool Herc (who is known for, among other things) throwing the famous Hip-Hop Party at Sedgwick Ave in the Bronx and the merry-go-round technique), Grandmaster Flash, Melle Mel, LL Cool J, Kool Moe Dee, MC Lyte, and Doug E. Fresh.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Kool+Herc+Merry+Go+Round+technique",
+            url: "https://youtu.be/7qwml-F7zKQ",
             caption: 'Kool Herc\'s\n"Merry-Go-Round"\ntechnique',
           },
         ],
@@ -128,19 +132,19 @@ export const anitaScipioPages: AnitaPageData[] = [
           "The top three or more songs are 'Keep Ya Head Up by Tupac', 'The Breaks' by Curtis Blow, and 'The Choice Is Yours' by Black Sheep and any song by Kid-n-Play. Their music and signature dance always brightened my day.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Keep+Ya+Head+Up+Tupac",
+            url: "https://youtu.be/MSaAZZMs0FY",
             caption: "'Keep Ya Head\nUp'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=The+Choice+Is+Yours+Black+Sheep",
+            url: "https://youtu.be/K9F5xcpjDMU",
             caption: "'The Choice is\nYours'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Rollin+Kid+n+Play",
+            url: "https://youtu.be/vTSxxg5FYgc",
             caption: "'Rollin' by Kid 'n\nPlay",
           },
           {
-            url: "https://www.youtube.com/results?search_query=These+Are+The+Breaks+Curtis+Blow",
+            url: "https://youtu.be/ulBhSNEkMrM",
             caption: "'These Are The\nBreaks'",
           },
         ],
@@ -190,7 +194,7 @@ export const anitaScipioPages: AnitaPageData[] = [
           "My top three old-school dances were The Wop, The Bump, and The Hustle. Today, it is still The Wop but my head and arms don't cooperate or coordinate quite like they used too. LOL.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Woppit+Dance+B-Fats",
+            url: "https://youtu.be/9u4x6xv2Fmw?si=8CMbX6W2XF6yNqNZ",
             caption:
               "The song was called 'The\nWoppit Dance by B-Fats'\n(BELOW) and this is an\nexample of 'The Wop\nDance'",
           },
@@ -218,19 +222,19 @@ export const anitaScipioPages: AnitaPageData[] = [
           "These are the songs that rocked and still rock the house:\n\n'Here We Go' by Run-D.M.C.\n'King of Rock' by Run-D.M.C.\n'South Bronx' by Boogie Down Production\n'The Woppit Dance' by B-Fats\n'Whoa' by Black Rob\n'It Takes Two' by Rob Base",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=South+Bronx+Boogie+Down+Productions",
+            url: "https://youtu.be/kZ_C7bfVHak?list=OLAK5uy_k9JF8jZU6ZkfGFjNEjT59lqhzO16vioMk",
             caption: "'South Bronx'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Woppit+B-Fats",
+            url: "https://youtu.be/ewzXSGZOQrA?list=OLAK5uy_kxG_Hjnr6gsxJdItVTLayrNAtbwHuAquY",
             caption: "'The Woppit'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Whoa+Black+Rob",
+            url: "https://youtu.be/EC5LzftfcjI",
             caption: "'Whoa'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Here+We+Go+Run+DMC",
+            url: "https://youtu.be/qXzWlPL_TKw",
             caption: "'Here We Go'",
           },
         ],
@@ -250,11 +254,11 @@ export const anitaScipioPages: AnitaPageData[] = [
           "The first song that I could fully recite was Rapper's Delight by Sugar Hill Gang.\n\n*Released in 1979, it became the first mainstream rap single, produced and released by Sugar Hill Records, a label founded by Sylvia Robinson.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Rapper+Delight+Sugarhill+Gang",
+            url: "https://youtu.be/mcCK99wHrk0",
             caption: "'Rapper's Delight'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Rapper+Delight+Sugarhill+Gang+lyrics",
+            url: "https://youtu.be/WjE4Vxe5-Ak?si=ZSmWpIV9wzuycIdo",
             caption: "'Rapper's Delight' with\nlyrics",
           },
         ],
@@ -289,7 +293,7 @@ export const anitaScipioPages: AnitaPageData[] = [
           'The old-school line that I still quote today is, "Thought I was a donut, ya tried to glaze me!" by Eric B. and Rakim. LOL!',
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Eric+B+Is+President+Rakim",
+            url: "https://youtu.be/6N3fHjTu3nI",
             caption: "'Eric B. Is President'",
           },
         ],
@@ -310,23 +314,23 @@ export const anitaScipioPages: AnitaPageData[] = [
           'Back in the day, I rarely went to a club but two favorite clubs were The Stardust Ballroom and The Boston Road Ball Room. At the latter, Arthur Bowens, (my nephew DJ Cool Kev\'s father) was the bouncer there and he used to let the "fam" in for free. Boy, we had some good times there! My favorite songs were anything by LL Cool J, Run-DMC, Eric B. and Rakim, Salt-N-Pepa and MC Lyte.',
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=I+m+Bad+LL+Cool+J",
+            url: "https://youtu.be/qvsLrhQlTEo",
             caption: "'I'm Bad'\nby LLCJ",
           },
           {
-            url: "https://www.youtube.com/results?search_query=I+Know+You+Got+Soul+Eric+B+Rakim",
+            url: "https://youtu.be/r3NtzovGRfk",
             caption: "'I Know You\nGot Soul'\nby Eric B. &\nRakim",
           },
           {
-            url: "https://www.youtube.com/results?search_query=My+Melody+Eric+B+Rakim",
+            url: "https://youtu.be/Mnl60DoIMk4",
             caption: "'My Melody'\nby Eric B. &\nRakim",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Ruffneck+MC+Lyte",
+            url: "https://youtu.be/NGbn6eaZmCY?si=JvCajaaceKTReQlm",
             caption: "'Ruffneck'\nby MC Lyte",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Shoop+Salt+N+Pepa",
+            url: "https://youtu.be/4vaN01VLYSQ?si=wBJwWiU1NRJ2z5Uv",
             caption: "'Shoop'\nby Salt-N-\nPepa",
           },
         ],
@@ -339,7 +343,7 @@ export const anitaScipioPages: AnitaPageData[] = [
           "My top favorite breakdance track for B-Boys was Bongo Rock by The Incredible Bongo Band. Bongo Rock is one of the most important tracks in Hip-Hop history.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Bongo+Rock+Incredible+Bongo+Band",
+            url: "https://youtu.be/eRINyKWV8D4?si=XkJAFCo2yl_mVgEc",
             caption: "'Bongo Rock'",
           },
         ],
@@ -385,7 +389,7 @@ export const anitaScipioPages: AnitaPageData[] = [
           "I had a great sense of sadness and loss that lasted, in some cases, for months at a time. I will name a few...\n\nThe first significant loss that affected me was the iconic DJ Scott La Rock. He was the DJ for KRS-One/Boogie Down Productions, and unfortunately he was shot and killed in 1987. His passing was the first major death in Hip-Hop history. ***See below. The other significant losses for me were Tupac, DMX, Nipsey Hussle, Young Dolph, King Von, Pop Smoke, and, last but not least, FBG Duck. I met DMX, Young Dolph, and Pop Smoke. I was despondent because they all worked hard to make their dreams a reality, only to be taken away by an early and tragic end.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=DJ+Scott+La+Rock+BDP",
+            url: "https://youtube.com/shorts/RGdoDsCdO2E?si=ACqGJHGoSITnB2ka",
             caption: "'DJ Scott La Rock'",
           },
         ],
@@ -401,11 +405,11 @@ export const anitaScipioPages: AnitaPageData[] = [
       'I was introduced to Pop Smoke by the phenomenal DJ Prostyle; he seemed like such a cool person. He smiled, then pulled me into him for a big hug. It was at the end of the day, and unfortunately, I had just applied some fresh red lipstick that smeared his rare (over ten grand) gray Louis Vuitton jacket. This was the same jacket (below) he had just finished discussing in his interview with DJ Prostyle! It left a perfect red lip print. He looked at DJ Prostyle and said with a slight smile, "I will send you the bill." Yikes! DJ Prostyle and I looked at each other with horror on our faces. We both knew it wasn\'t my fault but felt terrible about it. This bothered me off and on for a few months, and I always wondered if the jacket could be cleaned.\n\nSadly, soon afterward, he was tragically shot and killed in a Beverly Hills Airbnb. I was truly devastated! What a tremendous loss to his family, loved ones, and the Hip-Hop community. He was most definitely a superstar in the making. Long Live Pop Smoke! You are greatly missed. I am so happy that justice was served for him, his family and fans.',
     continuedQRCodes: [
       {
-        url: "https://www.youtube.com/results?search_query=Welcome+To+The+Party+Pop+Smoke",
+        url: "https://youtu.be/usu0XY4QNB0",
         caption: "'Welcome To the\nParty'",
       },
       {
-        url: "https://www.youtube.com/results?search_query=Dior+Pop+Smoke",
+        url: "https://youtu.be/oorVWW9ywG0",
         caption: "'Dior'",
       },
     ],
@@ -419,11 +423,11 @@ export const anitaScipioPages: AnitaPageData[] = [
       'I had the chance to meet Young Dolph twice, once before and again after he was shot. The first time I met him, he was genuinely cool, and I remember noticing the most beautiful Jesus-piece chain I had ever seen. He was very laid back and in spite of not being familiar with his music, I really liked him. In 2017, when I heard that he had been shot I was devastated. I was so happy that he pulled through and on his second visit, I told him how I had prayed for his recovery and his family. He said, "Thank you," and was very gracious. My nephew, Kevin Bush, aka DJ Cool Kev, was visiting with me at the time, and Dolph was kind enough to take a picture with him.\n\nBecause I did not want to hold him up any longer, I did not ask for a picture for myself and after everything that happened... I really wish I had. Unfortunately, a few years later, he was shot and killed by rival "street beef" members. I was crushed; my heart was broken. I admired him for all he did for his community, and I am so sorry that he is no longer here to be with his beautiful family. I am glad that justice was served for him, his family and fans. He will never be forgotten!',
     continuedQRCodes: [
       {
-        url: "https://www.youtube.com/results?search_query=Nothin+Young+Dolph",
+        url: "https://youtu.be/-DFWcduXGXQ?list=PLgJPJEEw1XhAqR8NNZOw6umjAr8Z6VgjI",
         caption: "'Nothin'",
       },
       {
-        url: "https://www.youtube.com/results?search_query=Real+Life+Young+Dolph",
+        url: "https://youtu.be/5fgtsI8sQFI?list=PLgJPJEEw1XhAqR8NNZOw6umjAr8Z6VgjI",
         caption: "'Real Life'",
       },
     ],
@@ -437,19 +441,19 @@ export const anitaScipioPages: AnitaPageData[] = [
       "When DMX passed, I was sick for months. I don't have the words to say how much I admire and respect him, so believe me when I tell you I felt like I had lost a dear friend. There are times that I still feel heartbroken, and I still can't see his face without shedding a tear. He was so real, and so was his struggle. He loved God so much, and now he is free.\n\nWhen the news broke that each of these legends had passed away, I could feel the sadness throughout most of the station. The energy was low like a palpable dark cloud hung over us. Most of us were sullen and looking lost. During those times, many of my coworkers and 'work children' would come to spend some time with me at the front desk, and we would console each other. They are all truly missed.\n\nLong Live All of Our Hip-Hop Legends!\n\nRIP Craig Mack, Black Rob, DJ Kay Slay, Fatman Scoop, Rich Homie Quan and DJ Clark Kent.",
     continuedQRCodes: [
       {
-        url: "https://www.youtube.com/results?search_query=Lord+Give+Me+A+Sign+DMX",
+        url: "https://youtu.be/U8U_gR58eJU",
         caption: "Lord Give Me A\nSign",
       },
       {
-        url: "https://www.youtube.com/results?search_query=DMX+praying+Breakfast+Club",
+        url: "https://youtu.be/p0XTofiFpJc",
         caption: "Praying for The\nBreakfast Club",
       },
       {
-        url: "https://www.youtube.com/results?search_query=Jay+Z+on+DMX",
+        url: "https://www.youtube.com/shorts/3jWCt9wXdp4?feature=share",
         caption: "Jay Z on DMX",
       },
       {
-        url: "https://www.youtube.com/results?search_query=Juvenile+DMX+tribute",
+        url: "https://www.youtube.com/shorts/bxug16eQZ8Y?feature=share",
         caption: "Juvenile and\nothers on\nDMX",
       },
     ],
@@ -490,7 +494,7 @@ export const anitaScipioPages: AnitaPageData[] = [
           "Yesss! That song is Bailando!\nAt the front desk, I almost danced myself off my chair! :) I had a chance to tell Sean(a) Paul how much my family and I love this song; he was so gracious! He was always so humble and kind! Shout out to Enrique Iglesias, Descemer Bueno, and Gente De Zono. Awesome! ***Love you Sean Paul. I miss seeing you. Your serene personality always made my day! Anita",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Bailando+Enrique+Iglesias+Sean+Paul",
+            url: "https://youtu.be/b8I-7Wk_Vbc",
             caption:
               "'Bailando'\nEnrique Iglesias - ft. Sean(a) Paul,\nDescemer Bueno, Gente De Zona.",
           },
@@ -504,7 +508,7 @@ export const anitaScipioPages: AnitaPageData[] = [
           "I never had a crush on a Hip-Hop legend, but I definitely loved seeing Big Daddy Kane perform. He was an iconic rapper... cool, smooth, handsome and well-dressed. He had a very dynamic personality and was also a great dancer. As we used to say back in the day... he was fly!",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=I+Get+The+Job+Done+Big+Daddy+Kane",
+            url: "https://youtu.be/oMpAQM752vo?si=Bg_BLHhQhHF2kBW4",
             caption: "'I Get The Job Done'",
           },
         ],
@@ -530,15 +534,15 @@ export const anitaScipioPages: AnitaPageData[] = [
           "Back in the day, I did not have a favorite B-Boy but over the years I learned about (among others) the legendary New York City Breakers and The Rock Steady Crew. My favorite B-Boys are Mr. Wave, Action and the iconic Lil Lep (RIP) from the NYC Breakers and the legendary Crazy Legs from the Rock Steady Crew.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=New+York+City+Breakers",
+            url: "https://youtu.be/bJ-MQpgMBKE?si=LI9RH21BN6Suf1bo",
             caption: "'The New York\nCity Breakers'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Crazy+Legs+Rock+Steady+Crew",
+            url: "https://youtube.com/shorts/Y1-Qfs60DEA?si=tm7I74vbqGabfQDd",
             caption: "'The Legendary\nCrazy Legs from\nThe Rock Steady\nCrew'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Beat+Street+Roxy+NYC+Breakers+Rock+Steady+Crew",
+            url: "https://youtu.be/-yrTRt10wME?si=olgGDLeTp6b7Dxm4",
             caption:
               "'Beat Street (movie) at\nThe Roxy (club)\nThe New York City\nBreakers' vs Rock\nSteady Crew'",
           },
@@ -608,15 +612,15 @@ export const anitaScipioPages: AnitaPageData[] = [
           "The top three or more artists that influenced my view on social issues were Tupac, DMX, KRS-One, Common, N.W.A, and Grandmaster Flash and the Furious Five and Lil Baby.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Changes+Tupac",
+            url: "https://youtu.be/eXvBjCO19QY",
             caption: "'Changes'\nby Tupac",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Dear+Mama+Tupac",
+            url: "https://youtu.be/Mb1ZvUDvLDY",
             caption: "'Dear Mama'\nby Tupac",
           },
           {
-            url: "https://www.youtube.com/results?search_query=The+Bigger+Picture+Lil+Baby",
+            url: "https://youtu.be/_VDGysJGNoI",
             caption: "'The Bigger\nPicture'\nby Lil Baby 2020",
           },
         ],
@@ -644,20 +648,8 @@ export const anitaScipioPages: AnitaPageData[] = [
           "Yes, it has. Those songs are, 'U.N.I.T.Y' by Queen Latifah, My 'Philosophy' by Boogie Down Production aka BDP. After his DJ Scott LaRock was killed and later a fan was killed at one of his shows with Public Enemy, KRS-One wrote 'Self Destruction' and brought together some of the biggest stars in East Coast Hip-Hop for the 'Stop The Violence Movement' that he founded. *Exception: Can't find an upload by Boogie Down Production. Lastly, 'I Ain't Mad At Cha' by Tupac. They encouraged and inspired my growth during turbulent times in my life.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=UNITY+Queen+Latifah",
-            caption: "'U.N.I.T.Y'",
-          },
-          {
-            url: "https://www.youtube.com/results?search_query=My+Philosophy+Boogie+Down+Productions",
-            caption: "'My Philosophy'",
-          },
-          {
-            url: "https://www.youtube.com/results?search_query=Self+Destruction+BDP+Stop+The+Violence",
-            caption: "'Self Destruction'",
-          },
-          {
-            url: "https://www.youtube.com/results?search_query=I+Ain+t+Mad+At+Cha+Tupac",
-            caption: "'I Ain't Mad At Ya'",
+            url: "https://youtu.be/MmX5TgWsfEQ?si=FviCPmWEo9XuKY8C",
+            caption: "'Self Destruction by BDP'",
           },
         ],
       },
@@ -669,6 +661,30 @@ export const anitaScipioPages: AnitaPageData[] = [
     pageNumber: 167,
     pageType: "answers",
     answers: [
+      {
+        questionNumber: 38,
+        continued: true,
+        questionText: "",
+        answerText: "",
+        qrCodes: [
+          {
+            url: "https://youtu.be/f8cHxydDb7o",
+            caption: "'U.N.I.T.Y'",
+          },
+          {
+            url: "https://youtu.be/h1vKOchATXs",
+            caption: "'My Philosophy'",
+          },
+          {
+            url: "https://youtu.be/MmX5TgWsfEQ",
+            caption: "'Self Destruction'",
+          },
+          {
+            url: "https://youtu.be/LiCjD5qVV_U",
+            caption: "'I Ain't Mad At Ya'",
+          },
+        ],
+      },
       {
         questionNumber: 39,
         questionText:
@@ -687,8 +703,12 @@ export const anitaScipioPages: AnitaPageData[] = [
       "Those who lived in the Bronx practiced on my brother's (DJ Scipio) old DJ equipment that he had given them. They would practice blending a capella with the instrumentals. My young southern rappers held it down for Orangeburg, SC. They all kept me thoroughly entertained. Eddie, LJ, and LaToya evolved to become very good rappers and used to perform onstage to large and enthusiastic crowds. LaToya is now a NASM-certified fitness Professional.\n\nUltimately, other than DJ Cool Kev and Mac Da Boss, they did not continue with a career in Hip-Hop. They went on to pursue other successful careers. DJ Cool Kev has been in the game for over thirty years. DJ Cool Kev is a well-established Mixtape DJ. He has been DJ'ing since 1989. He has worked with numerous acclaimed artists and has produced over 100 volumes of R&B CDs and 50 volumes of Party CDs. His complete bio is included in this book, in the 'Sharin' The Love' section.\n\nDontay Bonaparte is an up-and-coming professional rapper who is dedicated to his craft and pursuing his goal of becoming an established rapper. He records and performs in Orangeburg, SC.\n\n*Shout out to all my non-rapping nieces & nephews. Non-Rappers Matter! :) Love, Aunt Anita",
     continuedQRCodes: [
       {
-        url: "https://www.youtube.com/results?search_query=Drug+Addict+Mac+Da+Boss",
-        caption: "'Drug Addict'\nby Monii Montil X Mac Da\nBoss",
+        url: "https://youtu.be/MMSSK56oYPA?si=lY7FpkwgVeDgdAJ8",
+        caption: "'Drug Addict'\nby Monii Montil X Mac Da\nBoss All legal firearms.",
+      },
+      {
+        url: "https://www.instagram.com/mgr_macdaboss803?igsh=MW0zOG5oeDgzdGg3Ng==",
+        caption: "Mac Da Boss\nInstagram",
       },
     ],
   },
@@ -699,40 +719,40 @@ export const anitaScipioPages: AnitaPageData[] = [
     pageType: "continued",
     continuedQRCodes: [
       {
-        url: "https://www.instagram.com/",
+        url: "https://www.instagram.com/djcoolkev?igsh=MTFxNXhtNWF1NjJscQ==",
         caption: "DJ Cool Kev\nInstagram",
       },
       {
-        url: "https://www.instagram.com/",
+        url: "https://www.instagram.com/valentin_express?igsh=MWZ0MmczMWdsdTl2dw==",
         caption: "Eddie Valentin\nInstagram",
       },
       {
-        url: "https://www.instagram.com/",
+        url: "https://www.instagram.com/iamlatoyashanice?igsh=MXc5emtlajY4Y25oMg==",
         caption: "LaToya Shanice\nInstagram",
       },
       {
-        url: "https://www.youtube.com/results?search_query=Blood+Brothers+Stay+Scheming+CZA+LINO+Lucky+Leon+Luchi",
+        url: "https://youtu.be/rzM-6XSo_nw?si=FawNKhzDWDzNe5mR",
         caption:
           "'Blood Brothers Stay\nScheming' ft. CZA LINO,\nLucky Leon Luchi,\nEddie Valentin (last verse)",
       },
       {
-        url: "https://www.youtube.com/results?search_query=All+I+Got+Lucky+Leon+Luchi",
+        url: "https://youtu.be/x_J2LrYMnBc",
         caption: "'All I Got'\nby Lucky Leon Luchi",
       },
       {
-        url: "https://www.youtube.com/results?search_query=Same+Shoes+Lucky+Leon+Luchi",
+        url: "https://youtu.be/HeAhpQUHgrI",
         caption: "'Same Shoes'\nby Lucky Leon Luchi",
       },
       {
-        url: "https://www.youtube.com/results?search_query=Way+That+I+Move+Lucky+Leon+Luchi",
+        url: "https://youtu.be/Da-zzc2VXcg?list=OLAK5uy_kUwxVlV9R2umMH1M9JMqERNmRRMRAtc4o",
         caption: "'Way That I Move'\nby Lucky Leon Luchi",
       },
       {
-        url: "https://www.youtube.com/results?search_query=They+Hate+B4+They+Love+Lucky+Leon+Luchi",
+        url: "https://youtu.be/ONnJqL2d5J4",
         caption: "'They Hate B4 They\nLove'\nby Lucky Leon Luchi",
       },
       {
-        url: "https://www.youtube.com/results?search_query=Lyric+Lucky+Leon+Luchi",
+        url: "https://youtu.be/exIZLnpJ8hQ",
         caption: "Lyric by\nLucky Leon Luchi",
       },
     ],
@@ -815,19 +835,19 @@ export const anitaScipioPages: AnitaPageData[] = [
           "I would not want to have a rap battle with any of my favorite artists. They don't want this smoke. LOL! However, if I absolutely had to...it would be Snoop D-O-Double G!! Bring It Snoop! Yikes!! Just kiddin'...LOL!",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Drop+It+Like+It+s+Hot+Snoop+Dogg",
+            url: "https://youtu.be/T6bjORaYktk",
             caption: "'Drop It's Like It's\nHot'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Nuthin+But+A+G+Thang+Dr+Dre+Snoop+Dogg",
+            url: "https://youtu.be/8GliyDgAGQI",
             caption: "'Nuthin' But a G\nThang'\nby Dr Dre ft.\nSnoop Dogg",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Gin+and+Juice+Snoop+Dogg",
+            url: "https://youtu.be/fWCZse1iwE0",
             caption: "'Gin and Juice'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Can+t+Stay+Too+Long+King+George+Southern+Soul",
+            url: "https://youtu.be/r-c8urzFYdw?si=HPW-Ru6_h6MyjSTq",
             caption: "'Can't Stay\nToo Long'",
           },
         ],
@@ -885,15 +905,15 @@ export const anitaScipioPages: AnitaPageData[] = [
           "Chris Brown. Besides, this would be a great opportunity to finally teach him how to Dougie. LOL! All the way back in 2011, even Kevin Hart gave his all to prepare him for 'The BET Awards.' He advised him that \"You ain't got no legs boy.\" :) LOL! Check out these three videos and tell me what you think. :) Just kidding Chris Brown! :) It's all love!!",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Kevin+Hart+gives+Chris+Brown+dance+lessons",
+            url: "https://youtu.be/p_Gn9OR428Q",
             caption: "Kevin Hart:\nGives Chris Brown\nDance Lessons",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Chris+Brown+Teach+Me+How+To+Dougie",
+            url: "https://youtu.be/qwkmC-pWvGU",
             caption: "Chris Brown 'Teach\nMe How To Dougie'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Chris+Brown+Dougie",
+            url: "https://youtube.com/shorts/TqhtXhKYvKI?si=rwFwujhFZk2_PRsB",
             caption: "Chris Brown\n'Dougie'",
           },
         ],
@@ -916,11 +936,11 @@ export const anitaScipioPages: AnitaPageData[] = [
       "Common\n\nWhenever Common arrived for an interview, I would be so happy. One day, Common did an adorable thing for me on what I believe was Secretary or Receptionist Day. He had an interview with Angie Martinez, 'The Voice of New York'. He came to my desk with a huge bouquet of beautiful flowers, and he humbly said something to the effect that he was grateful for me always treating him with kindness, no matter where his career was at the time. I was thinking to myself, \"My goodness, you are Common. You've already solidified your place in this game, period!\" He has won an Oscar and a Grammy and is both an activist and an author. There is nothing common about Common! Besides, I strive to treat everyone with the respect they deserve. Common is one of the nicest people I've ever met!\n\nHe has a palpable spirit of serenity and peacefulness. I feel that only a few other artists have that same rare type of gentle spirituality. His music is timeless, and he still rocks the house, i.e., his performance at the 2024 DNC. Last summer, my good buddy and favorite comedian Donnell Rawlings \"flewed\" me out to Yellow Springs, Ohio, and I had an amazing opportunity to spend some time with Common at Dave Chappelle's private 4th of July party and he was as wonderful as ever! ***Miss you Common.",
     continuedQRCodes: [
       {
-        url: "https://www.youtube.com/results?search_query=When+The+Sun+Shines+Again+Common+Pete+Rock",
+        url: "https://youtu.be/FQg-RZxDwhQ?si=mngbQyuztvho1F7T",
         caption: "'When The Sun\nShines Again'",
       },
       {
-        url: "https://www.youtube.com/results?search_query=Be+Common",
+        url: "https://youtube.com/playlist?list=OLAK5uy_nDEj1P3Bk0qNAWGEWG3R1nuW3BbDiaJmk&si=KUlvD8FiBjoPz7kO",
         caption: "'Be'",
       },
     ],
@@ -982,6 +1002,13 @@ export const anitaScipioPages: AnitaPageData[] = [
           "After the eighties, who were your top five (or more) favorite women artists or groups? Who are they today?",
         answerText:
           'After the 80s, my favorites were Queen Latifah, Salt-N-Pepa, MC Lyte, Sha-Rock, Roxanne Shante, Lauryn Hill, Missy Elliott, Eve, TLC and Remy Ma. Same artists.\n\n***Fun Fact: Two sisters created the iconic phrase "Somebody Say Ho." I first heard of them when Fat Joe mentioned that they were once his babysitters and that they created that iconic catchphrase. They became the "hype girls" (and so much more) for Grandmaster Flash and The Furious Five. I was introduced to one of the sisters, Lil Debbie, by Van Silk, the legendary Hip-Hop Promoter and we are good friends. She is awesome, and many good things are yet to come from Lil Debbie. Stay tuned. Love you Lil Debbie!',
+        qrCodes: [
+          {
+            url: "https://fb.watch/y4L06s_N1V/",
+            caption:
+              '"Scorpio from\nGrandmaster Flash and\nThe Furious Five, speaks\non the origin of\n"Somebody Say Ho"',
+          },
+        ],
       },
       {
         questionNumber: 55,
@@ -989,24 +1016,6 @@ export const anitaScipioPages: AnitaPageData[] = [
           'Who do you consider the top five (or more) "baddest" women artists in Hip-Hop and R&B?',
         answerText:
           "I only have four and they are Mary J. Blige, Beyonce aka Queen Bey, Lauryn Hill and Faith Evans.",
-        qrCodes: [
-          {
-            url: "https://www.youtube.com/results?search_query=Family+Affair+Mary+J+Blige",
-            caption: "'Family Affair' by\nMary J. Blige",
-          },
-          {
-            url: "https://www.youtube.com/results?search_query=Diva+Beyonce",
-            caption: "'Diva'\nby Beyonce",
-          },
-          {
-            url: "https://www.youtube.com/results?search_query=Doo+Wop+That+Thing+Lauryn+Hill",
-            caption: "'Doo Wop' (That Thing)\nby Lauryn Hill",
-          },
-          {
-            url: "https://www.youtube.com/results?search_query=Mesmerized+Faith+Evans",
-            caption: "'Mesmerized'\nby Faith Evans",
-          },
-        ],
       },
     ],
   },
@@ -1017,6 +1026,30 @@ export const anitaScipioPages: AnitaPageData[] = [
     pageType: "answers",
     answers: [
       {
+        questionNumber: 55,
+        continued: true,
+        questionText: "",
+        answerText: "",
+        qrCodes: [
+          {
+            url: "https://youtu.be/u_AovUDvMKk",
+            caption: "'Family Affair' by\nMary J. Blige",
+          },
+          {
+            url: "https://youtu.be/rNM5HW13_O8",
+            caption: "'Diva'\nby Beyonce",
+          },
+          {
+            url: "https://youtu.be/T6QKqFPRZSA",
+            caption: "'Doo Wop' (That Thing)\nby Lauryn Hill",
+          },
+          {
+            url: "https://youtu.be/AGGHJmyGhzw",
+            caption: "'Mesmerized'\nby Faith Evans",
+          },
+        ],
+      },
+      {
         questionNumber: 56,
         questionText:
           "Who are your favorite male Hip-Hop or Hip-Hop and R&B artists today?",
@@ -1024,23 +1057,23 @@ export const anitaScipioPages: AnitaPageData[] = [
           "My favorite male Hip-Hop artists today continue to be; Will Smith, Snoop Dogg, Tupac, LL Cool J, 50 Cent, Rick Ross, Fat Joe, Biggie, DaBaby, 2 Chainz, Nelly, Nipsey Hussle, A Boogie Wit Da Hoodie, N.O.R.E, Bell Biv Devoe, Common, Redman, Method Man, Heavy D, Treach/Naughty By Nature, Fabolous, Pharrell, Eminem, Future, Gucci Mane, Lil Boosie, Bow Wow, 3rd Bass, Vanilla Ice and one of the best dancers in Hip-Hop history, M.C. Hammer, Naz, Grandmaster Flash and The Furious Five (Melle Mel, Keith Cowboy, Kidd Creole, and last but not least, Rahiem. Long live the legends who are no longer here. They are gone but never forgotten.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=You+Can+Make+It+Will+Smith",
+            url: "https://youtu.be/OhDgNoqkTrw",
             caption: "'You Can\nMake It'\nby Will Smith",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Facts+French+Montana",
+            url: "https://youtu.be/PXx-9ZWR3gU",
             caption: "'Facts'\nby French\nMontana",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Poison+Bell+Biv+Devoe",
+            url: "https://youtu.be/hgnhVcyLy1I?si=WWNF1nwbqRz9sjfk",
             caption: "'Poison'\nby Bell Biv\nDevoe",
           },
           {
-            url: "https://www.youtube.com/results?search_query=OPP+Naughty+By+Nature",
+            url: "https://youtu.be/Rz1Xn1vzOM4",
             caption: "'OPP'\nby Naughty By\nNature",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Can+t+Touch+This+MC+Hammer",
+            url: "https://youtu.be/otCpCn0l4Wo?si=JIS7kG1i9x1xz6VQ",
             caption: "'Can't Touch\nThis by M.C.\nHammer",
           },
         ],
@@ -1061,23 +1094,23 @@ export const anitaScipioPages: AnitaPageData[] = [
           "I did not choose a career in Hip-Hop. As the Receptionist for all six, NYC-based, syndicated stations at iHeartMedia, Power 105.1 happened to be one of them. I had a front-row seat to all of the greatest Hip-Hop, classic rock, contemporary pop, dance artists and legends in the world! I met (a few times over) everyone from Ms. Patti Labelle, Mr. Smokey Robinson, Mariah Carey (whom I have known since the nineties), Miley Cyrus, David Archuleta (I miss you, David!) Justin Bieber, Robert Plant, Jon Bon Jovi, Steven Tyler, Taylor Swift, Cher, and many more!!! Just so you know, in my thirty-five years in radio, I also worked at the now-defunct country music station WYNY-FM (in the eighties), with my beloved friend of thirty-five years, the legendary Jim Kerr; my dear Shelli Sonstein, and many others.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Ice+Ice+Baby+Vanilla+Ice",
+            url: "https://youtu.be/5mJlcW3X4PQ?si=W0FzawPE06yux3kT",
             caption: "'Ice Ice Baby'\nVanilla Ice",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Doo+Wop+DaBaby+freestyle",
+            url: "https://youtu.be/igSOOM_JY5A",
             caption: "'Doo Wop'\nby DaBaby\n(Freestyle)",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Jump+Around+House+of+Pain",
+            url: "https://youtu.be/jrL_LzX5wv4",
             caption: "'Jump Around'\nby House of\nPain",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Look+Back+At+It+A+Boogie+Wit+Da+Hoodie",
+            url: "https://youtu.be/DmNfT-B7nlA",
             caption: "'Look Back At It'\nA Boogie Wit\nThe Hoodie",
           },
           {
-            url: "https://www.youtube.com/results?search_query=3rd+Bass+Brooklyn+Queens",
+            url: "https://youtu.be/5mJlcW3X4PQ?si=SjJETm2uqwLAPG2e",
             caption: "'3rd Bass-\nBrooklyn-\nQueens'",
           },
         ],
@@ -1133,19 +1166,19 @@ export const anitaScipioPages: AnitaPageData[] = [
           "My awesome former Power 105.1 co-worker, DJ Marley Marl aka DJ Legend, is my favorite producer. He hails from Queensbridge housing projects in Queens, NY, and became one of the first producers to re-create sampling on a record. Marley Marl and fellow DJ Mr. Magic, were the first to put Hip-Hop on a commercial radio station and invented the historic first Hip-Hop mix show, 'Rap Attack.' He was also one of the pioneers of cuttin' and scratchin'. *Check him out below. He produced some of the most iconic songs in Hip-Hop such as 'The Bridge' by MC Shan, and 'Mama Said Knock You Out.' by LL Cool J. Every day, after his shift, we hugged and discussed everything Hip-Hop and everyday life. I was honored! Congratulations to DJ Marley Marl for receiving the 2023 Award, \"I Am Hip-Hop!\" No one deserves it more! ***I miss you DJ Marley Marl. All the best to you and yours!",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Marley+Marl+Scratch",
+            url: "https://youtu.be/vwYNZRecEl4",
             caption: "'Marley Marl Scratch'\nby Marley Marl feat.\nMC Shan",
           },
           {
-            url: "https://www.youtube.com/results?search_query=The+Bridge+MC+Shan+Marley+Marl",
+            url: "https://youtu.be/jjmpFZK6IXo",
             caption: "'The Bridge'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Mama+Said+Knock+You+Out+LL+Cool+J",
+            url: "https://youtu.be/vimZj8HW0Kg",
             caption: '"Mama Said\nGonna Knock You\nOut"',
           },
           {
-            url: "https://www.youtube.com/results?search_query=I+Am+Hip+Hop+Award+2023+DJ+Marley+Marl",
+            url: "https://youtu.be/-pmL1FMhj6g?si=sqC6P7U4lfgB8J7z",
             caption: '2023 "I am Hip-\nHop Award"\nDJ Marley Marl',
           },
         ],
@@ -1166,23 +1199,23 @@ export const anitaScipioPages: AnitaPageData[] = [
           "Yes, it has. I love the variety, unique stories, and perspectives of all ethnicities in Hip-Hop. The culture has influenced people all over the world. Below are some examples.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Big+Dawgs+Hanumankind+Indian+rapper",
+            url: "https://youtu.be/hOHKltAiKXQ?si=GoE-v9Gw0Q7P87U_",
             caption: "'Big Dawgs'\nHanumankind\n(Indian)",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Palestinian+rapper+hip+hop",
+            url: "https://www.instagram.com/reel/DCDe9nsP5-_/?utm_source=ig_web_copy_link",
             caption: "(Palestinian)\nRapper\nName unknown",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Baby+Pow+Grid+Japanese+rapper",
+            url: "https://youtube.com/shorts/udIEEmYURLk?si=EuB5DnwR7xFcFk_r",
             caption: "Baby #Pow\n#Grid\n(Japanese) ?",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Realligator+Grid+Japanese+rapper",
+            url: "https://youtube.com/shorts/OrBM_VGX1RI?si=SbRt2mqMHid38hbS",
             caption: "Realligator\n#Grid\n(Japanese) ?",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Crip+Walk+JD+Dance+Tutorial+Pakistani",
+            url: "https://www.facebook.com/reel/499481789844587",
             caption: "Crip Walk JD\nDance\nTutorial\n(Pakistani) ?",
           },
         ],
@@ -1195,20 +1228,20 @@ export const anitaScipioPages: AnitaPageData[] = [
           "I rarely get angry, and when I do, it is a very uncomfortable feeling. The raw energy and power of these songs and others help me find my voice, connect with my feelings, and ultimately return to a better place.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Ruff+Ryders+Anthem+DMX",
+            url: "https://youtu.be/ThlhSnRk21E",
             caption: "'Ruff Ryders\nAnthem'\nby DMX",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Party+Up+DMX",
+            url: "https://youtu.be/thIVtEOtlWM",
             caption: "'Party Up'\nby DMX",
           },
           {
-            url: "https://www.youtube.com/results?search_query=The+Message+Grandmaster+Flash+Furious+Five",
+            url: "https://youtu.be/PobrSpMwKk4",
             caption:
               "'The Message'\nby Grandmaster\nFlash and The\nFurious Five",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Move+Bitch+Ludacris",
+            url: "https://youtu.be/tw429JGL5zo",
             caption: "'Move B****' by\nLudacris",
           },
         ],
@@ -1271,11 +1304,11 @@ export const anitaScipioPages: AnitaPageData[] = [
         answerText: "It Takes Two by Rob Base and DJ EZ Rock",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=It+Takes+Two+Rob+Base+DJ+EZ+Rock+lyrics",
+            url: "https://youtu.be/fSvW7ZOdi_o?si=6tNiTfvpaJmTqU84",
             caption: "'Lyrics'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=It+Takes+Two+Rob+Base+DJ+EZ+Rock+video",
+            url: "https://youtu.be/890tquVAhD8",
             caption: "'Video'",
           },
         ],
@@ -1296,6 +1329,19 @@ export const anitaScipioPages: AnitaPageData[] = [
     pageType: "answers",
     answers: [
       {
+        questionNumber: 69,
+        continued: true,
+        questionText: "",
+        answerText:
+          "UPDATE: *Lil Durk arrested and charged in murder for hire plot!!!",
+        qrCodes: [
+          {
+            url: "https://youtu.be/ZJcFvimFgI0",
+            caption: "'Way Up With\nAngela Yee'",
+          },
+        ],
+      },
+      {
         questionNumber: 70,
         questionText:
           "Which Dirty South artists, if any, do you feel contributed to Hip-Hop music?",
@@ -1303,19 +1349,19 @@ export const anitaScipioPages: AnitaPageData[] = [
           "To name a few: T.I., Rick Ross, Lil' Wayne, 2 Chainz, Jeezy, Waka Flocka, Pharrell, Ludacris, Lil' Jon, Scarface, Gucci Mane, Young Dolph, etc.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=BMF+Rick+Ross+Styles+P",
+            url: "https://youtu.be/n2MVzP4MaJ0?si=VoumdRR-e9S-0N5K",
             caption: "'B.M.F.' by Rick\nRoss\nft. Styles P",
           },
           {
-            url: "https://www.youtube.com/results?search_query=I+m+Different+2+Chainz",
+            url: "https://youtu.be/OCDSxQt5lt8",
             caption: "'I'm Different'\nby 2 Chainz",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Swing+Ya+Rag+TI",
+            url: "https://youtu.be/WJ11h__kRFc?si=YHEOTCteLySx-o6Y",
             caption: "'Swing Ya Rag'\n- T.I.",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Get+Low+Lil+Jon+Ying+Yang+Twins",
+            url: "https://youtu.be/IYH7_GzP4Tg?si=ZAhniMW-fYO3obKv",
             caption:
               "Lil Jon & The\nEast Side Boyz -\nGet Low (feat.\nYing Yang\nTwins)",
           },
@@ -1335,7 +1381,7 @@ export const anitaScipioPages: AnitaPageData[] = [
         answerText: "It Takes Two by Rob Base and DJ EZ Rock",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=It+Takes+Two+Rob+Base+DJ+EZ+Rock+lyrics",
+            url: "https://youtu.be/fSvW7ZOdi_o",
             caption: "'It Takes Two' with\nLyrics",
           },
         ],
@@ -1348,7 +1394,7 @@ export const anitaScipioPages: AnitaPageData[] = [
           'In my spiritual quest to understand the devastating challenges faced by the underprivileged in Chicago, Hip-Hop became a gateway that led me to explore their perspective through Drill music and its gang culture. I gained a deep understanding of the socio-economic struggles, etc. and I now know more about Drill music than any grandma will ever need to know. Among many others, in search of their humanity, I studied rivals FBG Duck and King Von and found plenty! Sadly, due to gun violence, they are now both deceased. I\'ve learned that not all Drill Music or Drill artists are the same. Shout-Out to the ex-members now "under the pushing peace act" in Chicago, such as J Mane, "Hey J Mane, let\'s start dere," and Tay Savage. Shout-out to drill rapper Tay Capone, one of the best vloggers for authentic Chicago stories. He and Polo G are a "different breed." Also, shout-out to Chicago journalist, Drea O, for all the great interviews about the artists, the culture and for advocating for her beautiful city.\n\nThursday Oct. 24, 2024 Update:\n*Lil Durk arrested and charged in murder for hire plot.',
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Lil+Durk+hip+hop",
+            url: "https://youtu.be/ZJcFvimFgI0",
             caption: "Lil Durk\nupdate",
           },
         ],
@@ -1368,19 +1414,19 @@ export const anitaScipioPages: AnitaPageData[] = [
           "Tupac, Snoop Dogg, Ice Cube, artist/producer Dr. Dre, Ice-T, Eazy-E, Kendrick Lamar, Ice Cube/N.W.A and G-Easy and House of Pain for their 1992 platinum hit 'Jump Around.'",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=No+Limit+G-Eazy+ASAP+Rocky+Cardi+B",
+            url: "https://youtu.be/PGfSaVDymjk",
             caption: "'No Limit' by G-Eazy\n(ft. A$AP Rocky,\nCardi B)",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Colors+Ice+Tea",
+            url: "https://youtu.be/jFFNyNQUY2U?list=OLAK5uy_nnQulP3C6f78icieqxL7NRuxgi2YJvvis",
             caption: "'Colors'\nby Ice Tea",
           },
           {
-            url: "https://www.youtube.com/results?search_query=The+Next+Episode+Dr+Dre+Snoop+Dogg",
+            url: "https://youtu.be/QZXc39hT8t4",
             caption: "'The Next Episode' by\nDr. Dre ft. Snoop Dogg",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Straight+Outta+Compton+NWA",
+            url: "https://youtu.be/TMZi25Pq3T8",
             caption: "'Straight Outta\nCompton'\nby N.W.A.",
           },
         ],
@@ -1408,19 +1454,19 @@ export const anitaScipioPages: AnitaPageData[] = [
           "Common, Kendrick Lamar, J. Cole, Drake, and Big Sean. I believe they have contributed some positive and uplifting songs to the culture.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Alright+Kendrick+Lamar",
+            url: "https://youtu.be/JocAXINz-YE",
             caption: "'Alright'\nby Kendrick\nLamar",
           },
           {
-            url: "https://www.youtube.com/results?search_query=God+s+Plan+Drake",
+            url: "https://youtu.be/xpVfcZ0ZcFM?si=7bJJcuKuC1d8DTMc",
             caption: "'God's Plan'\nby Drake",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Blessings+Big+Sean+Drake+Kanye",
+            url: "https://youtu.be/M6t47RI4bns",
             caption: "'Blessings' by Big\nSean ft. Drake,\nKanye West",
           },
           {
-            url: "https://www.youtube.com/results?search_query=One+Man+Can+Change+The+World+Big+Sean",
+            url: "https://youtu.be/MDit3OcIh58?si=-Q91fstNKfcYYiMC",
             caption: "'One Man Can\nChange\nThe World' by Big\nSean",
           },
         ],
@@ -1433,23 +1479,23 @@ export const anitaScipioPages: AnitaPageData[] = [
           "With a few exceptions... Drill Music. I don't like songs that diss the dead. I like Chicago story tellers like hood poet Polo G, G Herbo, Tay Capone, and a few songs by King Von, (RIP) Lil Durk, and FBG Duck (RIP) that are not your typical drill songs.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Crazy+Story+King+Von",
+            url: "https://youtu.be/g0v7Ow6Epog",
             caption: "'Crazy Story'\nby King Von",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Pop+Out+Polo+G+Lil+Tjay",
+            url: "https://youtu.be/g-uW3I_AtDE",
             caption: "'Pop Out' by\nPolo G ft. Lil Tay",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Epidemic+Polo+G",
+            url: "https://youtu.be/64IGINWXrGQ",
             caption: "'Epidemic'\nby Polo G",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Chicago+Legends+FBG+Duck",
+            url: "https://youtu.be/AC-96dZ1n9k?si=QsL5DPUXSHIqpP2b",
             caption: "'Chicago\nLegends' by\nFBG Duck'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=OK+FBG+Duck",
+            url: "https://youtu.be/raLfBOWv8sE?si=TRv6X9LSzDCQDhcY",
             caption: "'OK by FBG\nDuck'",
           },
         ],
@@ -1463,6 +1509,35 @@ export const anitaScipioPages: AnitaPageData[] = [
     pageType: "answers",
     answers: [
       {
+        questionNumber: 74,
+        continued: true,
+        questionText: "",
+        answerText:
+          '👑 Prince Dre\n\n* Shout-out to Prince Dre\'s new book, Surviving O Block: The Streets Don\'t Love You. It is available NOW on Amazon! Please show him some love. It is a compact but powerful book. Over time, we have built a bond together and now we are family. I greatly admire and respect him. I can honestly say... "He is the truth!" -Anita Scipio',
+        qrCodes: [
+          {
+            url: "https://youtu.be/WiI0xgmGT14?si=W4bgI7dKYtoOEp6o",
+            caption: "Handouts by\nMunna 'The\nHope' Ikee",
+          },
+          {
+            url: "https://www.instagram.com/1princedre?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+            caption: "Instagram",
+          },
+          {
+            url: "https://a.co/d/fB5OAhV",
+            caption: '"Surviving O\nBlock: The Streets\nDon\'t Love You"',
+          },
+          {
+            url: "https://youtu.be/D_SyZdqke9o?si=GqsxQNqeAo0MBITR",
+            caption: "Wishing Well By\nPrince Dre.\n(Letter to V. Roy\nAKA King Von)",
+          },
+          {
+            url: "https://www.instagram.com/reel/DL8LfYmS1ms/?igsh=MWhuaHd6dWlybzVoMg==",
+            caption: "1princedre and\nsurvivingoblock",
+          },
+        ],
+      },
+      {
         questionNumber: 75,
         questionText:
           "Back in your day, when you are frustrated or facing hardships in your life, what Hip-Hop songs match your energy? How about today?",
@@ -1470,19 +1545,19 @@ export const anitaScipioPages: AnitaPageData[] = [
           "When I am frustrated or facing some hardships in my life, depending on the situation, the songs I like to play are Everything Tonight by Pitbull ft. Ne-Yo, Afro Jack and Nayer, 'How Ya like Me Now' by Kool Moe Dee, the timeless They Don't Give A F*** About Us' by Tupac and Now That We Found Love by Heavy D & The Boyz ft. Aaron Hall. I like the same songs today.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Everything+Tonight+Pitbull+Ne-Yo",
+            url: "https://youtu.be/EPo5wWmKEaI",
             caption: "'Everything\nTonight'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=How+Ya+Like+Me+Now+Kool+Moe+Dee",
+            url: "https://youtu.be/A9_nAZ3VEA0",
             caption: "'How Ya Like Me\nNow'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=They+Don+t+Give+A+F+About+Us+Tupac",
+            url: "https://youtu.be/3kpX-x90X-U",
             caption: "'They Don't Give A\nF*** About Us'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Now+That+We+Found+Love+Heavy+D+Boyz",
+            url: "https://youtu.be/NNEgUPKxk7A",
             caption: "'Now That We\nFound Love'",
           },
         ],
@@ -1503,15 +1578,15 @@ export const anitaScipioPages: AnitaPageData[] = [
           "In my state, I am most proud of the contributions of The Legendary Ed Lover, DJ Marley Marl, DMX, GrandMaster Flash and Run-D.M.C. and Jam Master Jay, Juice Crew, Fat Joe, Busta Rhymes, Cardi B, Young MA, Missy Elliot, Salt-N-Pepa, LL Cool J, Fat Joe, Jay-Z, DJ Clue, Rakim, Wu-Tang Clan, Notorious B.I.G., DJ Cassidy, 3rd Bass, A$AP Rocky, Flava Flav, Funk Master Flex, KRS-One, A Boogie Wit da Hoodie, D-Nice, all Power 105.1 on-air personalities/DJ's and Em-Ez formally of Power 105.1.\n\n***Ed Lover - Source: Wikipedia***\n\n\"Ed Lover is a prominent figure in Hip-Hop culture. He gained fame as the co-host of the popular MTV show \"Yo! MTV Raps,\" during the late '80s and early '90s. Ed Lover, along with his partner Dr. Dre (not to be confused with the rapper/producer), played a crucial role in bringing Hip-Hop to mainstream television, contributing to the genre's widespread recognition. Ed Lover even had his own signature dance. Beyond his MTV stint, Ed Lover has been involved in various radio and television projects, solidifying his impact in Hip-Hop entertainment.\"",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Ed+Lover+Dance",
+            url: "https://youtu.be/UiRMStpyV1U",
             caption: "'The Ed Lover\nDance'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Ed+Lover+Breakfast+Club+Interview",
+            url: "https://youtu.be/EsOIifvmq-Q",
             caption: "Ed Lover 'Breakfast\nClub' Interview",
           },
           {
-            url: "https://www.youtube.com/results?search_query=My+Expert+Opinion+Ed+Lover",
+            url: "https://youtu.be/f_Uq0-S9o5I",
             caption: "'My Expert\nOpinion' with Ed\nLover",
           },
         ],
@@ -1540,15 +1615,15 @@ export const anitaScipioPages: AnitaPageData[] = [
           "My favorite beatbox artists are the legendary Doug E. Fresh, Biz Markie, and The Fat Boys.\n***Beatboxing is a form of vocal percussion in which a rapper imitates drums or other percussion instruments with their voice.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=The+Show+Doug+E+Fresh+Slick+Rick",
+            url: "https://youtu.be/VKPGT35FDFA",
             caption: "'The Show'\nby Doug E Fresh & Slick\nRick'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Biz+Markie+beatbox",
+            url: "https://www.youtube.com/shorts/k2p1NaS7nG0?feature=share",
             caption: "Biz Markie",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Fat+Boys+beatbox",
+            url: "https://youtu.be/wipr12ZmBfw",
             caption: "The Fat Boys",
           },
         ],
@@ -1583,19 +1658,19 @@ export const anitaScipioPages: AnitaPageData[] = [
           "I would choose LL Cool J, DMX, Jay Z and Biggie.\n\n*LL Cool J and DMX selections are included elsewhere.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Public+Service+Announcement+Jay-Z",
+            url: "https://youtu.be/gA2I9Nkn-7Y",
             caption: "'Public Service\nAnnouncement'\nby Jay-Z",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Hard+Knock+Life+Jay+Z",
+            url: "https://www.youtube.com/watch?v=RW34u1KxGC4&pp=ygUVaGFyZCBrbm9jayBsaWZlIGpheSB6",
             caption: "'Hard Knock Life'\nby Jay Z",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Big+Poppa+Notorious+BIG",
+            url: "https://youtu.be/phaJXp_zMYM?t=181",
             caption: "'Big Poppa'\nby The Notorious\nB.I.G.",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Juicy+Notorious+BIG",
+            url: "https://youtu.be/_JZom_gVfuw",
             caption: "'Juicy'\nby The Notorious\nB.I.G.",
           },
         ],
@@ -1614,19 +1689,19 @@ export const anitaScipioPages: AnitaPageData[] = [
         answerText: "I would choose Tupac, Snoop Dogg, Ice Cube, and Dr. Dre.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Keep+It+Gangsta+Ice+Cube+DJ+Mozzia",
+            url: "https://youtu.be/0w0hZ42ha6s",
             caption: "'Keep It Gangsta'\nby Ice Cube\n*DJ Mozzia",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Hail+Mary+Tupac",
+            url: "https://youtu.be/vw-O1JdXcXk",
             caption: "'Hail Mary'\nby Tupac",
           },
           {
-            url: "https://www.youtube.com/results?search_query=2+of+Amerikaz+Most+Wanted+Tupac+Snoop+Dogg",
+            url: "https://youtu.be/5V7u672xw4g",
             caption: "'2 of Amerikaz Most\nWanted'\nby Tupac ft. Snoop\nDogg",
           },
           {
-            url: "https://www.youtube.com/results?search_query=California+Love+2Pac+Dr+Dre",
+            url: "https://youtu.be/N0VdRLdg2ng",
             caption: "'California Love'\nby 2Pac ft. Dr. Dre",
           },
         ],
@@ -1639,15 +1714,15 @@ export const anitaScipioPages: AnitaPageData[] = [
           "I would choose Queen Latifah, Salt-N-Pepa, and Missy Elliott",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Push+It+Salt+N+Pepa",
+            url: "https://youtu.be/vCadcBR95oU?si=c7n5Vx8na_gZwQJz",
             caption: "'Push It'\nby Salt-N-Pepa",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Get+Ur+Freak+On+Missy+Elliott",
+            url: "https://youtu.be/FPoKiGQzbSQ",
             caption: "'Get Ur Freak On'\nby Missy Elliott",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Work+It+Missy+Elliott",
+            url: "https://youtu.be/cjIvu7e6Wq8",
             caption: "'Work It'\nby Missy Elliott",
           },
         ],
@@ -1689,7 +1764,7 @@ export const anitaScipioPages: AnitaPageData[] = [
           '"I Need Love" by LL Cool J.\n\nFun Fact Research: The legendary LL Cool J flipped the script with "I Need Love" (1987), showing the world that Hip-Hop could be hard and still have heart. It had a smooth beat and honest lyrics. "I Need Love" is widely recognized as the first official Hip-Hop love song, marking a groundbreaking moment in the genre. At a time when battle rhymes and party anthems dominated rap, LL Cool J took a bold step by expressing vulnerability and romance. It was history in the making, and in my opinion, he was the first Hip-Hop "playa" and he lived up to his moniker, "LL Cool J," as in Ladies Love Cool James.',
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=I+Need+Love+LL+Cool+J",
+            url: "https://youtu.be/NEUX-HYRtUA?si=zaUJDTBBMpXfmKeI",
             caption: "'I Need Love'",
           },
         ],
@@ -1716,19 +1791,19 @@ export const anitaScipioPages: AnitaPageData[] = [
         ripNote: "RIP Angie Stone",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Enough+Cardi+B",
+            url: "https://youtu.be/vpR-T7E-khI?si=fOg0-r7B5oMxTW1_",
             caption: "'Enough'\nby Cardi B",
           },
           {
-            url: "https://www.youtube.com/results?search_query=OOOUUU+Young+MA",
+            url: "https://youtu.be/gVf_4Ns3qLU",
             caption: "'OOOUUU'\nby Young MA",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Open+Scars+Young+MA",
+            url: "https://youtu.be/5DMkMH_yPDc",
             caption: "'Open Scars'\nby Young MA",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Hollon+Glorilla",
+            url: "https://youtu.be/Uf8Uxgi1uwY",
             caption: "'Hollon'\nby Glorilla",
           },
         ],
@@ -1748,23 +1823,23 @@ export const anitaScipioPages: AnitaPageData[] = [
           "Redman-SHIZNIT [J@q Boi Be@z Freestyle], Murdergram Deux' by LL Cool J ft. Eminem, 'Doo-Wop (That Thing) by DaBaby and Houdini by Eminem\n\nFun Fact: Power 105.1 introduced me to a song ('I Am Blessed') that I never understood how it made their playlist but I was so happy it did. Now it stays on my playlist. It's the only song I don't breakdance to. :)",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Redman+SHIZNIT+freestyle",
+            url: "https://youtu.be/QENmLTSzg9o",
             caption: "Redman",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Murder+Gram+Deux+LL+Cool+J+Eminem",
+            url: "https://youtu.be/50Tl8E0Vvms?si=yBzqGJ6buDv200UB",
             caption: "'Murder Gram Deux'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Doo-Wop+That+Thing+DaBaby",
+            url: "https://youtu.be/igSOOM_JY5A?si=ACQzmiOHA4nWX039",
             caption: "Doo-Wop",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Houdini+Eminem",
+            url: "https://youtu.be/soNLLPokjC4?si=w3sRYMfmjduBGv0G",
             caption: "Houdini",
           },
           {
-            url: "https://www.youtube.com/results?search_query=I+Am+Blessed+Mr+Vega",
+            url: "https://youtu.be/Gi0C-XAwmuk?si=E3fwWZd9aqZfxXJy",
             caption: '"I Am Blessed"\nby Mr. Vega',
           },
         ],
@@ -1798,11 +1873,11 @@ export const anitaScipioPages: AnitaPageData[] = [
           "Honestly, Kendrick's song, 'Not Like Us,' changed my perception of Drake. Several things were mentioned that caused me to see Drake in a different light. However, I still enjoy his amazing body of work especially 'Started From The Bottom' and 'O To 100/The Catch Up.'",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=0+to+100+The+Catch+Up+Drake",
+            url: "https://youtu.be/s0PZYWA4LoM",
             caption: "'0 to 100/The Catch Up'",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Started+From+The+Bottom+Drake",
+            url: "https://youtu.be/RubBzkZzpUA",
             caption: "'Started From The Bottom'",
           },
         ],
@@ -1823,7 +1898,7 @@ export const anitaScipioPages: AnitaPageData[] = [
           "Unlike... some of Kendrick's lyrics in 'Not Like Us,' despite having some good bars, none of Drake's diss tracks were memorable, in my opinion. The lyrics that stood out to me involved Future, 21 Savage, Quavo, the Atlanta history lesson, etc.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Family+Matters+Drake",
+            url: "https://youtu.be/ZkXG3ZrXlbc",
             caption: "'Family Matters'\nby Drake",
           },
         ],
@@ -1836,7 +1911,7 @@ export const anitaScipioPages: AnitaPageData[] = [
           "Kendrick Lamar's 'Not Like Us,' is the song that led me to declare him as the winner.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/watch?v=T6eK-2OQtew",
+            url: "https://youtu.be/H58vbez_m4E",
             caption: "'Not Like Us'\nby Kendrick\nLamar",
           },
         ],
@@ -1900,23 +1975,23 @@ export const anitaScipioPages: AnitaPageData[] = [
           "I would say Snoop Dogg, LL Cool J, 50 Cent, Fat Joe, Method Man, Lil Wayne, Maino, Sean Paul, Eminem, Common, Jeezy, Two Chains, Jadakiss, Nas and Fabolous, Nelly, Chuck D and Flava Flav. I'm sure I've missed a few others.",
         qrCodes: [
           {
-            url: "https://www.youtube.com/results?search_query=Paradise+Freestyle+Fabolous",
+            url: "https://youtu.be/LxIK8s33mng",
             caption: "'Paradise\n(Freestyle) by\nFabolous",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Forgive+Me+Maino",
+            url: "https://youtu.be/IHqNCkYa5X4",
             caption: "'Forgive Me'\nby Maino",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Paradise+Fat+Joe+Anito+DJ+Khaled",
+            url: "https://youtu.be/QuHuJk3yNBA",
             caption: "'Paradise'\nby Fat Joe,\nAnitto,\nDJ Khaled",
           },
           {
-            url: "https://www.youtube.com/results?search_query=I+Might+Forgive+But+I+Don+t+Forget+Jeezy",
+            url: "https://youtu.be/hzyNM_RjEak",
             caption: "'I Might Forgive...\nBut I Don't\nForgive'\nby Jeezy",
           },
           {
-            url: "https://www.youtube.com/results?search_query=Hot+In+Herre+Nelly",
+            url: "https://youtu.be/EiXWbi6GaHo?si=pZt3jSdH1w9DAfjD",
             caption: "'Hot in\nHerre' by\nNelly",
           },
         ],

@@ -1,8 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Linking } from 'react-native';
+import QRCode from 'react-native-qrcode-svg';
 import SafeAreaWrapper from './SafeAreaWrapper';
 import { scaleFont, moderateScale } from '../utils/responsive';
 import { colors } from '../utils/colors';
+
+const qrCodes = [
+    { url: 'https://bmoore4452.github.io/my-portfolio/', caption: "Brian Moore's Portfolio\nbmoore4452.github.io" },
+    { url: 'https://www.instagram.com/bmoore4452?utm_source=qr', caption: 'BMOORE4452' },
+];
 
 interface IntroductionPage18Props {
     pageNumber: number;
@@ -36,6 +42,20 @@ export default function IntroductionPage18({ pageNumber }: IntroductionPage18Pro
                     <Text style={styles.appAnnouncement}>
                         The Hip-Hop Time Capsule: Document Your Personal Journey app — created by my nephew, the innovative "One-Handed Producer" Brian Moore — will soon be available on Apple.
                     </Text>
+
+                    <View style={styles.qrRow}>
+                        {qrCodes.map((qr, i) => (
+                            <TouchableOpacity
+                                key={i}
+                                style={styles.qrCell}
+                                onPress={() => Linking.openURL(qr.url)}
+                                activeOpacity={0.75}
+                            >
+                                <QRCode value={qr.url} size={moderateScale(95)} />
+                                <Text style={styles.qrCaption}>{qr.caption}</Text>
+                            </TouchableOpacity>
+                        ))}
+                    </View>
 
                     <View style={styles.nextChapterHeader}>
                         <Text style={styles.musicNote}>🎵</Text>
@@ -87,6 +107,24 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginBottom: moderateScale(30),
         fontStyle: 'italic',
+    },
+    qrRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'flex-start',
+        marginBottom: moderateScale(10),
+    },
+    qrCell: {
+        alignItems: 'center',
+        maxWidth: moderateScale(140),
+    },
+    qrCaption: {
+        fontSize: scaleFont(11),
+        fontWeight: 'bold',
+        color: '#000',
+        textAlign: 'center',
+        marginTop: moderateScale(8),
+        lineHeight: scaleFont(15),
     },
     nextChapterHeader: {
         flexDirection: 'row',

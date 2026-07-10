@@ -6,6 +6,10 @@ export interface YankeePhoto {
 export interface YankeeQR {
   url: string;
   caption: string;
+  // Exact payload printed in the book when it isn't a bare URL (the rendered
+  // QR encodes this so it scans identically to the printed one); taps still
+  // open `url`.
+  qrValue?: string;
 }
 
 export interface YankeeConcertPageData {
@@ -67,6 +71,8 @@ export const yankeeConcertPages: YankeeConcertPageData[] = [
       },
       {
         url: 'https://www.youtube.com/results?search_query=hip+hop+50th+anniversary+yankee+stadium',
+        qrValue:
+          'hip hop 50th anniversary yankee stadium - YouTube https://www.youtube.com/results?search_query=hip+hop+50th+anniversary+yankee+stadium',
         caption: '‘Hip-Hop 50 Live at\nYankee Stadium’',
       },
     ],

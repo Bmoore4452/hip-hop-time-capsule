@@ -38,6 +38,9 @@ export default function EbookReader() {
         (currentPage >= 93 && currentPage <= 142) ||  // DJ Scipio answers
         (currentPage >= 145 && currentPage <= 211) || // Anita Scipio answers
         currentPage >= 213;                            // Concert + back-matter content pages (scroll / tappable QR codes)
+    // Front-matter pages with tappable QR codes: the center tap zone would
+    // swallow QR taps, so it is disabled there (top/bottom zones still toggle nav).
+    const isQRPage = currentPage === 8 || currentPage === 18;
 
     const scheduleHideControls = () => {
         if (hideControlsTimer) {
@@ -139,7 +142,7 @@ export default function EbookReader() {
                     onNextPage={goToNextPage}
                     onPreviousPage={goToPreviousPage}
                     onToggleControls={toggleControls}
-                    disableCenterZone={isQuestionPage || isTriviaPage || isScrollablePage}
+                    disableCenterZone={isQuestionPage || isTriviaPage || isScrollablePage || isQRPage}
                     disabled={isTriviaPlaying}
                 />
 
