@@ -3,6 +3,7 @@ import {
     View,
     StyleSheet,
     PanResponder,
+    Platform,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -11,13 +12,24 @@ import NavigationControls from "./components/NavigationControls";
 import NavigationHint from "./components/NavigationHint";
 import InvisibleNavZones from "./components/InvisibleNavZones";
 
+// On web, allow deep-linking straight to a page with ?page=N (also handy for
+// visual regression screenshots).
+function getInitialPage(): number {
+    if (Platform.OS === "web" && typeof window !== "undefined") {
+        const p = parseInt(new URLSearchParams(window.location.search).get("page") ?? "", 10);
+        if (!isNaN(p) && p >= 1 && p <= 287) return p;
+    }
+    return 1;
+}
+
 export default function EbookReader() {
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(getInitialPage);
     const [showNavControls, setShowNavControls] = useState(false);
-    const [showNavigationHint, setShowNavigationHint] = useState(true);
+    // Skip the first-time hint when deep-linked straight to a page.
+    const [showNavigationHint, setShowNavigationHint] = useState(() => getInitialPage() === 1);
     const [hideControlsTimer, setHideControlsTimer] = useState<NodeJS.Timeout | null>(null);
     const [triviaGameState, setTriviaGameState] = useState<string>('splash');
-    const totalPages = 285;
+    const totalPages = 287;
 
     const isTriviaPage = currentPage >= 81 && currentPage <= 90;
     const isTriviaPlaying = isTriviaPage && triviaGameState !== 'splash';

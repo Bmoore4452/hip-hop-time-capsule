@@ -44,6 +44,7 @@ import SpecialThanksPage from "./SpecialThanksPage";
 import IHeartThanksPage from "./IHeartThanksPage";
 import AngelaYeePage from "./AngelaYeePage";
 import BreakfastClubPage from "./BreakfastClubPage";
+import BackMatterPage from "./BackMatterPage";
 import { isQuestionPage } from "../utils/questionsConfig";
 import { isQuotesPage } from "../utils/quotesData";
 
@@ -140,9 +141,23 @@ export default function PageRenderer({ pageNumber, onNavigateNext, onNavigatePre
                 return <AngelaYeePage pageNumber={pageNumber} />;
             case 222:
                 return <BreakfastClubPage pageNumber={pageNumber} />;
-            case 285: // Keep it at the end too
-                return <ThankYouPage pageNumber={pageNumber} />;
+            case 244:
+                return <BurstSplashPage pageNumber={pageNumber} lines={["ANITA AKA “MAMA”", "“SHOUT-OUTS”"]} />;
+            case 254:
+                return <BurstSplashPage pageNumber={pageNumber} lines={["“IT’S ALL LOVE”", "ANITA"]} />;
+            case 257:
+                return <BurstSplashPage pageNumber={pageNumber} lines={["ANITA", "“SHARIN’ THE LOVE”"]} />;
+            case 266:
+                return <BurstSplashPage pageNumber={pageNumber} lines={["DJ SCIPIO", "“THANK-YOU”"]} />;
+            case 268:
+                return <BurstSplashPage pageNumber={pageNumber} lines={["DJ SCIPIO", "“SHOUT-OUTS”"]} />;
             default:
+                // Back-matter pages (223-287): thank-yous, shout-outs, about the
+                // authors, celebrity photo album, retirement party, and closing
+                // pages. Data in utils/backMatterPages.ts.
+                if (pageNumber >= 223 && pageNumber <= 287) {
+                    return <BackMatterPage pageNumber={pageNumber} />;
+                }
                 // DJ Scipio answer pages (pages 93-142)
                 if (pageNumber >= 93 && pageNumber <= 142) {
                     return <DJScipioAnswerPage pageNumber={pageNumber} />;
@@ -188,7 +203,12 @@ export default function PageRenderer({ pageNumber, onNavigateNext, onNavigatePre
         (pageNumber >= 93 && pageNumber <= 142) ||  // DJ Scipio answer pages
         (pageNumber >= 145 && pageNumber <= 211) || // Anita Scipio answer pages
         pageNumber === 143 ||                        // Anita Scipio journey (purple)
-        pageNumber === 215;                          // Anita "Thank-Yous" burst (purple)
+        pageNumber === 215 ||                        // Anita "Thank-Yous" burst (purple)
+        pageNumber === 244 ||                        // Anita "Shout-Outs" burst (purple)
+        pageNumber === 254 ||                        // "It's All Love" burst (purple)
+        pageNumber === 257 ||                        // Anita "Sharin' The Love" burst (purple)
+        pageNumber === 266 ||                        // DJ Scipio "Thank-You" burst (purple)
+        pageNumber === 268;                          // DJ Scipio "Shout-Outs" burst (purple)
     const footerPageNumber = isTriviaPage || hasOwnFooter ? null : pageNumber;
 
     return (
