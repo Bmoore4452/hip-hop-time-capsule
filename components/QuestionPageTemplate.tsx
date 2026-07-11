@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Image, ImageSourcePropType } from 'react-native';
 import SafeAreaWrapper from './SafeAreaWrapper';
 import QuestionInputSection from './QuestionInputSection';
 import InputModal from './InputModal';
 import { moderateScale } from '../utils/responsive';
 import { colors } from '../utils/colors';
+import { loadAnswers, saveAnswer } from '../lib/userData';
 
 export interface Question {
     number: number;
@@ -37,6 +38,17 @@ export default function QuestionPageTemplate({ config, pageNumber }: QuestionPag
     // Create state for each question's answer
     const [answers, setAnswers] = useState<Record<number, string>>({});
 
+    // Load any previously saved answers for this page (no-op when signed out).
+    useEffect(() => {
+        let cancelled = false;
+        loadAnswers(pageNumber).then((saved) => {
+            if (!cancelled && Object.keys(saved).length > 0) {
+                setAnswers(prev => ({ ...saved, ...prev }));
+            }
+        });
+        return () => { cancelled = true; };
+    }, [pageNumber]);
+
     // Modal state
     const [modalVisible, setModalVisible] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
@@ -54,6 +66,8 @@ export default function QuestionPageTemplate({ config, pageNumber }: QuestionPag
                 ...prev,
                 [currentQuestion.number]: tempValue
             }));
+            // Persist to Supabase (no-op when signed out).
+            saveAnswer(pageNumber, currentQuestion.number, tempValue);
         }
         setModalVisible(false);
         setTempValue('');

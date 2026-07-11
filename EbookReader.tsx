@@ -11,6 +11,7 @@ import PageRenderer from "./components/PageRenderer";
 import NavigationControls from "./components/NavigationControls";
 import NavigationHint from "./components/NavigationHint";
 import InvisibleNavZones from "./components/InvisibleNavZones";
+import { loadProgress, saveProgress } from "./lib/userData";
 
 // On web, allow deep-linking straight to a page with ?page=N (also handy for
 // visual regression screenshots).
@@ -75,6 +76,24 @@ export default function EbookReader() {
             }
         };
     }, [hideControlsTimer]);
+
+    // Resume where the signed-in reader left off (skipped when deep-linked to
+    // a page, or if they have already started navigating).
+    useEffect(() => {
+        if (getInitialPage() !== 1) return;
+        loadProgress().then((page) => {
+            if (page && page > 1 && page <= totalPages) {
+                setCurrentPage(prev => (prev === 1 ? page : prev));
+            }
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    // Persist reading progress (debounced; no-op when signed out).
+    useEffect(() => {
+        const timer = setTimeout(() => saveProgress(currentPage), 1000);
+        return () => clearTimeout(timer);
+    }, [currentPage]);
 
     const goToNextPage = () => {
         if (isTriviaPage && triviaGameState === 'splash') {
